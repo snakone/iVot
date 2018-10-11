@@ -1,0 +1,59 @@
+
+<p class="center showMore"><mat-icon>expand_more</mat-icon></p>
+
+<form #addPollForm="ngForm" (ngSubmit)="onSubmit(addPollForm)">
+
+  <div class="row">
+      <div class="input-field col s12 m12">
+        <i class="material-icons prefix">help_outline</i>
+        <input name="question" type="text"
+        [(ngModel)]="selectedPoll.pollQuestion" #question="ngModel"
+        data-length="40" class="validate" required>
+        <label for="question">Pregunta *</label>
+        </div>
+
+      <div class="input-field col s6 m5 offset-m1">
+        <i class="material-icons prefix">poll</i>
+        <input name="option1" type="text"
+        [(ngModel)]="selectedPoll.pollOption1" #option1="ngModel"
+      class="validate" required>
+        <label for="option11">Opción 1 *</label>
+      </div>
+
+      <div class="input-field col s6 m5">
+        <i class="material-icons prefix">poll</i>
+        <input name="option2" type="text"
+        [(ngModel)]="selectedPoll.pollOption2" #option2="ngModel"
+       class="validate" required>
+        <label for="option2">Opción 2 *</label>
+      </div>
+
+      <div class="input-field col s6 m5 offset-m1">
+        <i class="material-icons prefix">poll</i>
+        <input name="option3" type="text"
+        [(ngModel)]="selectedPoll.pollOption3" #option3="ngModel"
+         class="validate">
+        <label for="option3">Opción 3</label>
+      </div>
+
+      <div class="input-field col s6 m5">
+        <i class="material-icons prefix">poll</i>
+        <input name="option4" type="text"
+        [(ngModel)]="selectedPoll.pollOption4" #option4="ngModel"
+         class="validate">
+        <label for="option4">Opción 4</label>
+      </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col s12 m12">
+      <p class="center">
+        <button class="waves-effect waves-light
+        btn indigo darken-4" type="submit">Registrar</button></p>
+      </div>
+  </div>
+
+</form>
+
+    <div class="text-right">* Obligatorio</div>

@@ -1,0 +1,30 @@
+<div class="panel panel-default profile-area">
+    <div class="panel-heading">
+        <h3>Perfil</h3>
+        <br>
+    </div>
+    <div class="panel-body" *ngIf="!auth.isAuthenticated()">
+        <h3>No estás autentificado, para acceder a tu perfil,
+            <a class="link-to-login" (click)="login()"> haz clic aquí</a></h3>
+    </div>
+    <div *ngIf="auth.isAuthenticated()">
+        <div class="panel-body">
+            <img src="{{profile?.picture}}" class="avatar" alt="avatar">
+            <div>
+                <label><i class="glyphicon glyphicon-user"></i> Nickname</label>
+                <h3 class="nickname">Bienvenido {{ profile?.nickname }}</h3>
+            </div>
+        </div>
+        <br><br>
+
+        <entity-events></entity-events>
+
+        <br><br>
+
+        <create-event></create-event>
+
+    </div>
+
+</div>
+
+<br>

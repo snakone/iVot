@@ -1,0 +1,43 @@
+<div class="animated slideInLeft">
+    <h2>La votación hecha fácil</h2>
+
+    <p class="flow-text">Votar no debería ser cada 4 años! "<span class="bold">{{ title }}</span>" está pensado
+      para ayudar a entidades a crear eventos y hacer un seguimiento de los mismos usando un sistema de
+      votaciones simple y divertido!</p>
+
+    <br>
+
+    <div class="row center">
+      <div class="col s4 m4 l2 offset-l3">
+        <p class="bold">Regístrate</p>
+        <mat-icon>check</mat-icon>
+      </div>
+      <div class="col s4 m4 l2">
+        <p class="bold">Crea</p>
+          <mat-icon>edit</mat-icon>
+      </div>
+      <div class="col s4 m4 l2">
+        <p class="bold">Invita</p>
+          <mat-icon>group_add</mat-icon>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="space hide-on-small-only"></div>
+
+    <div class="row">
+      <p class="flow-text bold">¿Qué eres?</p>
+        <div class="col s12 m6">
+            <button class="button-1" *ngIf="!auth.isAuthenticated()"
+            mat-raised-button (click)="login()" color="primary">Usuario</button>
+            <button class="button-1" *ngIf="auth.isAuthenticated()"
+            mat-raised-button [routerLink]="['/profile']" color="primary">Usuario</button>
+        </div>
+
+        <div class="col s12 m6">
+            <button [routerLink]="['/entity-register']" class="button-2"
+            mat-raised-button color="primary">Entidad </button>
+        </div>
+    </div>
+</div>

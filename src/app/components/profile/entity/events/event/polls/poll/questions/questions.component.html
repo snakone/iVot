@@ -1,0 +1,11 @@
+<ul>
+  <li><span class="bold">Opción 1:</span> {{customPoll.pollOption1}}</li>
+
+  <li><span class="bold">Opción 2:</span> {{customPoll.pollOption2}}</li>
+
+  <li *ngIf="customPoll.pollOption3">
+    <span class="bold">Opción 3:</span> {{customPoll.pollOption3}}</li>
+
+  <li *ngIf="customPoll.pollOption4">
+    <span class="bold">Opción 4:</span> {{customPoll.pollOption4}}</li>
+</ul>

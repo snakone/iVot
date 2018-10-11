@@ -1,0 +1,18 @@
+<div class="col s12 m12 l6 events-list animated fadeIn">
+    <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+                <mat-panel-title [ngClass]="{'title': panelOpenState == true}">
+                    {{event.eventName}}
+                </mat-panel-title>
+                <mat-panel-description>
+                    {{event.eventTime}}
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            {{event.eventDescription}}
+            <br>
+            <br>
+            <button class="btn orange" (click)="createPoll(event.entityID)">Crear Tema</button>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>

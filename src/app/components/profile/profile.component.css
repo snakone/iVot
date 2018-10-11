@@ -1,0 +1,7 @@
+.link-to-login {
+    cursor: pointer;
+}
+
+.link-to-login:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,17 @@
+.events-list {
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-weight: bold;
+    color: orange;
+}
+
+.orange {
+    margin: 0 auto;
+}
+
+mat-panel-title {
+  width: 70%;
+}

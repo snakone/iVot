@@ -1,0 +1,11 @@
+/*Deleting random circle on Hover, was a default feature */
+
+.cdk-focused {
+    background: transparent;
+}
+
+.mat-icon-button .mat-icon,
+.mat-icon-button i {
+    line-height: 24px;
+    color: black;
+}

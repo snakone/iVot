@@ -1,0 +1,9 @@
+.bold {
+  font-weight: bold;
+  margin-right: 25px;
+}
+
+.margin {
+  margin: 30px auto;
+  width: 90%;
+}

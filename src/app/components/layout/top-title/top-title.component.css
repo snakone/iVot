@@ -1,0 +1,46 @@
+@media screen and (max-width: 600px) {
+    .subTitle {
+        display: block;
+        font-size: 1.2em;
+        transform-origin: 80% 80%;
+        top: 15px;
+        transition: all 2s;
+        padding: 15px;
+    }
+    h2 {
+        display: none;
+        transform-origin: 50% 50%;
+    }
+    .siteTitle {
+        max-height: 105px;
+    }
+}
+
+@media screen and (max-width: 281px) {
+    .siteTitle {
+        max-height: 95px;
+        padding: 30px;
+    }
+}
+
+.siteTitle {
+    background-color: white;
+    color: black;
+    height: 120px;
+    padding: 10px;
+}
+
+.home-logo {
+    max-height: 95%;
+    cursor: pointer;
+    transition: transform .5s;
+}
+
+.home-logo:hover {
+    transform: scale(1.1);
+    /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+img:focus {
+    outline: 0;
+}

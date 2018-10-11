@@ -1,0 +1,32 @@
+.right {
+    position: absolute;
+    right: 25px;
+    bottom: 25px;
+}
+
+
+/*Deleting random circle on Hover, was a default feature */
+
+.cdk-focused {
+    background: transparent;
+}
+
+.margin-top {
+    margin-top: 25px;
+}
+
+.center {
+    margin-top: 50px;
+}
+
+.file-path-wrapper {
+    margin-top: 25px;
+}
+
+.orange {
+    margin-bottom: 5px;
+}
+
+.margin-top {
+    margin-top: 20px;
+}

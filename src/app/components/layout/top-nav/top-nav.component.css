@@ -1,0 +1,46 @@
+.header {
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    z-index: 999;
+    margin: 0;
+    background-color: #fecb51;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.nav-Title,
+.example-icon {
+    transition: padding 3s;
+    padding: 0 20px;
+}
+
+.example-icon:last-child {
+    padding-right: 35px;
+}
+
+mat-icon:hover {
+    cursor: pointer;
+    color: white;
+}
+
+mat-toolbar {
+    max-height: 50px;
+    min-height: 50px;
+    vertical-align: middle;
+}
+
+.mat-icon {
+    background-repeat: no-repeat;
+    display: inline-block;
+    fill: currentColor;
+    height: 24px;
+    width: 24px;
+    color: black;
+}
+
+.mat-icon:focus {
+    outline: 0;
+}
