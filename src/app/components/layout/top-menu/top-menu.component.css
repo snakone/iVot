@@ -9,3 +9,11 @@
     line-height: 24px;
     color: black;
 }
+
+span:hover {
+  color: #fecb51;
+}
+
+.active {
+  color: #fecb51;
+}

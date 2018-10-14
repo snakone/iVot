@@ -1,5 +1,4 @@
 import { Component, OnInit, Input} from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { ToastrService } from 'ngx-toastr';
 
@@ -9,7 +8,8 @@ import { CustomPoll } from '../../../../../../models/poll';
 
 import { Event } from '../../../../../../models/event';
 
-import { EntityService } from '../../../../../../services/entity.service';
+import { ProfileService } from '../../../../../../services/profile.service';
+import { EventService } from '../../../../../../services/event.service';
 
 @Component({
   selector: 'create-poll',
@@ -22,13 +22,15 @@ export class CreatePollComponent implements OnInit {
 
   customPoll: CustomPoll;
   selectedPoll: CustomPoll = <CustomPoll>{};
+  options: string[];
   entityID: string;
 
-   constructor(private entityService: EntityService,
-              private toastr: ToastrService) {}
+   constructor(private eventService: EventService,
+               private profileService: ProfileService,
+               private toastr: ToastrService) {}
 
    ngOnInit() {
-     this.entityID = this.entityService.profileID;
+     this.entityID = this.profileService.Auth;
    }
 
    onSubmit(addPollForm: NgForm){
@@ -40,20 +42,31 @@ export class CreatePollComponent implements OnInit {
      let option4 = addPollForm.value.option4;
      let eventID = "12345";
 
-     if (option3 == undefined) option3="";
-     if (option4 == undefined) option4="";
+     this.options = [option1, option2, option3, option4];
+
+     if (option3 == undefined && option4 == undefined) {
+       this.options = [option1,option2]
+     }
+
+     else if (option3 == undefined) {
+       this.options = [option1,option2,option4]
+     }
+
+     else if (option4 == undefined) {
+       this.options = [option1,option2,option3]
+     }
 
      if (question == null || option1 == null || option2 == null)
      alert('Por favor, Rellena el formulario')
 
      else {
-         let newPoll: CustomPoll = new CustomPoll (question,option1,option2,option3,option4);
+         let newPoll: CustomPoll = new CustomPoll (question, this.options);
 
          this.toastr.success('Tema Creado', 'Muy bien!');
          this.resetForm(addPollForm); // Reset the FORM
-         this.entityService.pollList.push(newPoll);
+         this.eventService.pollList.push(newPoll);
 
-         console.log(this.entityService.pollList);
+         console.log(this.eventService.pollList);
       }
    }
 

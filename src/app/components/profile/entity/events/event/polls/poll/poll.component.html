@@ -1,17 +1,19 @@
-<div class="col s12 m12" *ngIf="pollList">
-    <mat-accordion *ngFor="let poll of pollList">
-      <mat-expansion-panel class="margin" (opened)="panelOpenState = true;"
-                         (closed)="panelOpenState = false">
-      <mat-expansion-panel-header>
-        <mat-panel-title [ngClass]="{'opened': panelOpenState == true}">
-          <span class="bold">Pregunta:</span> {{ poll.pollQuestion}}
-        </mat-panel-title>
-      </mat-expansion-panel-header>
+<div class="row" *ngFor="let poll of pollList">
+  <div class="col s12 m12" *ngIf="pollList">
+      <mat-accordion>
+        <mat-expansion-panel class="margin" (opened)="panelOpenState = true;"
+                           (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title [ngClass]="{'opened': panelOpenState == true}">
+            <span class="bold">Pregunta:</span> {{ poll.question}}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+<br>
+        <poll-questions [customPoll]="poll"></poll-questions>
 
-      <poll-questions [customPoll]="poll"></poll-questions>
- 
-      </mat-expansion-panel>
-    </mat-accordion>
+        </mat-expansion-panel>
+      </mat-accordion>
+  </div>
 </div>
 
 <div *ngIf="pollList.length == 0">

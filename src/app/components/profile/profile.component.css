@@ -5,3 +5,11 @@
 .link-to-login:hover {
     text-decoration: underline;
 }
+
+.noAuth {
+  margin-top: 5.5em;
+}
+
+.profile {
+  margin-top: 30px;
+}

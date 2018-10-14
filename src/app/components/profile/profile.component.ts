@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { ProfileService } from '../../services/profile.service';
 import { EntityService } from '../../services/entity.service';
 
 @Component({
@@ -9,29 +10,20 @@ import { EntityService } from '../../services/entity.service';
 })
 export class ProfileComponent implements OnInit {
 
-  profile: any;
-  profileID: string;
-
   constructor( public auth: AuthService,
-               private entityService: EntityService) { }
+               private profileService: ProfileService,
+               public entityService: EntityService) { }
 
   ngOnInit() {
-    // No puedes lanzar una exception en onInit, hay que capturarla
-    try {
-      if (this.auth.userProfile) {
-        this.profile = this.auth.userProfile;
-      } else {
+    if (this.auth.isAuthenticated()) {
         this.auth.getProfile((err, profile) => {
-          this.profile = profile;
-          this.profileID = this.profile.sub.substring(6);
-          this.entityService.profileID = this.profileID;
+          this.profileService.checkProfile(profile);
         });
       }
-    } catch (err) {
-      console.log(err);
-    }
   }
+
   login() {
     this.auth.login();
   }
-  }
+
+}

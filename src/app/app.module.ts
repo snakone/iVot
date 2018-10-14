@@ -12,8 +12,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { MaterialModule } from './modules/material';
 
-import { EntityService } from './services/entity.service';
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
@@ -42,7 +40,7 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { CreateEventComponent } from './components/profile/entity/create-event/create-event.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { AuthService } from './services/auth.service';
+
 import { environment } from '../environments/environment';
 import { EntityRegisterComponent } from './components/entity-register/entity-register.component';
 import { EventsComponent } from './components/profile/entity/events/events.component';
@@ -52,6 +50,8 @@ import { PollComponent } from './components/profile/entity/events/event/polls/po
 import { PollsComponent } from './components/profile/entity/events/event/polls/polls.component';
 import { CreatePollComponent } from './components/profile/entity/events/event/create-poll/create-poll.component';
 import { QuestionsComponent } from './components/profile/entity/events/event/polls/poll/questions/questions.component';
+import { FooterNavComponent } from './components/layout/footer-nav/footer-nav.component';
+import { AdminEntityComponent } from './components/admin/admin-entity/admin-entity.component';
 
 
 @NgModule({
@@ -71,7 +71,9 @@ import { QuestionsComponent } from './components/profile/entity/events/event/pol
     PollsComponent,
     CreatePollComponent,
     QuestionsComponent,
-    EntityComponent
+    EntityComponent,
+    FooterNavComponent,
+    AdminEntityComponent
   ],
   imports: [
     BrowserModule,
@@ -87,7 +89,7 @@ import { QuestionsComponent } from './components/profile/entity/events/event/pol
       progressBar: true
     })
   ],
-  providers: [AuthService, EntityService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 

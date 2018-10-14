@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
 import { Router } from '@angular/router';
+import { ProfileService } from '../../../services/profile.service';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -10,20 +11,18 @@ import { Router } from '@angular/router';
 })
 export class TopMenuComponent implements OnInit {
 
-  constructor(public auth: AuthService, private router: Router) {
-    auth.handleAuthentication();
+  constructor(public auth: AuthService,
+              public profileService: ProfileService,
+              private router: Router) {
    }
 
   ngOnInit() {
   }
 
   public logout(): void {
-    // Remove tokens and expiry time from localStorage
-    localStorage.removeItem('access_token');
-    localStorage.removeItem('id_token');
-    localStorage.removeItem('expires_at');
-    // Go back to the home route
-    this.router.navigate(['/']);
+    this.auth.logout();
+    this.profileService.admin = false;
+    window.location.href='https://ivot.eu.auth0.com/v2/logout';
   }
 
   login() {

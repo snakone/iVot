@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { EntityService } from '../../../../../../../../services/entity.service';
+import { ProfileService } from '../../../../../../../../services/profile.service';
+
+import { NgForm } from '@angular/forms';
 
 import { CustomPoll } from '../../../../../../../../models/poll';
 
@@ -12,10 +14,16 @@ import { CustomPoll } from '../../../../../../../../models/poll';
 export class QuestionsComponent implements OnInit {
 
   @Input() customPoll: CustomPoll;
+  question: string;
 
-  constructor(private entityService: EntityService) { }
+  constructor(private profileService: ProfileService) { }
 
   ngOnInit() {
+  }
+
+  vote(form: NgForm){
+
+    console.log(form.value,this.profileService.Auth)
   }
 
 }

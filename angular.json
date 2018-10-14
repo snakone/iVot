@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Sharing-Votes": {
+    "iVot": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -30,7 +30,8 @@
               "src/styles.css"
             ],
             "scripts": ["node_modules/jquery/dist/jquery.min.js",
-                        "node_modules/materialize-css/dist/js/materialize.min.js"]
+                        "node_modules/materialize-css/dist/js/materialize.min.js",
+                        "node_modules/auth0-js/build/auth0.js"]
           },
           "configurations": {
             "production": {
@@ -55,18 +56,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Sharing-Votes:build"
+            "browserTarget": "iVot:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Sharing-Votes:build:production"
+              "browserTarget": "iVot:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Sharing-Votes:build"
+            "browserTarget": "iVot:build"
           }
         },
         "test": {
@@ -103,7 +104,7 @@
         }
       }
     },
-    "Sharing-Votes-e2e": {
+    "iVot-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -111,11 +112,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "Sharing-Votes:serve"
+            "devServerTarget": "iVot:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "Sharing-Votes:serve:production"
+              "devServerTarget": "iVot:serve:production"
             }
           }
         },
@@ -131,5 +132,5 @@
       }
     }
   },
-  "defaultProject": "Sharing-Votes"
+  "defaultProject": "iVot"
 }

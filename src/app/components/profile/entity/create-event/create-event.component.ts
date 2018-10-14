@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgForm } from '@angular/forms';
 
-import { EntityService } from '../../../../services/entity.service';
+import { ProfileService } from '../../../../services/profile.service';
+import { EventService } from '../../../../services/event.service';
 import { ToastrService } from 'ngx-toastr';
 
 import { Event } from '../../../../models/event';
@@ -18,33 +19,34 @@ export class CreateEventComponent implements OnInit {
   selectedEvent: Event = <Event>{};
 
   constructor(private toastr: ToastrService,
-              private entityService: EntityService) { }
+              private profileService: ProfileService,
+              private eventService: EventService) { }
 
   ngOnInit() {
     this.getEvents();
   }
 
   getEvents() {
-    this.entityService.getEvents()
+    this.eventService.getEvents()
       .subscribe(res => {
-        this.entityService.events = res as Event[];
+        this.eventService.events = res as Event[];
       });
   }
 
   addEvent(form?: NgForm) {
 
    form.value.eventTime = this.yyyymmdd(form.value.eventTime);
-   form.value.entityID = this.entityService.profileID;
+   form.value.EventID = this.profileService.Auth;
 
    if (form.value.eventID) {
-     this.entityService.putEvent(form.value)
+     this.eventService.updateEvent(form.value)
        .subscribe(res => {
          this.resetForm(form);
          this.getEvents();
          console.log('Evento editado');
        });
    } else {
-     this.entityService.postEvent(form.value)
+     this.eventService.addEvent(form.value)
      .subscribe(res => {
        this.getEvents();
        this.resetForm(form);
@@ -52,15 +54,15 @@ export class CreateEventComponent implements OnInit {
      });
    }
 
-    const newEvent = new Event (form.value.entityID, form.value.eventName,
+    const newEvent = new Event (form.value.EventID, form.value.eventName,
     form.value.eventTime, form.value.eventDescription);
-
-    this.entityService.events.push(newEvent);
+    this.eventService.events.push(newEvent);
+    this.resetForm(form);
  }
 
  deleteEvent(id: string, form: NgForm) {
     if (confirm('Estás seguro quieres eliminar este evento?')) {
-      this.entityService.deleteEvent(id)
+      this.eventService.deleteEvent(id)
         .subscribe(res => {
           this.getEvents();
           this.resetForm(form);
@@ -73,14 +75,13 @@ export class CreateEventComponent implements OnInit {
    this.selectedEvent = event;
  }
 
- resetForm(addEventForm?: NgForm){
-  if (addEventForm != null) // Reset form if not empty and we add a empty Poll
-    addEventForm.reset();
-    this.selectedEvent = <Event>{}; // Instance a Empty Poll Class
+ resetForm(form: NgForm){
+  if (form != null) // Reset form if not empty and we add a empty Poll
+      form.reset();
+    // this.selectedEvent = <Event>{}; // Instance a Empty Poll Class
   }
 
   yyyymmdd(date) {
-    date = new Date();
     let y = date.getFullYear().toString();
     let m = (date.getMonth() + 1).toString();
     let d = date.getDate().toString();

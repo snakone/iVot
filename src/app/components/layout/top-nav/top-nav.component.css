@@ -39,6 +39,7 @@ mat-toolbar {
     height: 24px;
     width: 24px;
     color: black;
+    margin-right: 5px;
 }
 
 .mat-icon:focus {

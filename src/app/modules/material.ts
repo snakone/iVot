@@ -10,6 +10,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatRadioModule } from '@angular/material/radio';
 
 import { MatSidenavModule,
          MatListModule,
@@ -25,13 +26,13 @@ import { MatSidenavModule,
             MatMenuModule, MatSidenavModule, MatListModule, MatCardModule,
             MatTableModule, MatPaginatorModule, MatSortModule, MatTooltipModule,
             MatBadgeModule, MatExpansionModule, MatFormFieldModule,
-            MatDatepickerModule, MatNativeDateModule],
+            MatDatepickerModule, MatNativeDateModule, MatRadioModule],
 
   exports: [MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule,
             MatMenuModule, MatSidenavModule, MatListModule, MatCardModule,
             MatTableModule, MatPaginatorModule, MatSortModule, MatTooltipModule,
             MatBadgeModule, MatExpansionModule, MatFormFieldModule,
-            MatDatepickerModule, MatNativeDateModule],
+            MatDatepickerModule, MatNativeDateModule, MatRadioModule],
 })
 export class MaterialModule {
 

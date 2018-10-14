@@ -1,0 +1,41 @@
+.footer {
+  height: 50px;
+  margin-top: -50px;
+  margin: 0;
+  background-color: #fecb51;
+  overflow: hidden;
+  text-align: center;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+mat-toolbar {
+    max-height: 50px;
+    min-height: 50px;
+    vertical-align: middle;
+}
+
+.mat-toolbar-row {
+  padding: 0;
+}
+
+.toolbar {
+  margin: 0 auto;
+  padding-right: 20px;
+  color: black;
+  font-size: .6em;
+}
+
+.angular {
+  width: 20px;
+  position: absolute;
+  margin-left: 6px;
+  margin-top: 4px;
+}
+
+.angular:hover {
+  cursor: pointer;
+  filter: brightness(1.2);
+}

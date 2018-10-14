@@ -3,8 +3,10 @@
   margin-bottom: 0px;
 }
 
-.mat-icon .material-icons {
+ i  {
   margin: 0 auto;
+  margin-top:10px;
+  color:orange;
 }
 
 .text-right {

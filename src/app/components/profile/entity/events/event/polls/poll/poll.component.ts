@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { EntityService } from '../../../../../../../services/entity.service';
+import { EventService } from '../../../../../../../services/event.service';
 import { Event } from '../../../../../../../models/event';
 
 
@@ -17,11 +17,10 @@ export class PollComponent implements OnInit {
 
   pollList: CustomPoll[];
 
-  constructor(private entityService: EntityService) { }
+  constructor(private eventService: EventService) { }
 
   ngOnInit() {
-    this.pollList = this.entityService.pollList;
-    this.entityService.profileID;
+    this.pollList = this.eventService.pollList;
   }
 
 }

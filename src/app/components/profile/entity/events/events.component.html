@@ -1,3 +1,6 @@
 <h5>Eventos</h5>
 <div *ngIf="eventList.length == 0">Aún no has registrado ningún evento</div>
-<app-event *ngFor="let event of eventList" [event]="event"></app-event>
+
+<div class="row">
+  <app-event *ngFor="let event of eventList" [event]="event"></app-event>
+</div>

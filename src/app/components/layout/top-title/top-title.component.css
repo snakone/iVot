@@ -34,11 +34,14 @@
     max-height: 95%;
     cursor: pointer;
     transition: transform .5s;
+    margin-top: 10px;
 }
 
 .home-logo:hover {
     transform: scale(1.1);
     /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    cursor: pointer;
+    filter: brightness(1.1);
 }
 
 img:focus {

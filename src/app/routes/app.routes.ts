@@ -5,6 +5,7 @@ import { AppWelcomeComponent } from '../components/app-welcome/app-welcome.compo
 import { ProfileComponent } from '../components/profile/profile.component';
 import { PollsComponent } from '../components/profile/entity/events/event/polls/polls.component';
 import { EntityRegisterComponent } from '../components/entity-register/entity-register.component';
+import { AdminEntityComponent } from '../components/admin/admin-entity/admin-entity.component';
 
 
 const app_Routes: Routes = [
@@ -12,6 +13,7 @@ const app_Routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'profile/:id', component: PollsComponent },
   { path: 'entity-register', component: EntityRegisterComponent },
+  { path: 'admin/entity', component: AdminEntityComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 

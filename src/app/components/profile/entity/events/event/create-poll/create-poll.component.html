@@ -1,6 +1,4 @@
 
-<p class="center showMore"><mat-icon>expand_more</mat-icon></p>
-
 <form #addPollForm="ngForm" (ngSubmit)="onSubmit(addPollForm)">
 
   <div class="row">
@@ -12,7 +10,7 @@
         <label for="question">Pregunta *</label>
         </div>
 
-      <div class="input-field col s6 m5 offset-m1">
+      <div class="input-field col s6 m6">
         <i class="material-icons prefix">poll</i>
         <input name="option1" type="text"
         [(ngModel)]="selectedPoll.pollOption1" #option1="ngModel"
@@ -20,7 +18,7 @@
         <label for="option11">Opción 1 *</label>
       </div>
 
-      <div class="input-field col s6 m5">
+      <div class="input-field col s6 m6">
         <i class="material-icons prefix">poll</i>
         <input name="option2" type="text"
         [(ngModel)]="selectedPoll.pollOption2" #option2="ngModel"
@@ -28,7 +26,7 @@
         <label for="option2">Opción 2 *</label>
       </div>
 
-      <div class="input-field col s6 m5 offset-m1">
+      <div class="input-field col s6 m6">
         <i class="material-icons prefix">poll</i>
         <input name="option3" type="text"
         [(ngModel)]="selectedPoll.pollOption3" #option3="ngModel"
@@ -36,7 +34,7 @@
         <label for="option3">Opción 3</label>
       </div>
 
-      <div class="input-field col s6 m5">
+      <div class="input-field col s6 m6">
         <i class="material-icons prefix">poll</i>
         <input name="option4" type="text"
         [(ngModel)]="selectedPoll.pollOption4" #option4="ngModel"
@@ -49,8 +47,8 @@
   <div class="row">
     <div class="col s12 m12">
       <p class="center">
-        <button class="waves-effect waves-light
-        btn indigo darken-4" type="submit">Registrar</button></p>
+        <button class="waves-effect
+        btn orange" type="submit">Registrar</button></p>
       </div>
   </div>
 

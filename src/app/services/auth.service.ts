@@ -1,5 +1,3 @@
-// src/app/auth/auth.service.ts
-
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
@@ -7,16 +5,19 @@ import * as auth0 from 'auth0-js';
 
 (window as any).global = window;
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
+
 export class AuthService {
 
   public userProfile: any;
 
   auth0 = new auth0.WebAuth({
-    clientID: '77Ptm1cz6Djkk5auGpdbUA7j8cIG3b2O',
+     clientID: '77Ptm1cz6Djkk5auGpdbUA7j8cIG3b2O',
      domain: 'ivot.eu.auth0.com',
      responseType: 'token id_token',
-     redirectUri: 'http://localhost:4200',
+     redirectUri: 'http://localhost:4200',  // http://localhost:4200  http://ivot.epizy.com
      scope: 'openid profile'
   });
 

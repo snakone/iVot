@@ -4,24 +4,35 @@
 
 <mat-menu #menu="matMenu" [overlapTrigger]="false">
 
-    <button [routerLink]="['home']" mat-menu-item>
-    <mat-icon>home</mat-icon>
-    <span>Inicio</span>
-  </button>
+    <button mat-menu-item [routerLink]="['home']" routerLinkActive="active">
+      <mat-icon>home</mat-icon>
+      <span>Inicio</span>
+    </button>
 
-    <button mat-menu-item [routerLink]="['/profile']">
-    <mat-icon>face</mat-icon>
-    <span>Profile</span>
-  </button>
+    <button mat-menu-item [routerLink]="['/profile']" routerLinkActive="active">
+      <mat-icon>person</mat-icon>
+      <span>Perfil</span>
+    </button>
 
     <button mat-menu-item (click)="login()" *ngIf="!auth.isAuthenticated()">
-    <mat-icon>near_me</mat-icon>
-    <span>Login</span>
-  </button>
+      <mat-icon>near_me</mat-icon>
+      <span>Login</span>
+    </button>
 
     <button mat-menu-item *ngIf="auth.isAuthenticated()" (click)=" logout() ">
       <mat-icon>exit_to_app</mat-icon>
-      <span>Log Out</span>
+      <span>Salir</span>
     </button>
 
+    <button mat-menu-item *ngIf="profileService.admin" [matMenuTriggerFor]="Admin">
+      <mat-icon>settings</mat-icon>
+      <span>Admin</span>
+    </button>
+
+</mat-menu>
+
+<mat-menu #Admin="matMenu">
+ <button [routerLink]="['admin/entity']" routerLinkActive="active"
+         mat-menu-item><mat-icon>store</mat-icon>Entidad
+ </button>
 </mat-menu>

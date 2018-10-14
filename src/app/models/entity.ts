@@ -6,16 +6,13 @@ export class Entity extends Bio {
   icon: string;
   events: Event[];
   description: string;
-  password: string;
 
    constructor(name:string, address: string, email:string,
-               icon:string, description: string, password: string,
-               events:Event[]){
+               icon:string, description: string, events:Event[]){
 
        super(name, address, email);
        this.icon = icon;
        this.description = description;
-       this.password = password;
        this.events = events;
    }
 }

@@ -1,43 +1,48 @@
 <div class="animated slideInLeft">
+  <div class="row">
     <h2>La votación hecha fácil</h2>
 
-    <p class="flow-text">Votar no debería ser cada 4 años! "<span class="bold">{{ title }}</span>" está pensado
-      para ayudar a entidades a crear eventos y hacer un seguimiento de los mismos usando un sistema de
+    <p class="flow-text">"<span class="bold">{{ title }}</span>" está pensado
+      para ayudar a entidades a crear eventos y hacer un seguimiento usando un sistema de
       votaciones simple y divertido!</p>
-
-    <br>
-
-    <div class="row center">
-      <div class="col s4 m4 l2 offset-l3">
+  </div>
+    <div class="row center steps">
+      <div class="col s12 m4 l4">
         <p class="bold">Regístrate</p>
-        <mat-icon>check</mat-icon>
+          <mat-icon>check</mat-icon>
+          <p>Registra tu entidad y en pocas horas podrás disfrutar de nuestro servicio gratuito.</p>
       </div>
-      <div class="col s4 m4 l2">
+      <div class="col s12 m4 l4">
         <p class="bold">Crea</p>
           <mat-icon>edit</mat-icon>
+          <p>Crea los eventos que quieras relacionados con tu entidad y asigna encuestas a ellos.</p>
       </div>
-      <div class="col s4 m4 l2">
+      <div class="col s12 m4 l4">
         <p class="bold">Invita</p>
           <mat-icon>group_add</mat-icon>
+          <p>Invita a otros usuarios a votar y descubre opiniones del evento de manera rápida.</p>
       </div>
     </div>
 
-    <br>
+    <div class="center top">
+      <h3>
+        <span class="ivot">"</span>Votar no debería ser cada 4 años<span class="ivot">"</span>
+      </h3>
+      <br>
+    </div>
 
-    <div class="space hide-on-small-only"></div>
-
-    <div class="row">
+    <!-- <div class="row">
       <p class="flow-text bold">¿Qué eres?</p>
-        <div class="col s12 m6">
+        <div class="col s12 m6 l3 offset-l3">
             <button class="button-1" *ngIf="!auth.isAuthenticated()"
             mat-raised-button (click)="login()" color="primary">Usuario</button>
             <button class="button-1" *ngIf="auth.isAuthenticated()"
             mat-raised-button [routerLink]="['/profile']" color="primary">Usuario</button>
         </div>
 
-        <div class="col s12 m6">
+        <div class="col s12 m6 l3">
             <button [routerLink]="['/entity-register']" class="button-2"
             mat-raised-button color="primary">Entidad </button>
         </div>
-    </div>
+    </div> -->
 </div>

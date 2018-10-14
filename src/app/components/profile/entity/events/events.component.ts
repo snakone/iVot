@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EntityService } from '../../../../services/entity.service';
+import { EventService } from '../../../../services/event.service';
 import { Event } from '../../../../models/event';
 
 @Component({
@@ -11,12 +11,10 @@ export class EventsComponent implements OnInit {
 
   eventList: Event[];
 
-  constructor(private entityService: EntityService) { }
+  constructor(private eventService: EventService) { }
 
   ngOnInit() {
-
-    this.eventList = this.entityService.events;
-
+    this.eventList = this.eventService.events;
   }
 
 }
