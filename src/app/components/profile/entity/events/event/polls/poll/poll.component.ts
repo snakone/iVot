@@ -4,7 +4,7 @@ import { EventService } from '../../../../../../../services/event.service';
 import { Event } from '../../../../../../../models/event';
 
 
-import { CustomPoll } from '../../../../../../../models/poll';
+import { Poll } from '../../../../../../../models/poll';
 
 @Component({
   selector: 'event-poll',
@@ -15,7 +15,7 @@ export class PollComponent implements OnInit {
 
   @Input() entityEvent: Event;
 
-  pollList: CustomPoll[];
+  pollList: Poll[];
 
   constructor(private eventService: EventService) { }
 

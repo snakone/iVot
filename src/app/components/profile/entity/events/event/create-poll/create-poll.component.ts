@@ -4,7 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 
 import { NgForm } from '@angular/forms';
 
-import { CustomPoll } from '../../../../../../models/poll';
+import { Poll } from '../../../../../../models/poll';
 
 import { Event } from '../../../../../../models/event';
 
@@ -20,10 +20,14 @@ export class CreatePollComponent implements OnInit {
 
   @Input() entityEvent: Event;
 
-  customPoll: CustomPoll;
-  selectedPoll: CustomPoll = <CustomPoll>{};
+  poll: Poll;
+  selectedPoll: Poll = <Poll>{};
   options: string[];
   entityID: string;
+  pollOption1: string;
+  pollOption2: string;
+  pollOption3: string;
+  pollOption4: string;
 
    constructor(private eventService: EventService,
                private profileService: ProfileService,
@@ -60,20 +64,19 @@ export class CreatePollComponent implements OnInit {
      alert('Por favor, Rellena el formulario')
 
      else {
-         let newPoll: CustomPoll = new CustomPoll (question, this.options);
+         let newPoll: Poll = new Poll (question, this.options);
 
          this.toastr.success('Tema Creado', 'Muy bien!');
          this.resetForm(addPollForm); // Reset the FORM
          this.eventService.pollList.push(newPoll);
 
-         console.log(this.eventService.pollList);
       }
    }
 
    resetForm(addPollForm?: NgForm){
     if (addPollForm != null) // Reset form if not empty and we add a empty Poll
       addPollForm.reset();
-      this.selectedPoll = <CustomPoll>{}; // Instance a Empty Poll Class
+      this.selectedPoll = <Poll>{}; // Instance a Empty Poll Class
 }
 
  }

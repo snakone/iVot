@@ -15,6 +15,12 @@
     margin-top: 25px;
 }
 
+i {
+  margin: 0 auto;
+  margin-top:10px;
+  color:orange;
+}
+
 .center {
     margin-top: 50px;
 }

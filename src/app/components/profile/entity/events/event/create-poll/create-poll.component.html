@@ -5,7 +5,7 @@
       <div class="input-field col s12 m12">
         <i class="material-icons prefix">help_outline</i>
         <input name="question" type="text"
-        [(ngModel)]="selectedPoll.pollQuestion" #question="ngModel"
+        [(ngModel)]="selectedPoll.question" #question="ngModel"
         data-length="40" class="validate" required>
         <label for="question">Pregunta *</label>
         </div>
@@ -13,15 +13,15 @@
       <div class="input-field col s6 m6">
         <i class="material-icons prefix">poll</i>
         <input name="option1" type="text"
-        [(ngModel)]="selectedPoll.pollOption1" #option1="ngModel"
+        [(ngModel)]="pollOption1" #option1="ngModel"
       class="validate" required>
-        <label for="option11">Opción 1 *</label>
+        <label for="option1">Opción 1 *</label>
       </div>
 
       <div class="input-field col s6 m6">
         <i class="material-icons prefix">poll</i>
         <input name="option2" type="text"
-        [(ngModel)]="selectedPoll.pollOption2" #option2="ngModel"
+        [(ngModel)]="pollOption2" #option2="ngModel"
        class="validate" required>
         <label for="option2">Opción 2 *</label>
       </div>
@@ -29,7 +29,7 @@
       <div class="input-field col s6 m6">
         <i class="material-icons prefix">poll</i>
         <input name="option3" type="text"
-        [(ngModel)]="selectedPoll.pollOption3" #option3="ngModel"
+        [(ngModel)]="pollOption3" #option3="ngModel"
          class="validate">
         <label for="option3">Opción 3</label>
       </div>
@@ -37,7 +37,7 @@
       <div class="input-field col s6 m6">
         <i class="material-icons prefix">poll</i>
         <input name="option4" type="text"
-        [(ngModel)]="selectedPoll.pollOption4" #option4="ngModel"
+        [(ngModel)]="pollOption4" #option4="ngModel"
          class="validate">
         <label for="option4">Opción 4</label>
       </div>

@@ -4,7 +4,9 @@ import { ProfileService } from '../../../../../../../../services/profile.service
 
 import { NgForm } from '@angular/forms';
 
-import { CustomPoll } from '../../../../../../../../models/poll';
+import { ToastrService } from 'ngx-toastr';
+
+import { Poll } from '../../../../../../../../models/poll';
 
 @Component({
   selector: 'poll-questions',
@@ -13,17 +15,18 @@ import { CustomPoll } from '../../../../../../../../models/poll';
 })
 export class QuestionsComponent implements OnInit {
 
-  @Input() customPoll: CustomPoll;
+  @Input() poll: Poll;
   question: string;
 
-  constructor(private profileService: ProfileService) { }
+  constructor(private profileService: ProfileService,
+              private toastr: ToastrService) { }
 
   ngOnInit() {
   }
 
   vote(form: NgForm){
-
-    console.log(form.value,this.profileService.Auth)
+    let i = form.value.options;
+    this.toastr.info(`${form.value.options}`, `${this.poll.options[i-1]}`);
   }
 
 }

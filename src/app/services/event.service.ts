@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { CustomPoll } from '../models/poll';
+import { Poll } from '../models/poll';
 import { HttpClient } from '@angular/common/http';
 
 import { Event } from '../models/event';
@@ -13,7 +13,7 @@ export class EventService {
 
   readonly URL_API = 'http://localhost:8080/api/Event';
 
-  pollList: CustomPoll[]=[];
+  pollList: Poll[]=[];
   events: Event[]=[];
   selectedEvent: Event;
 

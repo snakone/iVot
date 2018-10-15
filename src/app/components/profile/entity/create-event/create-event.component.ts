@@ -35,7 +35,13 @@ export class CreateEventComponent implements OnInit {
 
   addEvent(form?: NgForm) {
 
-   form.value.eventTime = this.yyyymmdd(form.value.eventTime);
+   try {
+      form.value.eventTime = this.yyyymmdd(form.value.eventTime);
+   } catch(err){
+      alert('Por favor, Introduce una fecha correcta');
+      return false;
+   }
+
    form.value.EventID = this.profileService.Auth;
 
    if (form.value.eventID) {

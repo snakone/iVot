@@ -2,10 +2,12 @@
 
     <div class="row center">
       <mat-radio-group [(ngModel)]="question" #option="ngModel" name="options" class="example-radio-group">
-        <mat-radio-button color="warn" class="example-radio-button"
-        *ngFor="let option of customPoll.options; let i = index" [value]="i+1">
+        <div class="col s12 m12">
+          <mat-radio-button color="warn" class="example-radio-button"
+        *ngFor="let option of poll.options; let i = index" [value]="i+1">
           {{option}}
         </mat-radio-button>
+        </div>
       </mat-radio-group>
     </div>
       <br>

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { CustomPoll } from '../models/poll';
+import { Poll } from '../models/poll';
 import { HttpClient } from '@angular/common/http';
 
 import { Entity } from '../models/entity';
@@ -29,7 +29,7 @@ export class EntityService {
   addEntity(entity: Entity) {
     let newEntity = new Entity(entity.name,entity.address,entity.email,
                               entity.icon,entity.description, this.events);
-                              
+
     return this.http.post(this.URL_API, newEntity);
   }
 

@@ -1,4 +1,4 @@
-export class CustomPoll {
+export class Poll {
 
   pollID: number;
   question: string;
