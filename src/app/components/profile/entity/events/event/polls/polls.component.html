@@ -1,17 +1,16 @@
-<div class="container">
+<div class="container animated slideInLeft">
     <br>
-
     <div class="row">
       <h3>Temas</h3>
         <br>
         <event-poll></event-poll>
     </div>
-
     <br>
-
     <div class="row">
-      <h3>Registrar Nuevo Tema</h3>
+      <h5>Nuevo Tema
+        <mat-icon (click)="toogle()" class="add-button">playlist_add</mat-icon>
+      </h5>
       <br>
-      <create-poll></create-poll>
+      <create-poll *ngIf="openNew"></create-poll>
     </div>
 </div>

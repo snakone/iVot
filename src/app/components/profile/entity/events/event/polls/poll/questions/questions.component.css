@@ -11,6 +11,16 @@
   margin: 5px 25px;
 }
 
-.close {
-margin-left: 35px;
+.poll-option {
+  font-size: 1.1em;
+  font-weight: bold;
+  color:black;
+}
+
+button {
+  margin: 10px;
+}
+
+.actions {
+  margin-bottom: 5px;
 }

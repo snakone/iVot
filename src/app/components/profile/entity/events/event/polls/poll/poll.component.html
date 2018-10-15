@@ -5,7 +5,8 @@
                            (closed)="panelOpenState = false">
         <mat-expansion-panel-header>
           <mat-panel-title [ngClass]="{'opened': panelOpenState == true}">
-            <span class="bold">Pregunta:</span> {{ poll.question}}
+            <span class="bold">Pregunta:</span>
+            <span class="question">{{ poll.question}}</span>
           </mat-panel-title>
         </mat-expansion-panel-header>
 <br>

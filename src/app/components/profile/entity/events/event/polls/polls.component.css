@@ -1,0 +1,14 @@
+.add-button {
+  color: orange;
+  margin-left: 15px;
+  font-size: 1.5em;
+  position: relative;
+  bottom: 0;
+  top: 10px;
+  left: 18px;
+}
+
+.add-button:hover {
+  cursor: pointer;
+  filter: brightness(1.2);
+}

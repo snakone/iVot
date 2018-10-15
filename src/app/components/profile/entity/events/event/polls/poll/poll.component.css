@@ -7,3 +7,11 @@
   width: 90%;
   margin: 0 auto;
 }
+
+mat-expansion-panel-header {
+  padding: 10px 20px;
+}
+
+.question {
+  margin-right: 5px;
+}

@@ -15,3 +15,11 @@
 mat-panel-title {
   width: 70%;
 }
+
+mat-expansion-panel-header {
+  padding: 10px 20px;
+}
+
+.actions {
+  margin-bottom: 5px;
+}

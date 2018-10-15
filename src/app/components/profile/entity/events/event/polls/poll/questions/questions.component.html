@@ -6,13 +6,13 @@
         <div class="col s12 m12">
           <mat-radio-button color="warn" class="example-radio-button"
         *ngFor="let option of poll.options; let i = index" [value]="i+1">
-          {{option}}
+          <span class="poll-option">{{option}}</span>
         </mat-radio-button>
         </div>
       </mat-radio-group>
     </div>
-      <br>
-    <div class="row center">
+
+    <div class="center actions">
         <button type="submit" class="btn orange">Vota!</button>
         <button (click)="deletePoll($event, i, voteForm)" class="btn red close">Eliminar Tema</button>
     </div>

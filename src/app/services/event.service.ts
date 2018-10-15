@@ -13,8 +13,21 @@ export class EventService {
 
   readonly URL_API = 'http://localhost:8080/api/Event';
 
-  pollList: Poll[]=[];
-  events: Event[]=[];
+  pollList: Poll[]=[{
+    pollID: 12345,
+    question: "Qué te pareció el evento?",
+    options: ["Estuvo genial!", "Nada mal", "Mejorable", "No volvería a ir"]
+  }];
+
+  events: Event[] = [{
+    entityID: "5bc10cbc3385d56f61f6a330",
+    eventName: "Google Meet-up Event",
+    eventTime: "12/02/2018",
+    eventDescription: "Evento de Google. Descubre lo último del gigante de Internet"
+  }
+
+  ];
+
   selectedEvent: Event;
 
   constructor(private http: HttpClient) {

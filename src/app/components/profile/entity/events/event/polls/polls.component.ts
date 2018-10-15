@@ -10,10 +10,15 @@ import { Event } from '../../../../../../models/event';
 export class PollsComponent implements OnInit {
 
   @Input() entityEvent: Event;
+  openNew: boolean = false;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  toogle(){
+    this.openNew = !this.openNew
   }
 
 }
