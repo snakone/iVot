@@ -1,5 +1,5 @@
-<div class="row" *ngFor="let poll of pollList">
-  <div class="col s12 m12" *ngIf="pollList">
+<div class="row center" *ngFor="let poll of eventService.pollList; let i = index">
+  <div class="col s12 m12" *ngIf="eventService.pollList">
       <mat-accordion>
         <mat-expansion-panel class="margin" (opened)="panelOpenState = true;"
                            (closed)="panelOpenState = false">
@@ -9,13 +9,13 @@
           </mat-panel-title>
         </mat-expansion-panel-header>
 <br>
-        <poll-questions [poll]="poll"></poll-questions>
+        <poll-questions [poll]="poll" [i]="i"></poll-questions>
 
         </mat-expansion-panel>
       </mat-accordion>
   </div>
 </div>
 
-<div *ngIf="pollList.length == 0">
+<div *ngIf="eventService.pollList.length == 0">
   <p>Parece ser que aún no hay Temas</p>
 </div>

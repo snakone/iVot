@@ -15,12 +15,10 @@ export class PollComponent implements OnInit {
 
   @Input() entityEvent: Event;
 
-  pollList: Poll[];
-
-  constructor(private eventService: EventService) { }
+  constructor(public eventService: EventService) { }
 
   ngOnInit() {
-    this.pollList = this.eventService.pollList;
+
   }
 
 }

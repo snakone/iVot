@@ -66,9 +66,10 @@ export class CreatePollComponent implements OnInit {
      else {
          let newPoll: Poll = new Poll (question, this.options);
 
+         this.eventService.pollList.push(newPoll);
+         
          this.toastr.success('Tema Creado', 'Muy bien!');
          this.resetForm(addPollForm); // Reset the FORM
-         this.eventService.pollList.push(newPoll);
 
       }
    }
