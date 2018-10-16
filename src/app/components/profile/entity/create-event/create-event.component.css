@@ -1,9 +1,8 @@
 .right {
     position: absolute;
-    right: 25px;
+    right: 5px;
     bottom: 25px;
 }
-
 
 /*Deleting random circle on Hover, was a default feature */
 
@@ -21,10 +20,6 @@ i {
   color:orange;
 }
 
-.center {
-    margin-top: 50px;
-}
-
 .file-path-wrapper {
     margin-top: 25px;
 }
@@ -35,4 +30,12 @@ i {
 
 .margin-top {
     margin-top: 20px;
+}
+
+mat-datepicker {
+  color: red;
+}
+
+.cdk-overlay-connected-position-bounding-box {
+  left: 50px;
 }

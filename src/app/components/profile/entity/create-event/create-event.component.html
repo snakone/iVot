@@ -1,54 +1,51 @@
 <div class="row">
-    <div class="col m12">
-        <h5>Registrar Evento</h5>
-    </div>
-    <br>
-    <br><br>
+  <h5>Registrar Evento</h5>
 
     <form #addEventForm="ngForm" class="col s12 margin-top" (ngSubmit)="addEvent(addEventForm)">
         <div class="row">
 
-      <input type="hidden" name="entityID" [(ngModel)]="selectedEvent.entityID" #entityID="ngModel">
+            <input type="hidden" name="entityID" [(ngModel)]="selectedEvent.entityID" #entityID="ngModel">
 
-      <div class="input-field col s12 m12">
-          <i class="material-icons prefix">assignment</i>
-          <input name="eventName" type="text"
-          [(ngModel)]="selectedEvent.eventName" #eventName="ngModel" data-length="25" maxlength="25">
-          <label for="eventName">Nombre del Evento</label>
-      </div>
+            <div class="input-field col s12 m12">
+                <i class="material-icons prefix">assignment</i>
+                <input name="eventName" type="text"
+                [(ngModel)]="selectedEvent.eventName" #eventName="ngModel" data-length="25" maxlength="25">
+                <label for="eventName">Nombre del Evento</label>
+            </div>
 
-      <div class="input-field col s12 m12">
-          <i class="material-icons prefix">description</i>
-          <textarea name="eventDescription" class="materialize-textarea"
-          data-length="120" maxlength="120" [(ngModel)]="selectedEvent.eventDescription"
-          #eventDescription="ngModel"></textarea>
-          <label for="eventDescription">Descripción</label>
-      </div>
+            <div class="input-field col s12 m12">
+                <i class="material-icons prefix">description</i>
+                <textarea name="eventDescription" class="materialize-textarea"
+                data-length="120" maxlength="120" [(ngModel)]="selectedEvent.eventDescription"
+                #eventDescription="ngModel"></textarea>
+                <label for="eventDescription">Descripción</label>
+            </div>
 
-      <div class="input-field col s12 m12 margin-top">
-          <i class="material-icons prefix">watch_later
-              </i>
-          <mat-datepicker-toggle class="right" matSuffix [for]="picker"></mat-datepicker-toggle>
-          <input name="eventTime" matInput [matDatepicker]="picker"
-          [(ngModel)]="selectedEvent.eventTime" #eventTime="ngModel" placeholder="Elige una fecha">
-          <mat-datepicker #picker></mat-datepicker>
-      </div>
+            <div class="input-field col s12 m12 margin-top">
+                <i class="material-icons prefix">watch_later
+                    </i>
+                <mat-datepicker-toggle class="right" matSuffix [for]="picker"></mat-datepicker-toggle>
+                <input name="eventTime" matInput [matDatepicker]="picker"
+                [(ngModel)]="selectedEvent.eventTime" #eventTime="ngModel" placeholder="Elige una fecha">
+                 <mat-datepicker touchUi class="datepicker" #picker> </mat-datepicker>
+            </div>
 
-      <!-- <div class="file-field input-field">
-          <div class="btn orange right">
-              <span>File</span>
-              <input type="file">
-          </div>
-          <div class="file-path-wrapper">
-              <input name="picture" class="file-path validate" style="margin-top: 25px;" placeholder="Sube tu foto" type="text">
-          </div>
-      </div> -->
+            <!-- <div class="file-field input-field">
+                <div class="btn orange right">
+                    <span>File</span>
+                    <input type="file">
+                </div>
+                <div class="file-path-wrapper">
+                    <input name="picture" class="file-path validate" style="margin-top: 25px;" placeholder="Sube tu foto" type="text">
+                </div>
+            </div> -->
 
-    <div class="col s12 m12 center">
-        <button type="submit" mat-button class="btn blue">CREAR</button>
-    </div>
+            <br><br>
 
         </div>
+          <div class="center">
+            <button type="submit" mat-button class="btn orange">CREAR</button>
+          </div>
     </form>
 
 </div>

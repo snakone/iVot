@@ -22,11 +22,28 @@ import { AppGridComponent } from './components/layout/app-grid/app-grid.componen
 import { TopNavComponent } from './components/layout/top-nav/top-nav.component';
 import { TopMenuComponent } from './components/layout/top-menu/top-menu.component';
 import { TopTitleComponent } from './components/layout/top-title/top-title.component';
+import { FooterNavComponent } from './components/layout/footer-nav/footer-nav.component';
 
+// Admin
 
-// Dinamic Components
+import { AdminEntityComponent } from './components/admin/admin-entity/admin-entity.component';
+
+// Dynamic Components
 
 import { AppWelcomeComponent } from './components/app-welcome/app-welcome.component';
+
+// Profile
+
+import { ProfileComponent } from './components/profile/profile.component';
+import { EventsComponent } from './components/profile/entity/events/events.component';
+import { EntityComponent } from './components/profile/entity/entity.component';
+import { EventComponent } from './components/profile/entity/events/event/event.component';
+import { PollComponent } from './components/profile/entity/events/event/polls/poll/poll.component';
+import { PollsComponent } from './components/profile/entity/events/event/polls/polls.component';
+import { CreatePollComponent } from './components/profile/entity/events/event/create-poll/create-poll.component';
+import { QuestionsComponent } from './components/profile/entity/events/event/polls/poll/questions/questions.component';
+import { CreateEventComponent } from './components/profile/entity/create-event/create-event.component';
+import { EntityRegisterComponent } from './components/entity-register/entity-register.component';
 
 import { NgxPaginationModule } from 'ngx-pagination';
 
@@ -38,57 +55,25 @@ import { AppRoutingModule } from './routes/app.routes';
 
 import { ToastrModule } from 'ngx-toastr';
 
-import { CreateEventComponent } from './components/profile/entity/create-event/create-event.component';
-import { ProfileComponent } from './components/profile/profile.component';
-
-import { environment } from '../environments/environment';
-import { EntityRegisterComponent } from './components/entity-register/entity-register.component';
-import { EventsComponent } from './components/profile/entity/events/events.component';
-import { EntityComponent } from './components/profile/entity/entity.component';
-import { EventComponent } from './components/profile/entity/events/event/event.component';
-import { PollComponent } from './components/profile/entity/events/event/polls/poll/poll.component';
-import { PollsComponent } from './components/profile/entity/events/event/polls/polls.component';
-import { CreatePollComponent } from './components/profile/entity/events/event/create-poll/create-poll.component';
-import { QuestionsComponent } from './components/profile/entity/events/event/polls/poll/questions/questions.component';
-import { FooterNavComponent } from './components/layout/footer-nav/footer-nav.component';
-import { AdminEntityComponent } from './components/admin/admin-entity/admin-entity.component';
-
 
 @NgModule({
   declarations: [
-    AppComponent,
-    TopNavComponent,
-    AppGridComponent,
-    TopMenuComponent,
-    TopTitleComponent,
-    AppWelcomeComponent,
-    CreateEventComponent,
-    ProfileComponent,
-    EntityRegisterComponent,
-    EventsComponent,
-    EventComponent,
-    PollComponent,
-    PollsComponent,
-    CreatePollComponent,
-    QuestionsComponent,
-    EntityComponent,
-    FooterNavComponent,
-    AdminEntityComponent
-  ],
+    AppComponent, TopNavComponent, AppGridComponent, TopMenuComponent,
+    TopTitleComponent, AppWelcomeComponent, CreateEventComponent, ProfileComponent,
+    EntityRegisterComponent, EventsComponent, EventComponent, PollComponent,
+    PollsComponent, CreatePollComponent, QuestionsComponent, EntityComponent,
+    FooterNavComponent, AdminEntityComponent],
   imports: [
-    BrowserModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    MaterialModule,
-    NgxPaginationModule,
-    FormsModule,
-    ReactiveFormsModule,
-    AppRoutingModule,
+    BrowserModule, HttpClientModule, BrowserAnimationsModule,
+    MaterialModule, NgxPaginationModule,FormsModule,
+    ReactiveFormsModule, AppRoutingModule,
     ToastrModule.forRoot({
       timeOut: 3000,
       progressBar: true
     })
   ],
+
+  entryComponents:[CreatePollComponent, CreateEventComponent], // Dialog and Snack Bar
   providers: [],
   bootstrap: [AppComponent]
 })

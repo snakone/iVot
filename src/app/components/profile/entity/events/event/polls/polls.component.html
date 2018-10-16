@@ -6,11 +6,10 @@
         <event-poll></event-poll>
     </div>
     <br>
-    <div class="row">
+    <div class="row center">
       <h5>Nuevo Tema
-        <mat-icon (click)="toogle()" class="add-button">playlist_add</mat-icon>
+        <mat-icon (click)="openNewPoll()" class="add-button">playlist_add</mat-icon>
       </h5>
       <br>
-      <create-poll *ngIf="openNew"></create-poll>
     </div>
 </div>

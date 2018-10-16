@@ -11,6 +11,8 @@ import { Event } from '../../../../../../models/event';
 import { ProfileService } from '../../../../../../services/profile.service';
 import { EventService } from '../../../../../../services/event.service';
 
+import { MatDialog } from '@angular/material';  // Dialog
+
 @Component({
   selector: 'create-poll',
   templateUrl: './create-poll.component.html',
@@ -31,47 +33,37 @@ export class CreatePollComponent implements OnInit {
 
    constructor(private eventService: EventService,
                private profileService: ProfileService,
-               private toastr: ToastrService) {}
+               private toastr: ToastrService,
+               public dialog: MatDialog) {}
 
    ngOnInit() {
      this.entityID = this.profileService.Auth;
    }
 
    onSubmit(addPollForm: NgForm){
+       let question = addPollForm.value.question;
+       let option1 = addPollForm.value.option1;
+       let option2 = addPollForm.value.option2;
+       let option3 = addPollForm.value.option3;
+       let option4 = addPollForm.value.option4;
+       let eventID = "12345";  // Random
 
-     let question = addPollForm.value.question;
-     let option1 = addPollForm.value.option1;
-     let option2 = addPollForm.value.option2;
-     let option3 = addPollForm.value.option3;
-     let option4 = addPollForm.value.option4;
-     let eventID = "12345";
+       this.options = [option1, option2, option3, option4];
 
-     this.options = [option1, option2, option3, option4];
+       if (option3 == undefined && option4 == undefined) { this.options = [option1,option2]}
+       else if (option3 == undefined) {this.options = [option1,option2,option4]}
+       else if (option4 == undefined) {this.options = [option1,option2,option3]}
 
-     if (option3 == undefined && option4 == undefined) {
-       this.options = [option1,option2]
-     }
+       if (question == null || option1 == null || option2 == null)
+       alert('Por favor, Rellena el formulario')
 
-     else if (option3 == undefined) {
-       this.options = [option1,option2,option4]
-     }
-
-     else if (option4 == undefined) {
-       this.options = [option1,option2,option3]
-     }
-
-     if (question == null || option1 == null || option2 == null)
-     alert('Por favor, Rellena el formulario')
-
-     else {
-         let newPoll: Poll = new Poll (question, this.options);
-
-         this.eventService.pollList.push(newPoll);
-         
-         this.toastr.success('Tema Creado', 'Muy bien!');
-         this.resetForm(addPollForm); // Reset the FORM
-
-      }
+       else {
+           let newPoll: Poll = new Poll (question, this.options);
+           this.eventService.pollList.push(newPoll);
+           this.toastr.success('Tema Creado', 'Muy bien!');
+           this.dialog.closeAll();
+           this.resetForm(addPollForm); // Reset the FORM
+        }
    }
 
    resetForm(addPollForm?: NgForm){

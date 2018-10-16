@@ -1,4 +1,4 @@
-<div class="container  animated slideInLeft">
+<div class="container animated slideInLeft">
 
     <div class="center noAuth" *ngIf="!auth.isAuthenticated()">
         <h3>No estás autentificado,<br> Accede a tu
@@ -17,9 +17,17 @@
             </div>
 
       <br>
+
       <entity-events></entity-events>
+
+      <div class="col s12 m12">
+        <br>
+          <h5>Registrar Evento
+            <mat-icon (click)="openNewEvent()" class="add-button">playlist_add</mat-icon>
+          </h5>
+          <br>
+      </div>
       <br>
-      <create-event></create-event>
     </div>
 
 </div>

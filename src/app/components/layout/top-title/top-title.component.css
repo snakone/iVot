@@ -1,12 +1,33 @@
+.home-logo {
+    max-height: 95%;
+    cursor: pointer;
+    transition: transform .5s;
+    margin-top: 10px;
+}
+
+.home-logo:hover {
+    transform: scale(1.1);
+    /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    cursor: pointer;
+    filter: brightness(1.1);
+}
+
 @media screen and (max-width: 600px) {
+
     .subTitle {
         display: block;
         font-size: 1.2em;
-        transform-origin: 80% 80%;
+        transform-origin: 50% 50%;
         top: 15px;
         transition: all 2s;
         padding: 15px;
     }
+
+    .home-logo {
+        max-height: 75%;
+        margin-bottom: -35px;
+    }
+
     h2 {
         display: none;
         transform-origin: 50% 50%;
@@ -28,20 +49,6 @@
     color: black;
     height: 120px;
     padding: 10px;
-}
-
-.home-logo {
-    max-height: 95%;
-    cursor: pointer;
-    transition: transform .5s;
-    margin-top: 10px;
-}
-
-.home-logo:hover {
-    transform: scale(1.1);
-    /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-    cursor: pointer;
-    filter: brightness(1.1);
 }
 
 img:focus {

@@ -9,6 +9,8 @@ import { ToastrService } from 'ngx-toastr';
 
 import { Event } from '../../../../models/event';
 
+import { MatDialog } from '@angular/material';  // Dialog
+
 @Component({
   selector: 'create-event',
   templateUrl: './create-event.component.html',
@@ -20,7 +22,8 @@ export class CreateEventComponent implements OnInit {
 
   constructor(private toastr: ToastrService,
               private profileService: ProfileService,
-              private eventService: EventService) { }
+              private eventService: EventService,
+              public dialog: MatDialog) { }
 
   ngOnInit() {
     this.getEvents();
@@ -63,6 +66,8 @@ export class CreateEventComponent implements OnInit {
     const newEvent = new Event (form.value.EventID, form.value.eventName,
     form.value.eventTime, form.value.eventDescription);
     this.eventService.events.push(newEvent);
+    this.toastr.success('Evento Creado', 'Muy bien!');
+    this.dialog.closeAll();
     this.resetForm(form);
  }
 
@@ -95,6 +100,6 @@ export class CreateEventComponent implements OnInit {
     (m.length == 1) && (m = '0' + m);
     var yyyymmdd = d + '/' + m + '/' + y;
     return yyyymmdd;
-}
+  }
 
 }
