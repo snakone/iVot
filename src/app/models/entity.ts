@@ -2,17 +2,17 @@ import { Event } from './event';
 import { Bio } from './bio';
 
 export class Entity extends Bio {
-  entityID: string;
+  id: string;
   icon: string;
   events: Event[];
   description: string;
 
-   constructor(name:string, address: string, email:string,
-               icon:string, description: string, events:Event[]){
+   constructor(name:string, email: string, icon:string,
+               description:string){
 
-       super(name, address, email);
+       super(name, email);
        this.icon = icon;
        this.description = description;
-       this.events = events;
+
    }
 }

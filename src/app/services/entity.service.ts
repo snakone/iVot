@@ -12,7 +12,7 @@ import { Event } from '../models/event';
 
 export class EntityService {
 
-  readonly URL_API = 'http://localhost:8080/api/entity';
+  readonly URL_API = 'https://ivotapp.herokuapp.com/organizations';
 
   events: Event[]=[];
   entityList: Entity[];
@@ -27,14 +27,14 @@ export class EntityService {
   }
 
   addEntity(entity: Entity) {
-    let newEntity = new Entity(entity.name,entity.address,entity.email,
-                              entity.icon,entity.description, this.events);
+    let newEntity = new Entity(entity.name,entity.email,entity.icon,
+                              entity.description);
 
     return this.http.post(this.URL_API, newEntity);
   }
 
   updateEntity(entity: Entity) {
-   return this.http.put(this.URL_API + `/${entity.entityID}`, entity);
+   return this.http.put(this.URL_API + `/${entity.id}`, entity);
  }
 
   deleteEntity(id: string) {

@@ -51,22 +51,6 @@ export class CreatePollComponent implements OnInit {
          })
        };
 
-       // this.options = [{
-       //   optionID: "",
-       //   option: option1
-       // }, {
-       //   optionID: "",
-       //   option: option2
-       // }, {
-       //   optionID: "",
-       //   option: option3
-       // }, {
-       //   optionID: "",
-       //   option: option4
-       // }];
-
-
-
        if (question == null || this.options[0] == null)
        alert('Por favor, Rellena el formulario')
 

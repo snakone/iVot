@@ -7,7 +7,7 @@
             <div class="row">
 
               <input type="hidden" name="id"
-              #_id="ngModel" [(ngModel)]="entityService.selectedEntity.entityID">
+              #_id="ngModel" [(ngModel)]="entityService.selectedEntity.id">
 
               <div class="input-field col s12 m12 l6">
                 <span class="helper-text bold">Nombre Entidad</span>  <!-- Entity Name -->
@@ -71,11 +71,11 @@
       <th class="center">Admin</th>
     </thead>
     <tbody>
-      <tr *ngFor="let entity of entityService.entityList">
+      <tr *ngFor="let entity of entityList">
         <td>{{entity.name}}</td>
         <td>
           <a href="admin/entity#top"><mat-icon (click)="updateEntity(entity)">edit</mat-icon></a>
-          <mat-icon (click)="deleteEntity(entity.entityID)">delete</mat-icon>
+          <mat-icon (click)="deleteEntity(entity.id)">delete</mat-icon>
         </td>
       </tr>
     </tbody>
