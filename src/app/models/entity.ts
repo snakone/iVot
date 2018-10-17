@@ -8,9 +8,9 @@ export class Entity extends Bio {
   description: string;
 
    constructor(name:string, email: string, icon:string,
-               description:string){
+               description:string, address: string){
 
-       super(name, email);
+       super(name, address, email);
        this.icon = icon;
        this.description = description;
 
