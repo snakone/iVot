@@ -11,3 +11,7 @@
   cursor: pointer;
   filter: brightness(1.2);
 }
+
+h3 {
+  margin-top: 10px;
+}

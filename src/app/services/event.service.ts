@@ -16,7 +16,20 @@ export class EventService {
   pollList: Poll[]=[{
     pollID: 12345,
     question: "Qué te pareció el evento?",
-    options: ["Estuvo genial!", "Nada mal", "Mejorable", "No volvería a ir"]
+    options: [{
+      optionID: "1",
+      option: "Estuvo genial!"
+    }, {
+      optionID: "2",
+      option: "Nada mal"
+    }, {
+      optionID: "3",
+      option: "Mejorable"
+    }, {
+      optionID: "4",
+      option: "No volvería a ir"
+    }
+      ]
   }];
 
   events: Event[] = [{

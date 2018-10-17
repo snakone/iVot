@@ -1,12 +1,13 @@
+import { Option } from './option';
+
 export class Poll {
 
   pollID: number;
   question: string;
-  options: string[];
+  options: Option[];
 
 
-  constructor(question: string, options: string[]){
-
+  constructor(question: string, options: Option[]){
               this.question = question;
               this.options = options;
               }

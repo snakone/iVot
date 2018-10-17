@@ -15,3 +15,7 @@ mat-expansion-panel-header {
 .question {
   margin-right: 5px;
 }
+
+.mat-expansion-panel-body {
+  margin-top: -15px!important;
+}

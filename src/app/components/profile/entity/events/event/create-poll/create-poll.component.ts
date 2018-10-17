@@ -5,7 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { NgForm } from '@angular/forms';
 
 import { Poll } from '../../../../../../models/poll';
-
+import { Option } from '../../../../../../models/option';
 import { Event } from '../../../../../../models/event';
 
 import { ProfileService } from '../../../../../../services/profile.service';
@@ -24,12 +24,10 @@ export class CreatePollComponent implements OnInit {
 
   poll: Poll;
   selectedPoll: Poll = <Poll>{};
-  options: string[];
+  defaultOptions: Option[]=[];
+  options: Option[]=[];
+
   entityID: string;
-  pollOption1: string;
-  pollOption2: string;
-  pollOption3: string;
-  pollOption4: string;
 
    constructor(private eventService: EventService,
                private profileService: ProfileService,
@@ -42,19 +40,34 @@ export class CreatePollComponent implements OnInit {
 
    onSubmit(addPollForm: NgForm){
        let question = addPollForm.value.question;
-       let option1 = addPollForm.value.option1;
-       let option2 = addPollForm.value.option2;
-       let option3 = addPollForm.value.option3;
-       let option4 = addPollForm.value.option4;
        let eventID = "12345";  // Random
+       let long = Object.keys(addPollForm.value).length - 1;
 
-       this.options = [option1, option2, option3, option4];
+       for (let x = 0; x < long; x++){
 
-       if (option3 == undefined && option4 == undefined) { this.options = [option1,option2]}
-       else if (option3 == undefined) {this.options = [option1,option2,option4]}
-       else if (option4 == undefined) {this.options = [option1,option2,option3]}
+         this.options.push({
+           optionID: `${x}`,
+           option: addPollForm.value[x]
+         })
+       };
 
-       if (question == null || option1 == null || option2 == null)
+       // this.options = [{
+       //   optionID: "",
+       //   option: option1
+       // }, {
+       //   optionID: "",
+       //   option: option2
+       // }, {
+       //   optionID: "",
+       //   option: option3
+       // }, {
+       //   optionID: "",
+       //   option: option4
+       // }];
+
+
+
+       if (question == null || this.options[0] == null)
        alert('Por favor, Rellena el formulario')
 
        else {
@@ -70,6 +83,14 @@ export class CreatePollComponent implements OnInit {
     if (addPollForm != null) // Reset form if not empty and we add a empty Poll
       addPollForm.reset();
       this.selectedPoll = <Poll>{}; // Instance a Empty Poll Class
-}
+    }
 
- }
+    addQuestion($event){
+      event.preventDefault();
+      this.defaultOptions.push({
+        optionID: "",
+        option: ""
+      });
+    }
+
+}

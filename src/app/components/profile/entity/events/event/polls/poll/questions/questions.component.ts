@@ -28,8 +28,9 @@ export class QuestionsComponent implements OnInit {
   }
 
   vote(form: NgForm){
-    let i = form.value.options;
-    this.toastr.info(`${form.value.options}`, `${this.poll.options[i-1]}`);
+    let x = form.value.options;
+    this.toastr.info(`${form.value.option}`,
+                     `${this.poll.options[form.value.option-1].option}`);
   }
 
   deletePoll($event, i, form: NgForm){
@@ -37,7 +38,6 @@ export class QuestionsComponent implements OnInit {
     this.eventService.pollList = this.eventService.pollList.filter( x => {
       return x.question != this.eventService.pollList[i].question;
     })
-
   }
 
 }
