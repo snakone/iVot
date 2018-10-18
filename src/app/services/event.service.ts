@@ -14,19 +14,36 @@ export class EventService {
   readonly URL_API = 'https://ivotapp.herokuapp.com/organizations';
 
   pollList: Poll[]=[{
-    pollID: 12345,
-    question: "Qué te pareció el evento?",
+    id: 12345,
+    question: "¿Qué te pareció el evento?",
     options: [{
-      optionID: "1",
+      id: "1",
       option: "Estuvo genial!"
     }, {
-      optionID: "2",
+      id: "2",
       option: "Nada mal"
     }, {
-      optionID: "3",
+      id: "3",
       option: "Mejorable"
     }, {
-      optionID: "4",
+      id: "4",
+      option: "No volvería a ir"
+    }
+      ]
+  },{
+    id: 12345,
+    question: "¿Crees que deberíamos repertir el evento en otra ocasion? dinos lo que piensas!",
+    options: [{
+      id: "1",
+      option: "Estuvo genial!"
+    }, {
+      id: "2",
+      option: "Nada mal"
+    }, {
+      id: "3",
+      option: "Mejorable"
+    }, {
+      id: "4",
       option: "No volvería a ir"
     }
       ]

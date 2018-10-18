@@ -1,13 +1,19 @@
 <div class="container animated slideInLeft">
-    <div class="row">
-      <h3>Temas</h3>
-        <event-poll></event-poll>
+    <div>
+        <div class="profile">
+            <label><i class="glyphicon glyphicon-user"></i> Perfil
+              <mat-icon class="arrow">arrow_right_alt</mat-icon> Temas</label>
+            <h3 class="nickname">Temas</h3>
+        </div>
+
+        <div>
+            <h5>Nuevo Tema
+              <mat-icon (click)="openNewPoll()" class="add-button">playlist_add</mat-icon>
+            </h5>
+            <br>
+        </div>
     </div>
+        <event-poll [poll]="poll" [i]="i" *ngFor="let poll of polls; let i = index" ></event-poll>
     <br>
-    <div class="row center">
-      <h5>Nuevo Tema
-        <mat-icon (click)="openNewPoll()" class="add-button">playlist_add</mat-icon>
-      </h5>
-      <br>
-    </div>
+
 </div>

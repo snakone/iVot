@@ -2,7 +2,7 @@ import { Option } from './option';
 
 export class Poll {
 
-  pollID: number;
+  id: number;
   question: string;
   options: Option[];
 

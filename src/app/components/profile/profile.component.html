@@ -11,23 +11,11 @@
     </div>
 
     <div *ngIf="auth.isAuthenticated()">
-            <div class="profile">
+            <div>
                 <label><i class="glyphicon glyphicon-user"></i> Perfil</label>
                 <h3 class="nickname">Bienvenido</h3>
             </div>
-
-      <br>
-
-      <entity-events></entity-events>
-
-      <div class="col s12 m12">
-        <br>
-          <h5>Registrar Evento
-            <mat-icon (click)="openNewEvent()" class="add-button">playlist_add</mat-icon>
-          </h5>
-          <br>
-      </div>
-      <br>
+        <entity-events></entity-events>
     </div>
 
 </div>

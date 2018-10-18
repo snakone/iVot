@@ -12,6 +12,13 @@
   filter: brightness(1.2);
 }
 
-h3 {
-  margin-top: 10px;
+h5 {
+  margin-top: 0;
+}
+
+.arrow {
+  display: inline-flex;
+  vertical-align: bottom;
+  color: orange;
+  margin: auto 5px;
 }

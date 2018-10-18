@@ -1,20 +1,20 @@
 <form #voteForm="ngForm" (ngSubmit)="vote(voteForm)">
 
-    <div class="row">
+    <div class="row top">
       <mat-radio-group [(ngModel)]="question" #option="ngModel"
         name="option" class="example-radio-group">
-        <div class="col s12 m12 text-left">
+        <div class="col s12 m12">
             <mat-radio-button color="warn"
             class="example-radio-button col s12 m12"
             *ngFor="let option of poll.options; let i = index" [value]="i+1">
             <span class="poll-option">{{option.option}}</span>
-          </mat-radio-button>
+            </mat-radio-button>
         </div>
       </mat-radio-group>
     </div>
 
     <div class="center actions">
         <button type="submit" class="btn orange">Vota!</button>
-        <button (click)="deletePoll($event, i, voteForm)" class="btn red">Eliminar Tema</button>
+        <button (click)="deletePoll($event, i, voteForm)" class="btn red">Eliminar</button>
     </div>
 </form>

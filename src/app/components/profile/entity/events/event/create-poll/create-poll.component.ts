@@ -46,7 +46,7 @@ export class CreatePollComponent implements OnInit {
        for (let x = 0; x < long; x++){
 
          this.options.push({
-           optionID: `${x}`,
+           id: `${x}`,
            option: addPollForm.value[x]
          })
        };
@@ -72,7 +72,7 @@ export class CreatePollComponent implements OnInit {
     addQuestion($event){
       event.preventDefault();
       this.defaultOptions.push({
-        optionID: "",
+        id: "",
         option: ""
       });
     }

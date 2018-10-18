@@ -3,19 +3,19 @@
   margin-right: 25px;
 }
 
-.margin {
-  width: 90%;
-  margin: 0 auto;
+mat-expansion-panel-header {
+  padding: 20px;
+  height: auto!important;
 }
 
-mat-expansion-panel-header {
-  padding: 10px 20px;
+.mat-expanded {
+  height: auto!important;
 }
 
 .question {
   margin-right: 5px;
 }
 
-.mat-expansion-panel-body {
-  margin-top: -15px!important;
+.poll-list {
+  padding: 10px;
 }

@@ -25,16 +25,7 @@ export class CreateEventComponent implements OnInit {
               private eventService: EventService,
               public dialog: MatDialog) { }
 
-  ngOnInit() {
-    this.getEvents();
-  }
-
-  getEvents() {
-    this.eventService.getEvents()
-      .subscribe(res => {
-        this.eventService.events = res as Event[];
-      });
-  }
+  ngOnInit() {}
 
   addEvent(form?: NgForm) {
 
@@ -51,13 +42,11 @@ export class CreateEventComponent implements OnInit {
      this.eventService.updateEvent(form.value)
        .subscribe(res => {
          this.resetForm(form);
-         this.getEvents();
          console.log('Evento editado');
        });
    } else {
      this.eventService.addEvent(form.value)
      .subscribe(res => {
-       this.getEvents();
        this.resetForm(form);
         console.log('Evento guardado');
      });
@@ -71,21 +60,6 @@ export class CreateEventComponent implements OnInit {
 
     this.dialog.closeAll();
     this.resetForm(form);
- }
-
- deleteEvent(id: string, form: NgForm) {
-    if (confirm('Estás seguro quieres eliminar este evento?')) {
-      this.eventService.deleteEvent(id)
-        .subscribe(res => {
-          this.getEvents();
-          this.resetForm(form);
-           console.log('Evento eliminado');
-        });
-    }
-  }
-
-  editEvent(event: Event) {
-   this.selectedEvent = event;
  }
 
  resetForm(form: NgForm){

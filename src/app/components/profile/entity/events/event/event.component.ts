@@ -19,8 +19,8 @@ export class EventComponent implements OnInit {
 
   }
 
-  createPoll(id: string){  // Show INFO of the Book by Key
-  this.router.navigate(['/profile/', id]);
+  createPoll(id: string){  // Go to Entity - > Events - Poll Page
+    this.router.navigate(['/profile/', id]);
   }
 
 }

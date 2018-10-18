@@ -14,6 +14,8 @@ import { Poll } from '../../../../../../../models/poll';
 export class PollComponent implements OnInit {
 
   @Input() entityEvent: Event;
+  @Input() poll: Poll;
+  @Input() i: any;
 
   constructor(public eventService: EventService) { }
 

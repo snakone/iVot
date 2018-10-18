@@ -36,7 +36,6 @@ import { AppWelcomeComponent } from './components/app-welcome/app-welcome.compon
 
 import { ProfileComponent } from './components/profile/profile.component';
 import { EventsComponent } from './components/profile/entity/events/events.component';
-import { EntityComponent } from './components/profile/entity/entity.component';
 import { EventComponent } from './components/profile/entity/events/event/event.component';
 import { PollComponent } from './components/profile/entity/events/event/polls/poll/poll.component';
 import { PollsComponent } from './components/profile/entity/events/event/polls/polls.component';
@@ -61,7 +60,7 @@ import { ToastrModule } from 'ngx-toastr';
     AppComponent, TopNavComponent, AppGridComponent, TopMenuComponent,
     TopTitleComponent, AppWelcomeComponent, CreateEventComponent, ProfileComponent,
     EntityRegisterComponent, EventsComponent, EventComponent, PollComponent,
-    PollsComponent, CreatePollComponent, QuestionsComponent, EntityComponent,
+    PollsComponent, CreatePollComponent, QuestionsComponent,
     FooterNavComponent, AdminEntityComponent],
   imports: [
     BrowserModule, HttpClientModule, BrowserAnimationsModule,

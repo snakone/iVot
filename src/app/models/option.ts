@@ -1,9 +1,9 @@
 export class Option {
-  optionID: string;
+  id: string;
   option: string;
 
-  constructor (optionID: string, option: string){
-    this.optionID = optionID;
+  constructor (id: string, option: string){
+    this.id = id;
     this.option = option;
   }
 }

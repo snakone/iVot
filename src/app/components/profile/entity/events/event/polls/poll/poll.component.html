@@ -1,7 +1,6 @@
-<div class="row center" *ngFor="let poll of eventService.pollList; let i = index">
-  <div class="col s12 m12" *ngIf="eventService.pollList">
+  <div class="col s12 m12 poll-list">
       <mat-accordion>
-        <mat-expansion-panel class="margin" (opened)="panelOpenState = true;"
+        <mat-expansion-panel (opened)="panelOpenState = true;"
                            (closed)="panelOpenState = false">
         <mat-expansion-panel-header>
           <mat-panel-title [ngClass]="{'opened': panelOpenState == true}">
@@ -9,13 +8,13 @@
             <span class="question">{{ poll.question}}</span>
           </mat-panel-title>
         </mat-expansion-panel-header>
-            
+
         <poll-questions [poll]="poll" [i]="i"></poll-questions>
 
         </mat-expansion-panel>
       </mat-accordion>
   </div>
-</div>
+
 
 <div *ngIf="eventService.pollList.length == 0">
   <p>Parece ser que aún no hay Temas</p>

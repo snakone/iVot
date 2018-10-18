@@ -1,6 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { Event } from '../../../../../../models/event';
+import { Poll } from '../../../../../../models/poll';
+
+import { EventService } from '../../../../../../services/event.service';
 
 import { CreatePollComponent } from '../create-poll/create-poll.component';
 
@@ -17,11 +20,14 @@ export class PollsComponent implements OnInit {
 
   @Input() entityEvent: Event;
   openNew: boolean = false;
+  polls: Poll[];
 
   constructor(public dialog: MatDialog,
-              private toastr: ToastrService) { }
+              private toastr: ToastrService,
+              private eventService: EventService) { }
 
   ngOnInit() {
+    this.polls = this.eventService.pollList;
   }
 
   openNewPoll(){
