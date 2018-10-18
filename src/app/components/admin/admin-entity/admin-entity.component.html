@@ -17,6 +17,13 @@
               </div>
 
               <div class="input-field col s12 m12 l6">
+                <span class="helper-text bold">Password Entidad</span>  <!-- Entity Password -->
+                <input type="text" name="password" class="validate"
+                #password="ngModel" [(ngModel)]="entityService.selectedEntity.password"
+                placeholder="Introduce un password">
+              </div>
+
+              <div class="input-field col s12 m12 l6">
                 <span class="helper-text bold">Dirección</span>  <!-- Entity Address -->
                 <input type="text" name="address" class="validate"
                 #address="ngModel" [(ngModel)]="entityService.selectedEntity.address"

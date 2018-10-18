@@ -11,7 +11,7 @@ import { Event } from '../models/event';
 
 export class EventService {
 
-  readonly URL_API = 'http://localhost:8080/api/Event';
+  readonly URL_API = 'https://ivotapp.herokuapp.com/organizations';
 
   pollList: Poll[]=[{
     pollID: 12345,
@@ -32,14 +32,7 @@ export class EventService {
       ]
   }];
 
-  events: Event[] = [{
-    entityID: "5bc10cbc3385d56f61f6a330",
-    eventName: "Google Meet-up Event",
-    eventTime: "12/02/2018",
-    eventDescription: "Evento de Google. Descubre lo último del gigante de Internet"
-  }
-
-  ];
+  events: Event[] = [];
 
   selectedEvent: Event;
 
@@ -52,11 +45,11 @@ export class EventService {
   }
 
   addEvent(event: Event) {
-    return this.http.post(this.URL_API, event);
+    return this.http.post(this.URL_API + `/14` + `/events`, event);
   }
 
   updateEvent(event: Event) {
-   return this.http.put(this.URL_API + `/${event.entityID}`, event );
+   return this.http.put(this.URL_API + `/${event.id}`, event );
  }
 
   deleteEvent(id: string) {

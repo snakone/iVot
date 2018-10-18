@@ -33,6 +33,7 @@ export class AdminEntityComponent implements OnInit {
 
   addEntity(form: NgForm){
     if (form.value.id) {  // Already Entity ID? -> Update
+      console.log(form.value)
       this.entityService.updateEntity(form.value)  // Update Entity with Form Values
        .subscribe (res => {  // Subscribe to the Server Response
          this.toastr.info('Bien!', 'Entidad Actualizada!');

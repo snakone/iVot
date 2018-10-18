@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 
 export class ProfileService {
 
-  admin: boolean = false;
+  admin: boolean = true;
   Auth: string;
 
   constructor() { }

@@ -4,29 +4,29 @@
     <form #addEventForm="ngForm" class="col s12 margin-top" (ngSubmit)="addEvent(addEventForm)">
         <div class="row">
 
-            <input type="hidden" name="entityID" [(ngModel)]="selectedEvent.entityID" #entityID="ngModel">
+            <input type="hidden" name="id" [(ngModel)]="selectedEvent.id" #id="ngModel">
 
             <div class="input-field col s12 m12">
                 <i class="material-icons prefix">assignment</i>
-                <input name="eventName" type="text"
-                [(ngModel)]="selectedEvent.eventName" #eventName="ngModel" data-length="25" maxlength="25">
-                <label for="eventName">Nombre del Evento</label>
+                <input name="name" type="text"
+                [(ngModel)]="selectedEvent.name" #name="ngModel" data-length="25" maxlength="25">
+                <label for="name">Nombre del Evento</label>
             </div>
 
             <div class="input-field col s12 m12">
                 <i class="material-icons prefix">description</i>
-                <textarea name="eventDescription" class="materialize-textarea"
-                data-length="120" maxlength="120" [(ngModel)]="selectedEvent.eventDescription"
-                #eventDescription="ngModel"></textarea>
-                <label for="eventDescription">Descripción</label>
+                <textarea name="description" class="materialize-textarea"
+                data-length="120" maxlength="120" [(ngModel)]="selectedEvent.description"
+                #description="ngModel"></textarea>
+                <label for="description">Descripción</label>
             </div>
 
             <div class="input-field col s12 m12 margin-top">
                 <i class="material-icons prefix">watch_later
                     </i>
                 <mat-datepicker-toggle class="right" matSuffix [for]="picker"></mat-datepicker-toggle>
-                <input name="eventTime" matInput [matDatepicker]="picker"
-                [(ngModel)]="selectedEvent.eventTime" #eventTime="ngModel" placeholder="Elige una fecha">
+                <input name="eventDate" matInput [matDatepicker]="picker"
+                [(ngModel)]="selectedEvent.eventDate" #eventDate="ngModel" placeholder="Elige una fecha">
                  <mat-datepicker touchUi class="datepicker" #picker> </mat-datepicker>
             </div>
 

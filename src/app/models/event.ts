@@ -1,16 +1,19 @@
 export class Event {
 
-      entityID: string;
-      eventName: string;
-      eventTime: string;
-      eventDescription: string;
+      id: string;
+      name: string;
+      icon: string;
+      description: string;
+      pdfFile: string;
+      eventDate: string;
 
-      constructor (entityID: string, name: string, time: string, description: string){
+      constructor (id: string, name: string, time: string,
+                   description: string, eventDate: string){
 
-        this.entityID = entityID;
-        this.eventName = name;
-        this.eventTime = time;
-        this.eventDescription = description;
+        this.id = id;
+        this.name = name;
+        this.eventDate = eventDate;
+        this.description = description;
 
       }
 }

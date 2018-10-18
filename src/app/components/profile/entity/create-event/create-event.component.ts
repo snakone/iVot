@@ -38,16 +38,16 @@ export class CreateEventComponent implements OnInit {
 
   addEvent(form?: NgForm) {
 
+    console.log(form.value);
+
    try {
-      form.value.eventTime = this.yyyymmdd(form.value.eventTime);
+      form.value.eventDate = this.yyyymmdd(form.value.eventDate);
    } catch(err){
       alert('Por favor, Introduce una fecha correcta');
       return false;
    }
 
-   form.value.EventID = this.profileService.Auth;
-
-   if (form.value.eventID) {
+   if (form.value.id) {
      this.eventService.updateEvent(form.value)
        .subscribe(res => {
          this.resetForm(form);
@@ -63,10 +63,12 @@ export class CreateEventComponent implements OnInit {
      });
    }
 
-    const newEvent = new Event (form.value.EventID, form.value.eventName,
-    form.value.eventTime, form.value.eventDescription);
-    this.eventService.events.push(newEvent);
-    this.toastr.success('Evento Creado', 'Muy bien!');
+    // const newEvent = new Event (form.value.id, form.value.eventName,
+    // form.value.eventTime, form.value.eventDescription);
+    // this.eventService.events.push(newEvent);
+    //
+    // this.toastr.success('Evento Creado', 'Muy bien!');
+
     this.dialog.closeAll();
     this.resetForm(form);
  }
