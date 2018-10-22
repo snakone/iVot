@@ -39,15 +39,18 @@ export class CreatePollComponent implements OnInit {
    onSubmit(addPollForm: NgForm){
        let question = addPollForm.value.question;
        let eventID = "12345";  // Random
-       let long = Object.keys(addPollForm.value).length - 1;
+       let long = Object.keys(addPollForm.value).length;
 
-       for (let x = 0; x < long; x++){
+       console.log(long)
+       for (let x = 1; x < long; x++){
 
          this.options.push({
            id: `${x}`,
-           option: addPollForm.value[x]
+           option: addPollForm.value[x-1]
          })
        };
+
+       console.log(this.options)
 
        if (question == null || this.options[0] == null)
        alert('Por favor, Rellena el formulario')
