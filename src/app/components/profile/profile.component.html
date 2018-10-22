@@ -1,5 +1,4 @@
 <div class="container animated slideInLeft">
-
     <div class="center noAuth" *ngIf="!auth.isAuthenticated()">
         <h3>No estás autentificado,<br> Accede a tu
           <a class="link-to-login" (click)="login()">perfil</a>.
@@ -10,12 +9,21 @@
           target="_NEW">Auth0</a>.</p>
     </div>
 
-    <div *ngIf="auth.isAuthenticated()">
-            <div>
-                <label><i class="glyphicon glyphicon-user"></i> Perfil</label>
-                <h3 class="nickname">Bienvenido</h3>
-            </div>
-        <entity-events></entity-events>
-    </div>
+    <div>
+      <label><i class="glyphicon glyphicon-user"></i> Perfil</label>
+      <h4 class="nickname">Bienvenido</h4>
+      <br>
+        <div *ngIf="auth.isAuthenticated() && profileService.organization">
+            <profile-card></profile-card>
 
+            <entity-events></entity-events>
+        </div>
+
+      <div class="center" *ngIf="auth.isAuthenticated() && !profileService.organization">
+        Para registrar una Entidad, contacta con un
+        <span class="bold">Administrador</span> y dale el siguiente código:
+        <p class="code center"><code>{{profileService.token}}</code></p>
+        <p>Muchas gracias por tu interés en <span class="bold">iVot</span></p>
+      </div>
+    </div>
 </div>

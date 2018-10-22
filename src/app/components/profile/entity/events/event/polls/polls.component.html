@@ -1,9 +1,11 @@
-<div class="container animated slideInLeft">
+<div class="container">
     <div>
         <div class="profile">
-            <label><i class="glyphicon glyphicon-user"></i> Perfil
+            <label>Perfil
+              <mat-icon class="arrow">arrow_right_alt</mat-icon> Evento
               <mat-icon class="arrow">arrow_right_alt</mat-icon> Temas</label>
-            <h3 class="nickname">Temas</h3>
+
+            <h4 class="nickname">Temas</h4>
         </div>
 
         <div>
@@ -13,7 +15,12 @@
             <br>
         </div>
     </div>
-        <event-poll [poll]="poll" [i]="i" *ngFor="let poll of polls; let i = index" ></event-poll>
-    <br>
+      <div class="row">
+        <event-poll [poll]="poll" [i]="i" *ngFor="let poll of eventService.pollList; let i = index" ></event-poll>
+      </div>
 
+      <div *ngIf="eventService.pollList.length == 0">
+        <p>Parece ser que aún no hay Temas</p>
+      </div>
+      <br>
 </div>

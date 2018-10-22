@@ -28,16 +28,17 @@ export class QuestionsComponent implements OnInit {
   }
 
   vote(form: NgForm){
-    let x = form.value.options;
-    this.toastr.info(`${form.value.option}`,
-                     `${this.poll.options[form.value.option-1].option}`);
+    this.toastr.info(`${this.poll.options[form.value.option].id}`,
+                     `${this.poll.options[form.value.option].option}`);
   }
 
   deletePoll($event, i, form: NgForm){
     event.preventDefault();
-    this.eventService.pollList = this.eventService.pollList.filter( x => {
-      return x.question != this.eventService.pollList[i].question;
-    })
+      if(confirm("Are You sure?")){
+        this.eventService.pollList = this.eventService.pollList.filter( x => {
+          return x.question != this.eventService.pollList[i].question;
+        })
+      }
   }
 
 }

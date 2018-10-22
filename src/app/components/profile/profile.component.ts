@@ -9,10 +9,11 @@ import { EntityService } from '../../services/entity.service';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
+
 export class ProfileComponent implements OnInit {
 
   constructor( public auth: AuthService,
-               private profileService: ProfileService,
+               public profileService: ProfileService,
                public entityService: EntityService) { }
 
   ngOnInit() {

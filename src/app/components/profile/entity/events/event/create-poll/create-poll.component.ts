@@ -18,6 +18,7 @@ import { MatDialog } from '@angular/material';  // Dialog
   templateUrl: './create-poll.component.html',
   styleUrls: ['./create-poll.component.css']
 })
+
 export class CreatePollComponent implements OnInit {
 
   @Input() entityEvent: Event;
@@ -27,15 +28,12 @@ export class CreatePollComponent implements OnInit {
   defaultOptions: Option[]=[];
   options: Option[]=[];
 
-  entityID: string;
-
    constructor(private eventService: EventService,
                private profileService: ProfileService,
                private toastr: ToastrService,
                public dialog: MatDialog) {}
 
    ngOnInit() {
-     this.entityID = this.profileService.token;
    }
 
    onSubmit(addPollForm: NgForm){

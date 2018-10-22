@@ -32,19 +32,19 @@ export class EventService {
       ]
   },{
     id: 12345,
-    question: "¿Crees que deberíamos repertir el evento en otra ocasion? dinos lo que piensas!",
+    question: "¿Crees que deberíamos repertir el evento en otra ocasión? Dinos lo que piensas!",
     options: [{
-      id: "1",
-      option: "Estuvo genial!"
+      id: "2",
+      option: "Por supuesto!"
     }, {
       id: "2",
-      option: "Nada mal"
+      option: "Estaría bien"
     }, {
       id: "3",
-      option: "Mejorable"
+      option: "Mejor que no"
     }, {
       id: "4",
-      option: "No volvería a ir"
+      option: "Ni se os ocurra!"
     }
       ]
   }];

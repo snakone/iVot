@@ -6,7 +6,7 @@
         <div class="col s12 m12">
             <mat-radio-button color="warn"
             class="example-radio-button col s12 m12"
-            *ngFor="let option of poll.options; let i = index" [value]="i+1">
+            *ngFor="let option of poll.options; let i = index" [value]="i">
             <span class="poll-option">{{option.option}}</span>
             </mat-radio-button>
         </div>

@@ -18,6 +18,7 @@ import { MatDialog } from '@angular/material';  // Dialog
   templateUrl: './create-event.component.html',
   styleUrls: ['./create-event.component.css']
 })
+
 export class CreateEventComponent implements OnInit {
 
   selectedEvent: Event = <Event>{};
@@ -31,7 +32,6 @@ export class CreateEventComponent implements OnInit {
   ngOnInit() {}
 
   addEvent(form?: NgForm) {
-
    try {
       form.value.eventDate = this.yyyymmdd(form.value.eventDate);
    } catch(err){
@@ -42,20 +42,16 @@ export class CreateEventComponent implements OnInit {
      this.eventService.addEvent(form.value)
      .subscribe(res => {
        this.resetForm(form);
-        console.log('Evento guardado');
+       this.toastr.success('Evento Creado', 'Muy bien!');
      });
    }
-
-    this.toastr.success('Evento Creado', 'Muy bien!');
     this.dialog.closeAll();
-    this.resetForm(form);
     this.router.navigate(['/home']);
  }
 
  resetForm(form: NgForm){
   if (form != null) // Reset form if not empty and we add a empty Poll
       form.reset();
-    // this.selectedEvent = <Event>{}; // Instance a Empty Poll Class
   }
 
   yyyymmdd(date) {

@@ -1,6 +1,8 @@
 <h5>Eventos <mat-icon (click)="openNewEvent()" class="add-button">playlist_add</mat-icon></h5>
 <br>
-  <div *ngIf="!profileService.events">Aún no has registrado ningún evento</div>
+  <div *ngIf="profileService.events">
+    <span *ngIf="profileService.events.length == 0">Aún no has registrado ningún evento</span>
+  </div>
 
   <div class="row">
     <app-event *ngFor="let event of profileService.events" [event]="event"></app-event>

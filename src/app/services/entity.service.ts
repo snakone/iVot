@@ -28,7 +28,7 @@ export class EntityService {
 
   addEntity(entity: Entity) {
     let newEntity = new Entity(entity.name, entity.email, entity.token,
-                               entity.icon, entity.description, entity.address,);
+                               entity.icon, entity.description, entity.address);
 
     return this.http.post(this.URL_API, newEntity);
   }

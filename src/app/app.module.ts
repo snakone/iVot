@@ -53,6 +53,7 @@ import { AppRoutingModule } from './routes/app.routes';
 // Toaster
 
 import { ToastrModule } from 'ngx-toastr';
+import { ProfileCardComponent } from './components/profile/profile-card/profile-card.component';
 
 
 @NgModule({
@@ -61,7 +62,7 @@ import { ToastrModule } from 'ngx-toastr';
     TopTitleComponent, AppWelcomeComponent, CreateEventComponent, ProfileComponent,
     EntityRegisterComponent, EventsComponent, EventComponent, PollComponent,
     PollsComponent, CreatePollComponent, QuestionsComponent,
-    FooterNavComponent, AdminEntityComponent],
+    FooterNavComponent, AdminEntityComponent, ProfileCardComponent],
   imports: [
     BrowserModule, HttpClientModule, BrowserAnimationsModule,
     MaterialModule, NgxPaginationModule,FormsModule,

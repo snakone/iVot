@@ -16,6 +16,7 @@ import { ToastrService } from 'ngx-toastr';  // Toastr
   templateUrl: './polls.component.html',
   styleUrls: ['./polls.component.css']
 })
+
 export class PollsComponent implements OnInit {
 
   @Input() entityEvent: Event;

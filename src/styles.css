@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 
-/* Bg Color:  #ff4081 */
+/* Bg Color: #fecb51 */
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "node_modules/materialize-css/dist/css/materialize.min.css";
@@ -13,4 +13,8 @@ body {
     font-family: 'Comfortaa', cursive;
     width: 100%;
     height: 100%;
+}
+
+.bold {
+  font-weight: bold;
 }

@@ -18,6 +18,7 @@ import { NgForm } from '@angular/forms';  // Angular Forms
 export class AdminEntityComponent implements OnInit {
 
   entityList: Entity[];
+  token: boolean = true;
 
   constructor(public entityService: EntityService,
               public profileService: ProfileService,
@@ -36,7 +37,6 @@ export class AdminEntityComponent implements OnInit {
 
   addEntity(form: NgForm){
     if (form.value.id) {  // Already Entity ID? -> Update
-      console.log(form.value)
       this.entityService.updateEntity(form.value)  // Update Entity with Form Values
        .subscribe (res => {  // Subscribe to the Server Response
          this.toastr.info('Bien!', 'Entidad Actualizada!');
@@ -45,6 +45,7 @@ export class AdminEntityComponent implements OnInit {
        })
     }
     else {  // Not Entity ID? Oh, New Entity?
+      form.value.icon = `assets/icons/${form.value.icon}.png`;
       this.entityService.addEntity(form.value)  // Add Entity with Form Values
       .subscribe(res => {  // Subscribe to the Server Response
         this.toastr.success('Genial!', 'Entidad Añadida');
@@ -55,11 +56,11 @@ export class AdminEntityComponent implements OnInit {
   }
 
   updateEntity(Entity: Entity){  // NEW Entity Object with the Entity -> selected Entity
-    this.entityService.selectedEntity = Object.assign({}, Entity);;
+    this.entityService.selectedEntity = Object.assign({}, Entity);
+    this.token = false;
   }
 
   deleteEntity(id: string){  // Need the Entity ID
-
     if(confirm("Are You sure?")){
     this.entityService.deleteEntity(id)  // Delete Entity by ID
      .subscribe( res => {  // Subscribe to the Server Response
@@ -70,6 +71,7 @@ export class AdminEntityComponent implements OnInit {
   }
 
   resetForm($event,form?: NgForm){
+    this.token = true;
     event.preventDefault();
     if (form) form.reset();  // Form?
     this.entityService.selectedEntity = <Entity>{};  // On Reset, New Entity

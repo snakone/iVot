@@ -11,10 +11,11 @@ import { Event } from '../models/event';
 
 export class ProfileService {
 
-  admin: boolean = true;
+  admin: boolean = false;
   token: string;
   events: Event[];
   organization: Entity;
+
 
   readonly URL_API = 'https://ivotapp.herokuapp.com/organizations';
 
@@ -25,15 +26,14 @@ export class ProfileService {
 
     let mail = {email: profile.email};
 
-    this.getOrganizationByEmail(mail)
-     .subscribe(res => {
-      this.organization = res as Entity;
-
-      this.getEventsByOrganization(this.organization.id)
-       .subscribe(res => {
-        this.events = res as Event[];
-      })
-    })
+        this.getOrganizationByEmail(mail)
+         .subscribe(res => {
+          this.organization = res as Entity;
+          this.getEventsByOrganization(this.organization.id)
+           .subscribe(res => {
+            this.events = res as Event[];
+          })
+        });
 
     if (this.token == '5bc10cbc3385d56f61f6a330' ||
         this.token == '5bc45f88b144eb0173391d71') this.admin = true;

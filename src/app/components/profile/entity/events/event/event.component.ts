@@ -8,6 +8,7 @@ import { Router } from '@angular/router'; // Router
   templateUrl: './event.component.html',
   styleUrls: ['./event.component.css']
 })
+
 export class EventComponent implements OnInit {
 
   @Input() event: Event;
@@ -17,8 +18,8 @@ export class EventComponent implements OnInit {
 
   ngOnInit() {}
 
-  createPoll(id: string){  // Go to Entity - > Events - Poll Page
-    this.router.navigate(['/profile/', id]);
+  createPoll(event: Event){  // Go to Entity - > Events - Poll Page
+    this.router.navigate(['/profile/', event.id]);
   }
 
 }
