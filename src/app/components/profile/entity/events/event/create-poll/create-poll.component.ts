@@ -35,7 +35,7 @@ export class CreatePollComponent implements OnInit {
                public dialog: MatDialog) {}
 
    ngOnInit() {
-     this.entityID = this.profileService.Auth;
+     this.entityID = this.profileService.token;
    }
 
    onSubmit(addPollForm: NgForm){

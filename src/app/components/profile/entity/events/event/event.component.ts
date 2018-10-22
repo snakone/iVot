@@ -15,9 +15,7 @@ export class EventComponent implements OnInit {
 
   constructor(private router: Router) { }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   createPoll(id: string){  // Go to Entity - > Events - Poll Page
     this.router.navigate(['/profile/', id]);

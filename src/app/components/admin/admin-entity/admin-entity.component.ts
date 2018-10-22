@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { EntityService } from '../../../services/entity.service';  // Entity Service
 import { Entity } from '../../../models/entity';  // Entity Model
 
+import { ProfileService } from '../../../services/profile.service';  // Entity Service
+
 import { ToastrService } from 'ngx-toastr';  // Toastr
 
 import { NgForm } from '@angular/forms';  // Angular Forms
@@ -18,6 +20,7 @@ export class AdminEntityComponent implements OnInit {
   entityList: Entity[];
 
   constructor(public entityService: EntityService,
+              public profileService: ProfileService,
               private toastr: ToastrService) { }
 
   ngOnInit() {

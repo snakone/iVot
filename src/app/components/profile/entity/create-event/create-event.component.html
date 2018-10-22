@@ -4,7 +4,8 @@
     <form #addEventForm="ngForm" class="col s12 margin-top" (ngSubmit)="addEvent(addEventForm)">
         <div class="row">
 
-            <input type="hidden" name="id" [(ngModel)]="selectedEvent.id" #id="ngModel">
+            <input type="hidden" name="id" [(ngModel)]="profileService.organization.id" #id="ngModel">
+            <input type="hidden" name="auth" [(ngModel)]="profileService.token" #auth="ngModel">
 
             <div class="input-field col s12 m12">
                 <i class="material-icons prefix">assignment</i>
@@ -19,6 +20,13 @@
                 data-length="120" maxlength="120" [(ngModel)]="selectedEvent.description"
                 #description="ngModel"></textarea>
                 <label for="description">Descripción</label>
+            </div>
+
+            <div class="input-field col s12 m12">
+                <i class="material-icons prefix">image</i>
+                <input name="icon" type="text"
+                [(ngModel)]="selectedEvent.icon" #icon="ngModel">
+                <label for="name">Icono del Evento</label>
             </div>
 
             <div class="input-field col s12 m12 margin-top">

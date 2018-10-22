@@ -8,7 +8,7 @@ export class Poll {
 
 
   constructor(question: string, options: Option[]){
-              this.question = question;
-              this.options = options;
+                this.question = question;
+                this.options = options;
               }
 }

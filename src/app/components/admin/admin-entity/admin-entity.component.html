@@ -9,18 +9,14 @@
               <input type="hidden" name="id"
               #_id="ngModel" [(ngModel)]="entityService.selectedEntity.id">
 
+              <input type="hidden" name="token"
+              #token="ngModel" [(ngModel)]="profileService.token">
+
               <div class="input-field col s12 m12 l6">
                 <span class="helper-text bold">Nombre Entidad</span>  <!-- Entity Name -->
                 <input type="text" name="name" class="validate"
                 #name="ngModel" [(ngModel)]="entityService.selectedEntity.name"
                 placeholder="Introduce un nombre">
-              </div>
-
-              <div  *ngIf="!entityService.selectedEntity.id" class="input-field col s12 m12 l6">
-                <span class="helper-text bold">Password Entidad</span>  <!-- Entity Password -->
-                <input type="text" name="password" class="validate"
-                #password="ngModel" [(ngModel)]="entityService.selectedEntity.password"
-                placeholder="Introduce un password">
               </div>
 
               <div class="input-field col s12 m12 l6">

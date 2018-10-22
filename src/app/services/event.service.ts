@@ -61,8 +61,12 @@ export class EventService {
     return this.http.get(this.URL_API);
   }
 
+  getEventsByOrganization(id){
+    return this.http.get(this.URL_API + `/${id}/events`)
+  }
+
   addEvent(event: Event) {
-    return this.http.post(this.URL_API + `/14` + `/events`, event);
+    return this.http.post(this.URL_API + `/${event.id}/events`, event );
   }
 
   updateEvent(event: Event) {

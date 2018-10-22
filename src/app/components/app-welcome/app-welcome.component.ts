@@ -28,9 +28,6 @@ entity: Entity;
           this.profileService.checkProfile(profile);
         });
       }
-    // this.entity = new Entity("Ciberanium","Roc Boronat","Ciberanium@bcnactiva.com",
-    //                          "assets/image.png", "Evento Ciberanium", "12345", this.events);
-    // console.log(this.entity)
   }
 
   login() {

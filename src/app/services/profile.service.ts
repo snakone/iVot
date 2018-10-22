@@ -1,5 +1,10 @@
 import { Injectable } from '@angular/core';
 
+import { HttpClient } from '@angular/common/http';
+
+import { Entity } from '../models/entity';
+import { Event } from '../models/event';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -7,15 +12,41 @@ import { Injectable } from '@angular/core';
 export class ProfileService {
 
   admin: boolean = true;
-  Auth: string;
+  token: string;
+  events: Event[];
+  organization: Entity;
 
-  constructor() { }
+  readonly URL_API = 'https://ivotapp.herokuapp.com/organizations';
+
+  constructor(private http: HttpClient) { }
 
   checkProfile(profile){
-    this.Auth = profile.sub.substring(6);
-    if (this.Auth == '5bc10cbc3385d56f61f6a330' ||
-        this.Auth == '5bc45f88b144eb0173391d71') this.admin = true;
+    this.token = profile.sub.substring(6);
+
+    let mail = {email: profile.email};
+
+    this.getOrganizationByEmail(mail)
+     .subscribe(res => {
+      this.organization = res as Entity;
+
+      this.getEventsByOrganization(this.organization.id)
+       .subscribe(res => {
+        this.events = res as Event[];
+      })
+    })
+
+    if (this.token == '5bc10cbc3385d56f61f6a330' ||
+        this.token == '5bc45f88b144eb0173391d71') this.admin = true;
   }
+
+  getOrganizationByEmail(email){
+    return this.http.post(this.URL_API + "/login", email);
+  }
+
+  getEventsByOrganization(id){
+    return this.http.get(this.URL_API + `/${id}/events`)
+  }
+
 }
 
 // Idea: tanto "Entidad" como "User" se registran con "Auth0" lo que entidad "manualmente"

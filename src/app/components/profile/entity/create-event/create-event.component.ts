@@ -7,6 +7,8 @@ import { ProfileService } from '../../../../services/profile.service';
 import { EventService } from '../../../../services/event.service';
 import { ToastrService } from 'ngx-toastr';
 
+import { Router } from '@angular/router';
+
 import { Event } from '../../../../models/event';
 
 import { MatDialog } from '@angular/material';  // Dialog
@@ -21,15 +23,14 @@ export class CreateEventComponent implements OnInit {
   selectedEvent: Event = <Event>{};
 
   constructor(private toastr: ToastrService,
-              private profileService: ProfileService,
+              public profileService: ProfileService,
               private eventService: EventService,
+              private router: Router,
               public dialog: MatDialog) { }
 
   ngOnInit() {}
 
   addEvent(form?: NgForm) {
-
-    console.log(form.value);
 
    try {
       form.value.eventDate = this.yyyymmdd(form.value.eventDate);
@@ -37,14 +38,7 @@ export class CreateEventComponent implements OnInit {
       alert('Por favor, Introduce una fecha correcta');
       return false;
    }
-
-   if (form.value.id) {
-     this.eventService.updateEvent(form.value)
-       .subscribe(res => {
-         this.resetForm(form);
-         console.log('Evento editado');
-       });
-   } else {
+ {
      this.eventService.addEvent(form.value)
      .subscribe(res => {
        this.resetForm(form);
@@ -52,14 +46,10 @@ export class CreateEventComponent implements OnInit {
      });
    }
 
-    // const newEvent = new Event (form.value.id, form.value.eventName,
-    // form.value.eventTime, form.value.eventDescription);
-    // this.eventService.events.push(newEvent);
-    //
-    // this.toastr.success('Evento Creado', 'Muy bien!');
-
+    this.toastr.success('Evento Creado', 'Muy bien!');
     this.dialog.closeAll();
     this.resetForm(form);
+    this.router.navigate(['/home']);
  }
 
  resetForm(form: NgForm){
