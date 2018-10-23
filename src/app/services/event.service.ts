@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Poll } from '../models/poll';
+import { Topic } from '../models/topic';
 import { HttpClient } from '@angular/common/http';
 
 import { Event } from '../models/event';
@@ -12,42 +12,6 @@ import { Event } from '../models/event';
 export class EventService {
 
   readonly URL_API = 'https://ivotapp.herokuapp.com/organizations';
-
-  pollList: Poll[]=[{
-    id: 12345,
-    question: "¿Qué te pareció el evento?",
-    options: [{
-      id: "1",
-      option: "Estuvo genial!"
-    }, {
-      id: "2",
-      option: "Nada mal"
-    }, {
-      id: "3",
-      option: "Mejorable"
-    }, {
-      id: "4",
-      option: "No volvería a ir"
-    }
-      ]
-  },{
-    id: 12345,
-    question: "¿Crees que deberíamos repertir el evento en otra ocasión? Dinos lo que piensas!",
-    options: [{
-      id: "1",
-      option: "Por supuesto!"
-    }, {
-      id: "2",
-      option: "Estaría bien"
-    }, {
-      id: "3",
-      option: "Mejor que no"
-    }, {
-      id: "4",
-      option: "Ni se os ocurra!"
-    }
-      ]
-  }];
 
   events: Event[] = [];
 
@@ -73,8 +37,8 @@ export class EventService {
    return this.http.put(this.URL_API + `/${event.id}`, event );
  }
 
-  deleteEvent(id: string) {
-   return this.http.delete(this.URL_API + `/${id}`);
+  deleteEvent(id: string, entityID) {
+   return this.http.delete(this.URL_API + `/${entityID}/events/${id}`);
  }
 
 }

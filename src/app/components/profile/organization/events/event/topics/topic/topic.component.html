@@ -1,0 +1,16 @@
+  <div class="col s12 m12 topic-list">
+      <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = true;"
+                           (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title [ngClass]="{'opened': panelOpenState == true}">
+            <span class="bold">Pregunta:</span>
+            <span class="topic">{{ topic.description}}</span>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <topic-options [topic]="topic"></topic-options>
+
+        </mat-expansion-panel>
+      </mat-accordion>
+  </div>

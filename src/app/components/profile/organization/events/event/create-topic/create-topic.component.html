@@ -1,0 +1,34 @@
+<div class="overflow">
+  <h5>Registrar Tópico</h5>
+  <br>
+    <form #addTopicForm="ngForm" (ngSubmit)="onSubmit(addTopicForm)">
+
+      <div class="row">
+          <div class="input-field col s12 m12">
+            <i class="material-icons prefix">help_outline</i>
+            <input name="description" type="text"
+            [(ngModel)]="selectedTopic.description" #question="ngModel"
+            data-length="40" class="validate" required>
+            <label for="question">Descripción *</label>
+            </div>
+
+            <!-- <div *ngFor="let option of defaultOptions; let i = index" class="input-field col s12 m12">
+              <i class="material-icons prefix">poll</i>
+              <input name="{{i}}" type="text"
+              [(ngModel)]="option.optionID" #option="ngModel"
+              class="validate" required>
+              <label for="{{i}}">Opción {{i+1}}</label>
+            </div> -->
+      </div>
+
+        <div class="col s12 m12 actions">
+          <p class="center">
+            <button class="waves-effect btn orange" type="submit">Registrar</button>
+          </p>
+        </div>
+
+    </form>
+
+    <p class="text-right">* Obligatorio</p>
+
+</div>

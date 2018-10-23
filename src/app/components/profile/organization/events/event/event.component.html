@@ -1,0 +1,21 @@
+<div class="col s12 m12 events-list animated fadeIn">
+    <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+                <mat-panel-title [ngClass]="{'title': panelOpenState == true}">
+                    {{event.name}}
+                </mat-panel-title>
+                <mat-panel-description>
+                    {{event.eventDate}}
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            {{event.description}}
+            <br>
+            <br>
+            <div class="center actions">
+              <button class="btn orange" (click)="createTopic(event)">Crear Tema</button>
+              <button class="btn red" (click)="deleteEvent(event)">Eliminar</button>
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>

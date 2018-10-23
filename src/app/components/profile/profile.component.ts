@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { AuthService } from '../../services/auth.service';
 import { ProfileService } from '../../services/profile.service';
-import { EntityService } from '../../services/entity.service';
+import { OrganizationService } from '../../services/organization.service';
 
 @Component({
   selector: 'app-profile',
@@ -12,9 +12,9 @@ import { EntityService } from '../../services/entity.service';
 
 export class ProfileComponent implements OnInit {
 
-  constructor( public auth: AuthService,
-               public profileService: ProfileService,
-               public entityService: EntityService) { }
+  constructor(public auth: AuthService,
+              public profileService: ProfileService,
+              public organizationService: OrganizationService) { }
 
   ngOnInit() {
     if (this.auth.isAuthenticated()) {

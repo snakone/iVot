@@ -26,7 +26,7 @@ import { FooterNavComponent } from './components/layout/footer-nav/footer-nav.co
 
 // Admin
 
-import { AdminEntityComponent } from './components/admin/admin-entity/admin-entity.component';
+import { AdminOrganizationComponent } from './components/admin/admin-organization/admin-organization.component';
 
 // Dynamic Components
 
@@ -35,14 +35,13 @@ import { AppWelcomeComponent } from './components/app-welcome/app-welcome.compon
 // Profile
 
 import { ProfileComponent } from './components/profile/profile.component';
-import { EventsComponent } from './components/profile/entity/events/events.component';
-import { EventComponent } from './components/profile/entity/events/event/event.component';
-import { PollComponent } from './components/profile/entity/events/event/polls/poll/poll.component';
-import { PollsComponent } from './components/profile/entity/events/event/polls/polls.component';
-import { CreatePollComponent } from './components/profile/entity/events/event/create-poll/create-poll.component';
-import { QuestionsComponent } from './components/profile/entity/events/event/polls/poll/questions/questions.component';
-import { CreateEventComponent } from './components/profile/entity/create-event/create-event.component';
-import { EntityRegisterComponent } from './components/entity-register/entity-register.component';
+import { EventsComponent } from './components/profile/organization/events/events.component';
+import { EventComponent } from './components/profile/organization/events/event/event.component';
+import { TopicComponent } from './components/profile/organization/events/event/topics/topic/topic.component';
+import { TopicsComponent } from './components/profile/organization/events/event/topics/topics.component';
+import { CreateTopicComponent } from './components/profile/organization/events/event/create-topic/create-topic.component';
+import { OptionsComponent } from './components/profile/organization/events/event/topics/topic/options/options.component';
+import { CreateEventComponent } from './components/profile/organization/create-event/create-event.component';
 
 import { NgxPaginationModule } from 'ngx-pagination';
 
@@ -60,9 +59,9 @@ import { ProfileCardComponent } from './components/profile/profile-card/profile-
   declarations: [
     AppComponent, TopNavComponent, AppGridComponent, TopMenuComponent,
     TopTitleComponent, AppWelcomeComponent, CreateEventComponent, ProfileComponent,
-    EntityRegisterComponent, EventsComponent, EventComponent, PollComponent,
-    PollsComponent, CreatePollComponent, QuestionsComponent,
-    FooterNavComponent, AdminEntityComponent, ProfileCardComponent],
+    EventsComponent, EventComponent, TopicComponent,
+    TopicsComponent, CreateTopicComponent, OptionsComponent,
+    FooterNavComponent, AdminOrganizationComponent, ProfileCardComponent],
   imports: [
     BrowserModule, HttpClientModule, BrowserAnimationsModule,
     MaterialModule, NgxPaginationModule,FormsModule,
@@ -73,7 +72,7 @@ import { ProfileCardComponent } from './components/profile/profile-card/profile-
     })
   ],
 
-  entryComponents:[CreatePollComponent, CreateEventComponent], // Dialog and Snack Bar
+  entryComponents:[CreateTopicComponent, CreateEventComponent], // Dialog and Snack Bar
   providers: [],
   bootstrap: [AppComponent]
 })

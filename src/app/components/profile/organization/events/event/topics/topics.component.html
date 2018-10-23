@@ -1,0 +1,31 @@
+<div class="container">
+    <div>
+        <div class="profile">
+            <label>Perfil
+              <mat-icon class="arrow">arrow_right_alt</mat-icon> Evento
+              <mat-icon class="arrow">arrow_right_alt</mat-icon> Tópicos</label>
+
+            <h4 class="nickname">Evento</h4>
+        </div>
+
+        <div class="event" *ngIf="event">
+          <p><span class="name">{{event.name}}</span></p>
+          <p><span class="bold">Fecha:</span> {{event.eventDate}}</p>
+          <p><span class="bold">Descripción:</span> {{event.description}}</p>
+        <div>
+          <br>
+            <h5>Nuevo Tópico
+              <mat-icon (click)="openNewTopic()" class="add-button">playlist_add</mat-icon>
+            </h5>
+            <br>
+        </div>
+    </div>
+      <div *ngIf="topicService.topics" class="row">
+        <event-topic [topic]="topic" *ngFor="let topic of topicService.topics"></event-topic>
+      </div>
+
+      <div *ngIf="topicService.topics">
+        <p *ngIf="topicService.topics.length == 0">Parece ser que aún no hay Temas</p>
+      </div>
+      <br>
+</div>

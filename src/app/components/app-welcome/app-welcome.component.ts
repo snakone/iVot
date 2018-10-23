@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import { Entity } from '../../models/entity';
+import { Organization } from '../../models/organization';
 import { Event } from '../../models/event';
 
 import { ProfileService } from '../../services/profile.service';
@@ -15,7 +15,7 @@ export class AppWelcomeComponent implements OnInit {
 
 title: string;
 events: Event[] = [];
-entity: Entity;
+organization: Organization;
 
   constructor( public auth: AuthService,
                private profileService: ProfileService) {

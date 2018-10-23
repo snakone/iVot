@@ -13,17 +13,21 @@
       <label><i class="glyphicon glyphicon-user"></i> Perfil</label>
       <h4 class="nickname">Bienvenido</h4>
       <br>
-         <div *ngIf="profileService.organization">
+         <div *ngIf="profileService.organization && profileService.participant == 'Organization'">
             <profile-card></profile-card>
 
-            <entity-events></entity-events>
+            <organization-events></organization-events>
          </div>
 
-          <div class="center" *ngIf="!profileService.organization">
+         <div *ngIf="!profileService.organization && profileService.participant == 'User'">
+           Aquí puedes ver una lista de los eventos a los que has sido celebremente invitado
+         </div>
+
+          <div class="center" *ngIf="profileService.participant == 'Organization'">
             Para registrar una <span class="bold">Entidad</span>, contacta con un
-            <span class="bold">Administrador</span> y dale el siguiente código:
+            <span class="bold">Administrador</span> y dale el siguiente código, él se encargará del resto!
             <p class="code center"><code>{{profileService.token}}</code></p>
-            <p>Muchas gracias por tu interés en <span class="bold">iVot</span></p>
+            <p>Muchas gracias por tu interés en <span class="bold">iVot</span>, nos vemos pronto!</p>
           </div>
     </div>
 </div>

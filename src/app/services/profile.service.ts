@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
 
-import { Entity } from '../models/entity';
+import { Organization } from '../models/organization';
 import { Event } from '../models/event';
 
 @Injectable({
@@ -13,20 +13,30 @@ export class ProfileService {
 
   admin: boolean = false;
   token: string;
+  participant: string;
+  organizationID: string;
+  eventID: string;
   events: Event[];
-  organization: Entity;
+  organization: Organization;
 
   readonly URL_API = 'https://ivotapp.herokuapp.com/organizations';
 
   constructor(private http: HttpClient) { }
 
   checkProfile(profile){
+    this.participant = profile['http://hello-user'].whoareyou;
     this.token = profile.sub.substring(6);
+
+    if (this.token == '5bc10cbc3385d56f61f6a330' ||
+        this.token == '5bc45f88b144eb0173391d71') this.admin = true;
 
     let mail = {email: profile.email};
 
     this.getOrganizationByEmail(mail)
-         .then(res => this.organization = res as Entity).catch(err => {
+         .then(res => {
+           this.organization = res as Organization;
+           this.organizationID = this.organization.id
+         }).catch(err => {
            this.organization = null;
            console.error("Necesitas registar una Entidad para ver tu perfil")
          })
@@ -37,8 +47,7 @@ export class ProfileService {
            })
          }).catch(err => {});
 
-    if (this.token == '5bc10cbc3385d56f61f6a330' ||
-        this.token == '5bc45f88b144eb0173391d71') this.admin = true;
+
   }
 
   getOrganizationByEmail(email){
