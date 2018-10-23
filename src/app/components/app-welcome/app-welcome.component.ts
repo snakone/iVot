@@ -23,11 +23,6 @@ entity: Entity;
 }
 
   ngOnInit() {
-    if (this.auth.isAuthenticated()) {
-        this.auth.getProfile((err, profile) => {
-          this.profileService.checkProfile(profile);
-        });
-      }
   }
 
   login() {

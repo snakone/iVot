@@ -16,7 +16,6 @@ export class ProfileService {
   events: Event[];
   organization: Entity;
 
-
   readonly URL_API = 'https://ivotapp.herokuapp.com/organizations';
 
   constructor(private http: HttpClient) { }
@@ -28,6 +27,7 @@ export class ProfileService {
 
     this.getOrganizationByEmail(mail)
          .then(res => this.organization = res as Entity).catch(err => {
+           this.organization = null;
            console.error("Necesitas registar una Entidad para ver tu perfil")
          })
          .then(() => {
