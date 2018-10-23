@@ -19,11 +19,11 @@
             <organization-events></organization-events>
          </div>
 
-         <div *ngIf="!profileService.organization && profileService.participant == 'User'">
+         <div *ngIf="profileService.participant == 'User'">
            Aquí puedes ver una lista de los eventos a los que has sido celebremente invitado
          </div>
 
-          <div class="center" *ngIf="profileService.participant == 'Organization'">
+          <div class="center" *ngIf="!profileService.organization && profileService.participant == 'Organization'">
             Para registrar una <span class="bold">Entidad</span>, contacta con un
             <span class="bold">Administrador</span> y dale el siguiente código, él se encargará del resto!
             <p class="code center"><code>{{profileService.token}}</code></p>
