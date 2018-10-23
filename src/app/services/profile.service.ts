@@ -26,25 +26,27 @@ export class ProfileService {
 
     let mail = {email: profile.email};
 
-        this.getOrganizationByEmail(mail)
-         .subscribe(res => {
-          this.organization = res as Entity;
-          this.getEventsByOrganization(this.organization.id)
-           .subscribe(res => {
-            this.events = res as Event[];
-          })
-        });
+    this.getOrganizationByEmail(mail)
+         .then(res => this.organization = res as Entity).catch(err => {
+           console.error("Necesitas registar una Entidad para ver tu perfil")
+         })
+         .then(() => {
+           this.getEventsByOrganization(this.organization.id)
+            .then(res => {
+             this.events = res as Event[];
+           })
+         }).catch(err => {});
 
     if (this.token == '5bc10cbc3385d56f61f6a330' ||
         this.token == '5bc45f88b144eb0173391d71') this.admin = true;
   }
 
   getOrganizationByEmail(email){
-    return this.http.post(this.URL_API + "/login", email);
+    return this.http.post(this.URL_API + "/login", email).toPromise()
   }
 
   getEventsByOrganization(id){
-    return this.http.get(this.URL_API + `/${id}/events`)
+    return this.http.get(this.URL_API + `/${id}/events`).toPromise()
   }
 
 }

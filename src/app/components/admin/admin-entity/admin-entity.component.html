@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row" id="top">
-    <h3>Registra una Entidad</h3>
+    <h4>Nueva Entidad</h4>
       <div class="col s12 m12 l12">
         <div class="card">     <!-- DATA FORM -->
           <div class="card-content">
@@ -39,7 +39,7 @@
                   </div>
 
                   <div *ngIf="token" class="input-field col s12 m12 l12">
-                    <span class="helper-text bold">Token</span>  <!-- Entity Icon -->
+                    <span class="helper-text bold">Token</span>  <!-- Entity Token -->
                     <input type="text" name="token" class="validate"
                     #token="ngModel" [(ngModel)]="entityService.selectedEntity.token"
                     placeholder="Introduce el Token de la Entidad">
@@ -70,7 +70,7 @@
 <!-- ENTITY TABLE -->
   <div class="row bottom">
       <br>
-      <h3>Lista de Entidades</h3>
+      <h4>Entidades</h4>
         <div class="col s12 m12">
         <table class="centered striped">
           <thead>
@@ -81,8 +81,9 @@
             <tr *ngFor="let entity of entityList">
               <td>{{entity.name}}</td>
               <td>
-                <a href="admin/entity#top"><mat-icon (click)="updateEntity(entity)">edit</mat-icon></a>
-                <mat-icon (click)="deleteEntity(entity.id)">delete</mat-icon>
+                <a href="admin/entity#top">
+                <mat-icon color="accent" (click)="updateEntity(entity)">edit</mat-icon></a>
+                <mat-icon color="warn" (click)="deleteEntity(entity.id)">delete</mat-icon>
               </td>
             </tr>
           </tbody>

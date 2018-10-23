@@ -9,21 +9,21 @@
           target="_NEW">Auth0</a>.</p>
     </div>
 
-    <div>
+    <div *ngIf="auth.isAuthenticated()">
       <label><i class="glyphicon glyphicon-user"></i> Perfil</label>
       <h4 class="nickname">Bienvenido</h4>
       <br>
-        <div *ngIf="auth.isAuthenticated() && profileService.organization">
+         <div *ngIf="profileService.organization">
             <profile-card></profile-card>
 
             <entity-events></entity-events>
-        </div>
+         </div>
 
-      <div class="center" *ngIf="auth.isAuthenticated() && !profileService.organization">
-        Para registrar una Entidad, contacta con un
-        <span class="bold">Administrador</span> y dale el siguiente código:
-        <p class="code center"><code>{{profileService.token}}</code></p>
-        <p>Muchas gracias por tu interés en <span class="bold">iVot</span></p>
-      </div>
+          <div class="center" *ngIf="!profileService.organization">
+            Para registrar una <span class="bold">Entidad</span>, contacta con un
+            <span class="bold">Administrador</span> y dale el siguiente código:
+            <p class="code center"><code>{{profileService.token}}</code></p>
+            <p>Muchas gracias por tu interés en <span class="bold">iVot</span></p>
+          </div>
     </div>
 </div>
