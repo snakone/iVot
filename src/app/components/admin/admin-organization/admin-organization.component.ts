@@ -17,8 +17,8 @@ import { NgForm } from '@angular/forms';  // Angular Forms
 
 export class AdminOrganizationComponent implements OnInit {
 
-  organizationList: Organization[];
-  token: boolean = true;
+  organizations: Organization[];
+  token: boolean = true;  // On Edit, Hide Auth0 Token Text Input
 
   constructor(public organizationService: OrganizationService,
               public profileService: ProfileService,
@@ -29,48 +29,48 @@ export class AdminOrganizationComponent implements OnInit {
   }
 
   getOrganization(){
-     this.organizationService.getEntities()  // HTTP POST to Server
-     .subscribe(res => {  // Subscribe to the Server Response
-      this.organizationList = res as Organization[];  // Response as Service Organization = List
+     this.organizationService.getEntities()
+     .subscribe(res => {
+      this.organizations = res as Organization[];
     });
   }
 
   addOrganization(form: NgForm){
     if (form.value.id) {  // Already Organization ID? -> Update
       this.organizationService.updateOrganization(form.value)  // Update Organization with Form Values
-       .subscribe (res => {  // Subscribe to the Server Response
+       .subscribe (res => {
          this.toastr.info('Bien!', 'Entidad Actualizada!');
-         this.resetForm(form);  // Reset Form
+         this.resetForm(form);
          this.getOrganization();
        })
     }
     else {  // Not Organization ID? Oh, New Organization?
-      form.value.icon = `assets/icons/${form.value.icon}.png`;
+      form.value.icon = `assets/icons/${form.value.icon}.png`;  // Icon Converter
       this.organizationService.addOrganization(form.value)  // Add Organization with Form Values
-      .subscribe(res => {  // Subscribe to the Server Response
+      .subscribe(res => {
         this.toastr.success('Genial!', 'Entidad Añadida');
-        this.resetForm(form);  // Reset Form
+        this.resetForm(form);
         this.getOrganization();
       });
     }
   }
 
-  updateOrganization(Organization: Organization){  // NEW Organization Object with the Organization -> selected Organization
+  updateOrganization(Organization: Organization){  // NEW Organization Object with the Organization
     this.organizationService.selectedOrganization = Object.assign({}, Organization);
     this.token = false;
   }
 
-  deleteOrganization(id: string){  // Need the Organization ID
+  deleteOrganization(id: string){
     if(confirm("¿Estás seguro?")){
     this.organizationService.deleteOrganization(id)  // Delete Organization by ID
-     .subscribe( res => {  // Subscribe to the Server Response
+     .subscribe( res => {
         this.getOrganization();  // Once Deleted, Update the Organization List
         this.toastr.warning('Oh!', 'Entidad Eliminada');
      });
     }
   }
 
-  resetForm($event,form?: NgForm){
+  resetForm($event, form?: NgForm){
     this.token = true;
     event.preventDefault();
     if (form) form.reset();  // Form?

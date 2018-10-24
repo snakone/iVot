@@ -35,17 +35,17 @@ export class CreateEventComponent implements OnInit {
 
   addEvent(form?: NgForm) {
    try {
-      form.value.eventDate = this.yyyymmdd(form.value.eventDate);
+      form.value.eventDate = this.yyyymmdd(form.value.eventDate);  // Get DATE Format
    } catch(err){
       alert('Por favor, Introduce una fecha correcta');
       return false;
    }
 
-     this.eventService.addEvent(form.value)
+     this.eventService.addEvent(form.value)  // Add Event
      .subscribe(res => {
        this.resetForm(form);
        this.toastr.success('Evento Creado', 'Muy bien!');
-       this.auth.getProfile((err, profile) => {
+       this.auth.getProfile((err, profile) => { // After add, Get the Topics again
          this.profileService.checkProfile(profile);
        });
      });
@@ -58,7 +58,7 @@ export class CreateEventComponent implements OnInit {
       form.reset();
   }
 
-  yyyymmdd(date) {
+  yyyymmdd(date) {  // Date Converter
     let y = date.getFullYear().toString();
     let m = (date.getMonth() + 1).toString();
     let d = date.getDate().toString();

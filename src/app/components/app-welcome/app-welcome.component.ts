@@ -26,7 +26,7 @@ organization: Organization;
   }
 
   login() {
-    this.auth.login();
+    this.auth.login();  // Auth0 Login
   }
 
 }

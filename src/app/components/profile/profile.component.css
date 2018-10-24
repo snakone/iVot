@@ -24,3 +24,7 @@ h5 {
   margin: 45px auto;
   font-size: 1.2em;
 }
+
+label {
+  margin-top: -5px;
+}

@@ -37,7 +37,7 @@ export class EventComponent implements OnInit {
       let entityID = this.profileService.organization.id;
         if (confirm("¿Estás Seguro?")){
           this.eventService.deleteEvent(event.id, entityID)
-           .subscribe(res => {
+           .subscribe(res => {  // After Event Deleted, get the Events again
                this.auth.getProfile((err, profile) => {
                  this.profileService.checkProfile(profile);
                });

@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { ProfileService } from '../../../services/profile.service';
 
 @Component({
-  // tslint:disable-next-line:component-selector
   selector: 'top-menu',
   templateUrl: './top-menu.component.html',
   styleUrls: ['./top-menu.component.css']
@@ -22,7 +21,7 @@ export class TopMenuComponent implements OnInit {
   public logout(): void {
     this.auth.logout();
     this.profileService.admin = false;
-    window.location.href='https://ivot.eu.auth0.com/v2/logout';
+    window.location.href='https://ivot.eu.auth0.com/v2/logout';  // URI to completely Log Out from Auth0
   }
 
   login() {

@@ -36,19 +36,17 @@ export class TopicsComponent implements OnInit {
   ngOnInit() {
 
     let eventID = this.activeRoute.snapshot.params.id; // Get the Event ID from URL
-    let organizationID = this.profileService.organizationID;
     this.profileService.eventID = eventID;
-
-
+    let organizationID = this.profileService.organizationID; // Get the Organization ID from Service
 
     try {
       if (organizationID == undefined) throw Error
       else {
-        this.getTopics(organizationID, eventID);
-        this.topicService.getEventbyID(organizationID, eventID)
+        this.topicService.getEventbyID(organizationID, eventID)  // Get Event by ID
          .subscribe(res => {
            this.event = res as Event;
-         })
+         });
+            this.getTopics(organizationID, eventID);  // Get Topics of the Event
       }
     } catch(err) {
       this.router.navigate(['/profile/']);

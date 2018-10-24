@@ -7,14 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopTitleComponent implements OnInit {
 
-  gridTitle: string;
-  gridsubTitle: string;
-
-  constructor() {
-
-    this.gridTitle = "Sharing Votes";
-    this.gridsubTitle = "La votación, hecha fácil";
-  }
+  constructor() {}
 
   ngOnInit() {
   }

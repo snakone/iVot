@@ -17,7 +17,7 @@ export class ProfileComponent implements OnInit {
               public organizationService: OrganizationService) { }
 
   ngOnInit() {
-    if (this.auth.isAuthenticated()) {
+    if (this.auth.isAuthenticated()) {  // Check participant Profile
         this.auth.getProfile((err, profile) => {
           this.profileService.checkProfile(profile);
         });

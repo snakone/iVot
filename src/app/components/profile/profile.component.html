@@ -1,18 +1,10 @@
 <div class="container animated slideInLeft">
-    <div class="center noAuth" *ngIf="!auth.isAuthenticated()">
-        <h3>No estás autentificado,<br> Accede a tu
-          <a class="link-to-login" (click)="login()">perfil</a>.
-        </h3>
-        <br>
-        <p>Nos tomamos enserio tu seguridad por eso usamos un sistema seguro
-          como <a href="http://auth0.com" class="link-to-login"
-          target="_NEW">Auth0</a>.</p>
-    </div>
 
     <div *ngIf="auth.isAuthenticated()">
-      <label><i class="glyphicon glyphicon-user"></i> Perfil</label>
+        <div class="profile">
+          <label><i class="glyphicon glyphicon-user"></i> Perfil</label>
+        </div>
       <h4 class="nickname">Bienvenido</h4>
-      <br>
          <div *ngIf="profileService.organization && profileService.participant == 'Organization'">
             <profile-card></profile-card>
 
@@ -29,5 +21,15 @@
             <p class="code center"><code>{{profileService.token}}</code></p>
             <p>Muchas gracias por tu interés en <span class="bold">iVot</span>, nos vemos pronto!</p>
           </div>
-    </div>
+     </div>
+
+      <div class="center noAuth" *ngIf="!auth.isAuthenticated()">
+          <h3>No estás autentificado,<br> Accede a tu
+            <a class="link-to-login" (click)="login()">perfil</a>.
+          </h3>
+          <br>
+          <p>Nos tomamos enserio tu seguridad por eso usamos un sistema seguro
+            como <a href="http://auth0.com" class="link-to-login"
+            target="_NEW">Auth0</a>.</p>
+      </div>
 </div>

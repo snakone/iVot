@@ -6,7 +6,6 @@ import { ProfileComponent } from '../components/profile/profile.component';
 import { TopicsComponent } from '../components/profile/organization/events/event/topics/topics.component';
 import { AdminOrganizationComponent } from '../components/admin/admin-organization/admin-organization.component';
 
-
 const app_Routes: Routes = [
   { path: 'home', component: AppWelcomeComponent },
   { path: 'profile', component: ProfileComponent },

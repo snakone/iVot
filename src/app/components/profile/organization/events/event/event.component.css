@@ -21,6 +21,7 @@ mat-expansion-panel-header {
 
 .btn {
   margin: 10px;
+  padding: 1px 13px;
 }
 
 .mat-expansion-panel {

@@ -38,7 +38,7 @@ export class OptionsComponent implements OnInit {
            this.topicService.getTopics(this.profileService.organizationID,
                                          this.profileService.eventID)
             .then( res => {
-              this.topicService.topics = res as Topic[];
+              this.topicService.topics = res as Topic[];  // Get Topics again
             }).then(() => this.toastr.error('Oh!', 'Tópico Eliminado'))
          });
       }

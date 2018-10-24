@@ -1,8 +1,7 @@
-import { Event } from './event';
-import { User } from './user';
+import { Participant } from './participant';
 
-export class Organization extends User {
-  
+export class Organization extends Participant {
+
   id: string;
   token: string;
   icon: string;

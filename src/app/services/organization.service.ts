@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 
 import { Organization } from '../models/organization';
 
-
 @Injectable({
   providedIn: 'root'
 })

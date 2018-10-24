@@ -12,42 +12,40 @@ import { Event } from '../models/event';
 export class ProfileService {
 
   admin: boolean = false;
-  token: string;
-  participant: string;
+  token: string;  // Auth0 Token
+  participant: string;  // Who are you? User or Organization
   organizationID: string;
   eventID: string;
   events: Event[];
-  organization: Organization;
+  organization: Organization;  // Auth0 + Backend Organization
 
   readonly URL_API = 'https://ivotapp.herokuapp.com/organizations';
 
   constructor(private http: HttpClient) { }
 
   checkProfile(profile){
-    this.participant = profile['http://hello-user'].whoareyou;
+    this.participant = profile['http://hello-user'].whoareyou;  // Get user_metadata
     this.token = profile.sub.substring(6);
 
-    if (this.token == '5bc10cbc3385d56f61f6a330' ||
+    if (this.token == '5bc10cbc3385d56f61f6a330' ||  // Admin Assignament
         this.token == '5bc45f88b144eb0173391d71') this.admin = true;
 
     let mail = {email: profile.email};
 
-    this.getOrganizationByEmail(mail)
+    this.getOrganizationByEmail(mail)  // Get Organization by Mail
          .then(res => {
            this.organization = res as Organization;
            this.organizationID = this.organization.id
-         }).catch(err => {
+         }).catch(err => {  // No Organization Mail on BD? -> Organization = null
            this.organization = null;
            console.error("Necesitas registar una Entidad para ver tu perfil")
          })
-         .then(() => {
+         .then(() => {  // With the Organization, get the Events
            this.getEventsByOrganization(this.organization.id)
             .then(res => {
              this.events = res as Event[];
            })
          }).catch(err => {});
-
-
   }
 
   getOrganizationByEmail(email){
@@ -59,16 +57,3 @@ export class ProfileService {
   }
 
 }
-
-// Idea: tanto "Entidad" como "User" se registran con "Auth0" lo que entidad "manualmente"
-// por el "administrador"; Con el "ID" de "Auth0" cuando registramos una "Entidad",
-// se crea una "lista" "manualmente" de los "ID" de "Auth0" que sean "Entidades";
-// Una vez con la lista, asignar que tipo es sí "Entidad" o "User" y mostrar diferentes partes
-// según lo que seas; El perfil de "Entidad", sus "Eventos" y poder "crear" más "Eventos"
-// en el caso de ser una "Entidad", y una "lista" de los "Eventos" que el usuario ha sido
-// "invitado" si somos "User".
-
-// Es una manera un poco brusca de hacerlo pero así nos evitamos hacer dos sistemas
-// de login por separado y nos olvidamos de guardar contraseñas. Al fin y al cabo,
-// el "servidor" no sabe quiénes somos, él sólo recibe datos. El "FrontEnd" se encarga
-// de "llamar" a cada cúal en su momento.
