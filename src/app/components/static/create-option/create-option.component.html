@@ -1,0 +1,26 @@
+<div class="overflow">
+  <h5>Registrar Opción</h5>
+  <br>
+    <form #addOptionForm="ngForm" (ngSubmit)="onSubmit(addOptionForm)">
+
+      <div class="row">
+          <div class="input-field col s12 m12">
+            <i class="material-icons prefix">help_outline</i>
+            <input name="description" type="text"
+            [(ngModel)]="selectedOption.description" #description="ngModel"
+            data-length="40" class="validate" required>
+            <label for="description">Descripción *</label>
+            </div>
+      </div>
+
+        <div class="col s12 m12 actions">
+          <p class="center">
+            <button class="waves-effect btn orange" type="submit">Registrar</button>
+          </p>
+        </div>
+
+    </form>
+
+  <p class="text-right">* Obligatorio</p>
+
+</div>

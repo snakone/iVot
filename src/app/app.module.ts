@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 
 // Animations
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Material Module
 import { MaterialModule } from './modules/material';
@@ -24,24 +24,32 @@ import { FooterNavComponent } from './components/layout/footer-nav/footer-nav.co
 // Admin
 import { AdminOrganizationComponent } from './components/admin/admin-organization/admin-organization.component';
 
-// Dynamic Components
+// Components
 import { AppWelcomeComponent } from './components/app-welcome/app-welcome.component';
 
 // Profile
 import { ProfileComponent } from './components/profile/profile.component';
-import { ProfileCardComponent } from './components/profile/profile-card/profile-card.component';
+import { OrganizationCardComponent } from './components/profile/organization/organization-card/organization-card.component';
 
 // Events
 import { EventsComponent } from './components/profile/organization/events/events.component';
 import { EventComponent } from './components/profile/organization/events/event/event.component';
-import { CreateEventComponent } from './components/profile/organization/create-event/create-event.component';
+
 
 // Topics
 import { TopicComponent } from './components/profile/organization/events/event/topics/topic/topic.component';
 import { TopicsComponent } from './components/profile/organization/events/event/topics/topics.component';
-import { CreateTopicComponent } from './components/profile/organization/events/event/create-topic/create-topic.component';
 import { OptionsComponent } from './components/profile/organization/events/event/topics/topic/options/options.component';
+import { OptionTableComponent } from './components/profile/organization/events/event/topics/topic/options/option-table/option-table.component';
 
+// Static
+import { CreateEventComponent } from './components/static/create-event/create-event.component';
+import { CreateTopicComponent } from './components/static/create-topic/create-topic.component';
+import { CreateOptionComponent } from './components/static/create-option/create-option.component';
+import { ConfirmComponent } from './components/static/confirm/confirm.component';
+
+
+// Pagination
 import { NgxPaginationModule } from 'ngx-pagination';
 
 // app_routes
@@ -57,18 +65,19 @@ import { ToastrModule } from 'ngx-toastr';
     TopTitleComponent, AppWelcomeComponent, CreateEventComponent,
     ProfileComponent, EventsComponent, EventComponent, TopicComponent,
     TopicsComponent, CreateTopicComponent, OptionsComponent,
-    FooterNavComponent, AdminOrganizationComponent, ProfileCardComponent],
+    FooterNavComponent, AdminOrganizationComponent, OrganizationCardComponent,
+    ConfirmComponent, CreateOptionComponent, OptionTableComponent],
   imports: [
     BrowserModule, HttpClientModule, BrowserAnimationsModule,
-    MaterialModule, NgxPaginationModule,FormsModule,
+    MaterialModule, NgxPaginationModule, FormsModule,
     ReactiveFormsModule, AppRoutingModule,
     ToastrModule.forRoot({
       timeOut: 3000,
       progressBar: true
     })
   ],
-
-  entryComponents:[CreateTopicComponent, CreateEventComponent], // Modals
+  entryComponents:[CreateTopicComponent, CreateEventComponent, CreateOptionComponent,
+                   ConfirmComponent], // Modals
   providers: [],
   bootstrap: [AppComponent]
 })

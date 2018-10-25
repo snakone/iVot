@@ -1,10 +1,10 @@
 export class Option {
-  
-  id: string;
-  option: string;
 
-  constructor (id: string, option: string){
+  id: string;
+  description: string;
+
+  constructor (id: string, description: string){
     this.id = id;
-    this.option = option;
+    this.description = description;
   }
 }

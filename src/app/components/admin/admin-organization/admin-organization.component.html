@@ -1,69 +1,63 @@
 <div class="container">
   <div class="row" id="top">
+      <label><i class="glyphicon glyphicon-user"></i>Panel Administración</label>
     <h4>Nueva Entidad</h4>
       <div class="col s12 m12 l12">
-        <div class="card">     <!-- DATA FORM -->
-          <div class="card-content">
+        <div class="card-panel">     <!-- DATA FORM -->
             <form #addOrganizationForm="ngForm" (ngSubmit)="addOrganization(addOrganizationForm)">
+                <div class="row">
+                    <input type="hidden" name="id"
+                    #_id="ngModel" [(ngModel)]="organizationService.selectedOrganization.id">
 
-        <div class="row">
-          <input type="hidden" name="id"
-          #_id="ngModel" [(ngModel)]="organizationService.selectedOrganization.id">
+                    <div class="input-field col s12 m12 l6">
+                      <span class="helper-text bold">Nombre Entidad</span>  <!-- Organization Name -->
+                      <input type="text" name="name" class="validate"
+                      #name="ngModel" [(ngModel)]="organizationService.selectedOrganization.name"
+                      placeholder="Introduce un nombre">
+                    </div>
 
-          <div class="input-field col s12 m12 l6">
-            <span class="helper-text bold">Nombre Entidad</span>  <!-- Organization Name -->
-            <input type="text" name="name" class="validate"
-            #name="ngModel" [(ngModel)]="organizationService.selectedOrganization.name"
-            placeholder="Introduce un nombre">
-          </div>
+                    <div class="input-field col s12 m12 l6">
+                      <span class="helper-text bold">Dirección</span>  <!-- Organization Address -->
+                      <input type="text" name="address" class="validate"
+                      #address="ngModel" [(ngModel)]="organizationService.selectedOrganization.address"
+                      placeholder="Introduce una dirección">
+                    </div>
 
-          <div class="input-field col s12 m12 l6">
-            <span class="helper-text bold">Dirección</span>  <!-- Organization Address -->
-            <input type="text" name="address" class="validate"
-            #address="ngModel" [(ngModel)]="organizationService.selectedOrganization.address"
-            placeholder="Introduce una dirección">
-          </div>
+                    <div class="input-field col s12 m12 l6">
+                      <span class="helper-text bold">Email</span>  <!-- Organization Email -->
+                      <input id="email" type="email" name="email" class="validate"
+                      #email="ngModel" [(ngModel)]="organizationService.selectedOrganization.email"
+                      placeholder="Introduce un email">
+                    </div>
 
-          <div class="input-field col s12 m12 l6">
-            <span class="helper-text bold">Email</span>  <!-- Organization Email -->
-            <input id="email" type="email" name="email" class="validate"
-            #email="ngModel" [(ngModel)]="organizationService.selectedOrganization.email"
-            placeholder="Introduce un email">
-          </div>
+                    <div class="input-field col s12 m12 l6">
+                      <span class="helper-text bold">Icono</span>  <!-- Organization Icon -->
+                      <input type="text" name="icon" class="validate"
+                      #icon="ngModel" [(ngModel)]="organizationService.selectedOrganization.icon"
+                      placeholder="Introduce un icono">
+                    </div>
 
-          <div class="input-field col s12 m12 l6">
-            <span class="helper-text bold">Icono</span>  <!-- Organization Icon -->
-            <input type="text" name="icon" class="validate"
-            #icon="ngModel" [(ngModel)]="organizationService.selectedOrganization.icon"
-            placeholder="Introduce un icono">
-          </div>
+                    <div *ngIf="token" class="input-field col s12 m12 l12">
+                      <span class="helper-text bold">Token</span>  <!-- Organization Token -->
+                      <input type="text" name="token" class="validate"
+                      #token="ngModel" [(ngModel)]="organizationService.selectedOrganization.token"
+                      placeholder="Introduce el Token de la Entidad">
+                    </div>
 
-          <div *ngIf="token" class="input-field col s12 m12 l12">
-            <span class="helper-text bold">Token</span>  <!-- Organization Token -->
-            <input type="text" name="token" class="validate"
-            #token="ngModel" [(ngModel)]="organizationService.selectedOrganization.token"
-            placeholder="Introduce el Token de la Entidad">
-          </div>
-
-          <div class="input-field col s12 m12 l12">
-            <span class="helper-text bold">Descripción</span>  <!-- Organization Description -->
-            <input type="text" name="description" class="validate"
-            #description="ngModel" [(ngModel)]="organizationService.selectedOrganization.description"
-            placeholder="Introduce una descripción">
-          </div>
-
-          <br>
-          <div class="card-action">
-              <div class="center actions">
-                <button type="submit" class="btn orange">Guardar</button>
-                <button (click)="resetForm($event, addOrganizationForm)" class="btn red">Reset</button>
-              </div>
-          </div>
-
-        </div>
-
+                    <div class="input-field col s12 m12 l12">
+                      <span class="helper-text bold">Descripción</span>  <!-- Organization Description -->
+                      <textarea name="description" class="materialize-textarea validate"
+                      data-length="120" maxlength="120" #description="ngModel"
+                      [(ngModel)]="organizationService.selectedOrganization.description"
+                      placeholder="Introduce una descripción"></textarea>
+                    </div>
+                    <br>
+                    <div class="center actions">
+                      <button type="submit" class="btn orange">Guardar</button>
+                      <button (click)="resetForm($event, addOrganizationForm)" class="btn red">Reset</button>
+                    </div>
+                </div>
             </form>
-          </div>
         </div>
       </div>
   </div>

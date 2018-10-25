@@ -12,8 +12,6 @@ import { Event } from '../models/event';
 export class EventService {
 
   readonly URL_API = 'https://ivotapp.herokuapp.com/organizations';
-
-  events: Event[] = [];
   selectedEvent: Event;
 
   constructor(private http: HttpClient) {

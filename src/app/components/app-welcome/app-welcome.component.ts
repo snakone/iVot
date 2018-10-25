@@ -11,6 +11,7 @@ import { ProfileService } from '../../services/profile.service';
   templateUrl: './app-welcome.component.html',
   styleUrls: ['./app-welcome.component.css']
 })
+
 export class AppWelcomeComponent implements OnInit {
 
 title: string;

@@ -1,0 +1,26 @@
+i:not(.black-icon)  {
+ margin: 0 auto;
+ margin-top:10px;
+ color:orange;
+}
+
+.text-right {
+  position: relative;
+  top: 15px;
+  text-align: right;
+}
+
+.actions {
+ margin-bottom: 25px;
+}
+
+.input-field {
+ margin-top: 10px;
+}
+
+.overflow {
+ overflow-y: auto;
+ max-height: 500px;
+ max-width: 450px;
+ box-sizing: border-box;
+}

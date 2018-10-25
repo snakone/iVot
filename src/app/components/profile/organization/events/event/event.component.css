@@ -11,17 +11,22 @@ mat-panel-title {
   width: 70%;
 }
 
+mat-panel-description {
+  margin-right: 25px;
+}
+
 mat-expansion-panel-header {
   padding: 10px 20px;
 }
 
 .actions {
+  margin-top: 20px;
   margin-bottom: 5px;
 }
 
 .btn {
   margin: 10px;
-  padding: 1px 13px;
+  padding: 1px 11px;
 }
 
 .mat-expansion-panel {

@@ -18,3 +18,7 @@ body {
 .bold {
   font-weight: bold;
 }
+
+.cdk-focused {
+    background: transparent!important;
+}

@@ -7,18 +7,10 @@
           <div class="input-field col s12 m12">
             <i class="material-icons prefix">help_outline</i>
             <input name="description" type="text"
-            [(ngModel)]="selectedTopic.description" #question="ngModel"
+            [(ngModel)]="selectedTopic.description" #description="ngModel"
             data-length="40" class="validate" required>
-            <label for="question">Descripción *</label>
+            <label for="description">Descripción *</label>
             </div>
-
-            <!-- <div *ngFor="let option of defaultOptions; let i = index" class="input-field col s12 m12">
-              <i class="material-icons prefix">poll</i>
-              <input name="{{i}}" type="text"
-              [(ngModel)]="option.optionID" #option="ngModel"
-              class="validate" required>
-              <label for="{{i}}">Opción {{i+1}}</label>
-            </div> -->
       </div>
 
         <div class="col s12 m12 actions">

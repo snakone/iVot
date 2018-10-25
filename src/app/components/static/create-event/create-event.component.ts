@@ -3,14 +3,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgForm } from '@angular/forms';
 
-import { ProfileService } from '../../../../services/profile.service';
-import { EventService } from '../../../../services/event.service';
-import { AuthService } from '../../../../services/auth.service';
+import { ProfileService } from '../../../services/profile.service';
+import { EventService } from '../../../services/event.service';
+import { AuthService } from '../../../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 
 import { Router } from '@angular/router';
 
-import { Event } from '../../../../models/event';
+import { Event } from '../../../models/event';
 
 import { MatDialog } from '@angular/material';  // Dialog
 
@@ -34,24 +34,22 @@ export class CreateEventComponent implements OnInit {
   ngOnInit() {}
 
   addEvent(form?: NgForm) {
-   try {
-      form.value.eventDate = this.yyyymmdd(form.value.eventDate);  // Get DATE Format
-   } catch(err){
-      alert('Por favor, Introduce una fecha correcta');
-      return false;
+       try {
+          form.value.eventDate = this.yyyymmdd(form.value.eventDate);  // Get DATE Format
+       } catch(err){
+          alert('Por favor, Introduce una fecha correcta');
+          return false;
+       }
+         this.eventService.addEvent(form.value)  // Add Event
+         .subscribe(res => {
+           this.resetForm(form);
+           this.toastr.success('Evento Creado', 'Muy bien!');
+           this.dialog.closeAll();
+           this.auth.getProfile((err, profile) => { // After add, Get the Topics again
+             this.profileService.checkProfile(profile);
+           });
+         });
    }
-
-     this.eventService.addEvent(form.value)  // Add Event
-     .subscribe(res => {
-       this.resetForm(form);
-       this.toastr.success('Evento Creado', 'Muy bien!');
-       this.auth.getProfile((err, profile) => { // After add, Get the Topics again
-         this.profileService.checkProfile(profile);
-       });
-     });
-
-     this.dialog.closeAll();
- }
 
  resetForm(form: NgForm){
   if (form != null) // Reset form if not empty and we add a empty Poll

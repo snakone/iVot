@@ -1,15 +1,19 @@
-  <div class="col s12 m12 topic-list">
+  <div class="col s12 m12 topic-list animated fadeIn slow">
       <mat-accordion>
         <mat-expansion-panel (opened)="panelOpenState = true;"
                            (closed)="panelOpenState = false">
         <mat-expansion-panel-header>
           <mat-panel-title [ngClass]="{'opened': panelOpenState == true}">
-            <span class="bold">Pregunta:</span>
-            <span class="topic">{{ topic.description}}</span>
+            <span class="bold">Descripción:</span>
+            <span class="topic">{{topic.description}}</span>
           </mat-panel-title>
         </mat-expansion-panel-header>
 
         <topic-options [topic]="topic"></topic-options>
+
+        <div class="center actions">
+            <button (click)="deleteTopic($event)" class="btn red">Eliminar</button>
+        </div>
 
         </mat-expansion-panel>
       </mat-accordion>

@@ -6,11 +6,14 @@ import { Organization } from '../../../models/organization';  // Organization Mo
 import { ProfileService } from '../../../services/profile.service';  // Organization Service
 
 import { ToastrService } from 'ngx-toastr';  // Toastr
+import { MatDialog } from '@angular/material';  // Material Dialog
+
+import { ConfirmComponent } from '../../../components/static/confirm/confirm.component';
 
 import { NgForm } from '@angular/forms';  // Angular Forms
 
 @Component({
-  selector: 'app-admin-Organization',
+  selector: 'admin-Organization',
   templateUrl: './admin-Organization.component.html',
   styleUrls: ['./admin-Organization.component.css']
 })
@@ -22,14 +25,15 @@ export class AdminOrganizationComponent implements OnInit {
 
   constructor(public organizationService: OrganizationService,
               public profileService: ProfileService,
-              private toastr: ToastrService) { }
+              private toastr: ToastrService,
+              public dialog: MatDialog) { }
 
   ngOnInit() {
     this.getOrganization();  // Get Organization at the start
   }
 
   getOrganization(){
-     this.organizationService.getEntities()
+     this.organizationService.getOrganizations()
      .subscribe(res => {
       this.organizations = res as Organization[];
     });
@@ -61,13 +65,17 @@ export class AdminOrganizationComponent implements OnInit {
   }
 
   deleteOrganization(id: string){
-    if(confirm("¿Estás seguro?")){
-    this.organizationService.deleteOrganization(id)  // Delete Organization by ID
-     .subscribe( res => {
-        this.getOrganization();  // Once Deleted, Update the Organization List
-        this.toastr.warning('Oh!', 'Entidad Eliminada');
-     });
-    }
+    const dialogRef = this.dialog.open(ConfirmComponent,{});  // New Dialog -> Confirm Dialog Component
+
+    dialogRef.afterClosed().subscribe(result => { // After Dialog Closed
+      if (result) {
+          this.organizationService.deleteOrganization(id)  // Delete Organization by ID
+           .subscribe( res => {
+              this.getOrganization();  // Once Deleted, Update the Organization List
+              this.toastr.warning('Oh!', 'Entidad Eliminada');
+           });
+        }  // End of If (result)
+      });
   }
 
   resetForm($event, form?: NgForm){

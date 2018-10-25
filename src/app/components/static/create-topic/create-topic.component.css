@@ -5,6 +5,8 @@
 }
 
 .text-right {
+  position: relative;
+  top: 15px;
   text-align: right;
 }
 
@@ -22,5 +24,3 @@
   max-width: 450px;
   box-sizing: border-box;
 }
-
-.green {margin-left: 10px}

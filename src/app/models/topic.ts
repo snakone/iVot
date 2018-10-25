@@ -1,6 +1,6 @@
 export class Topic {
 
-  id: number;
+  id: string;
   description: string;
 
   constructor(description: string){

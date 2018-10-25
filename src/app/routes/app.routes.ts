@@ -9,7 +9,7 @@ import { AdminOrganizationComponent } from '../components/admin/admin-organizati
 const app_Routes: Routes = [
   { path: 'home', component: AppWelcomeComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: 'profile/:id', component: TopicsComponent },
+  { path: 'profile/event/:id', component: TopicsComponent },
   { path: 'admin/organization', component: AdminOrganizationComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];

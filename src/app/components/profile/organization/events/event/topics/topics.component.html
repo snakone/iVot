@@ -11,18 +11,20 @@
           <p><span class="bold">Descripción:</span> {{event.description}}</p>
         <div>
           <br>
-            <h5>Nuevo Tópico
+            <h5>Tópicos
               <mat-icon (click)="openNewTopic()" class="add-button">playlist_add</mat-icon>
             </h5>
             <br>
         </div>
+        </div>
+
+        <div *ngIf="topicService.topics">
+          <span *ngIf="topicService.topics.length == 0">Parece ser que aún no hay tópicos.</span>
+        </div>
+
+        <div *ngIf="topicService.topics">
+          <event-topic [topic]="topic" *ngFor="let topic of topicService.topics"></event-topic>
+        </div>
     </div>
-      <div *ngIf="topicService.topics" class="row">
-        <event-topic [topic]="topic" *ngFor="let topic of topicService.topics"></event-topic>
-      </div>
-
-      <div *ngIf="topicService.topics">
-        <p *ngIf="topicService.topics.length == 0">Parece ser que aún no hay Temas</p>
-      </div>
-
 </div>
+<br>

@@ -1,20 +1,23 @@
-<form #voteForm="ngForm" (ngSubmit)="vote(voteForm)">
+<div class="row top">
+  <div class="col s12 m12">
+    <span class="add-option">Nueva Opción</span>
+    <mat-icon (click)="openNewOption()" class="add-button">library_add</mat-icon>
 
-    <div class="row top">
-      <!-- <mat-radio-group [(ngModel)]="question" #option="ngModel"
-        name="option" class="example-radio-group">
-        <div class="col s12 m12">
-            <mat-radio-button color="warn"
-            class="example-radio-button col s12 m12"
-            *ngFor="let option of poll.options; let i = index" [value]="i">
-            <span class="poll-option">{{option.option}}</span>
-            </mat-radio-button>
+    <div class="result" *ngIf="optionService.options">
+        <div *ngIf="optionService.options.length >= 1">
+            <span class="add-option">Resultados</span>
+            <mat-icon class="see-result">near_me</mat-icon>
         </div>
-      </mat-radio-group> -->
-    </div>
 
-    <div class="center actions">
-        <button type="submit" class="btn orange">Vota!</button>
-        <button (click)="deleteTopic($event)" class="btn red">Eliminar</button>
+        <div *ngIf="optionService.options">
+          <p class="no-topic" *ngIf="optionService.options.length == 0">
+            Este tópico aún no tiene opciones.
+          </p>
+        </div>
     </div>
-</form>
+  </div>
+</div>
+
+<div *ngIf="optionService.options">
+  <option-table *ngIf="!optionService.options.length == 0" [options]="optionService.options"></option-table>
+</div>

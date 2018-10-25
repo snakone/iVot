@@ -1,16 +1,15 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 
 import { ToastrService } from 'ngx-toastr';
 
 import { NgForm } from '@angular/forms';
 
-import { Topic } from '../../../../../../models/topic';
+import { Topic } from '../../../models/topic';
 
-import { ProfileService } from '../../../../../../services/profile.service';
-import { TopicService } from '../../../../../../services/topic.service';
+import { ProfileService } from '../../../services/profile.service';
+import { TopicService } from '../../../services/topic.service';
 
 import { MatDialog } from '@angular/material';  // Dialog
-
 
 @Component({
   selector: 'create-topic',
@@ -19,8 +18,6 @@ import { MatDialog } from '@angular/material';  // Dialog
 })
 
 export class CreateTopicComponent implements OnInit {
-
-  @Input() organizationEvent: Event;
 
   topic: Topic;
   selectedTopic: Topic = <Topic>{};
@@ -37,7 +34,7 @@ export class CreateTopicComponent implements OnInit {
      let eventID = this.profileService.eventID;
      let organizationID = this.profileService.organizationID;
 
-     if (description == null)
+     if (description.description == undefined)
      alert('Por favor, Rellena el formulario')
      else {
          this.topicService.addTopic(organizationID, eventID, description) // Add Topic

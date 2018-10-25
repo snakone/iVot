@@ -7,7 +7,7 @@ import { EventService } from '../../../../../../services/event.service';
 import { ProfileService } from '../../../../../../services/profile.service';
 import { TopicService } from '../../../../../../services/topic.service';
 
-import { CreateTopicComponent } from '../create-topic/create-topic.component';
+import { CreateTopicComponent } from '../../../../../static/create-topic/create-topic.component';
 
 import { MatDialog } from '@angular/material';  // Dialog
 

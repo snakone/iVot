@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Organization } from '../models/organization';
+import { OrganizationService } from '../services/organization.service';
+
 import { Event } from '../models/event';
 
 @Injectable({
@@ -16,12 +18,14 @@ export class ProfileService {
   participant: string;  // Who are you? User or Organization
   organizationID: string;
   eventID: string;
-  events: Event[];
+  topicID: string;
   organization: Organization;  // Auth0 + Backend Organization
+  gotIt: boolean;
 
   readonly URL_API = 'https://ivotapp.herokuapp.com/organizations';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+              private organizationService: OrganizationService) { }
 
   checkProfile(profile){
     this.participant = profile['http://hello-user'].whoareyou;  // Get user_metadata
@@ -32,20 +36,25 @@ export class ProfileService {
 
     let mail = {email: profile.email};
 
-    this.getOrganizationByEmail(mail)  // Get Organization by Mail
-         .then(res => {
-           this.organization = res as Organization;
-           this.organizationID = this.organization.id
-         }).catch(err => {  // No Organization Mail on BD? -> Organization = null
-           this.organization = null;
-           console.error("Necesitas registar una Entidad para ver tu perfil")
-         })
-         .then(() => {  // With the Organization, get the Events
-           this.getEventsByOrganization(this.organization.id)
-            .then(res => {
-             this.events = res as Event[];
+    if (this.participant == "Organization"){
+      this.getOrganizationByEmail(mail)  // Get Organization by Mail
+           .then(res => {
+             this.organization = res as Organization;
+             this.organizationID = this.organization.id
+           }).catch(err => {  // No Organization Mail on BD? -> Organization = null
+             this.organization = null;
+             this.gotIt = false;
+             console.error("Necesitas registar una Entidad para ver tu perfil")
            })
-         }).catch(err => {});
+           .then(() => {  // With the Organization, get the Events
+             this.gotIt = true;
+             this.getEventsByOrganization(this.organization.id)
+              .then(res => {
+               this.organizationService.events = res as Event[];
+               this.gotIt = false;
+             })
+           }).catch(err => {});
+      }
   }
 
   getOrganizationByEmail(email){

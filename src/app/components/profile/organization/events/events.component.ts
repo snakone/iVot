@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ProfileService } from '../../../../services/profile.service';
+import { OrganizationService } from '../../../../services/organization.service';
 import { Event } from '../../../../models/event';
 
-import { CreateEventComponent } from '../../organization/create-event/create-event.component';
+import { CreateEventComponent } from '../../../static/create-event/create-event.component';
 
 import { MatDialog } from '@angular/material';  // Dialog
 
@@ -14,7 +14,7 @@ import { MatDialog } from '@angular/material';  // Dialog
 
 export class EventsComponent implements OnInit {
 
-  constructor(public profileService: ProfileService,
+  constructor(public organization: OrganizationService,
               public dialog: MatDialog) { }
 
   ngOnInit() {

@@ -1,47 +1,46 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { ProfileService } from '../../../../../../../../services/profile.service';
-import { TopicService } from '../../../../../../../../services/topic.service';
-
-import { NgForm } from '@angular/forms';
-
-import { ToastrService } from 'ngx-toastr';
+import { OptionService } from '../../../../../../../../services/option.service';
 
 import { Topic } from '../../../../../../../../models/topic';
+import { Option } from '../../../../../../../../models/option';
+
+import { MatDialog } from '@angular/material';  // Material Dialog
+import { CreateOptionComponent } from '../../../../../../../static/create-option/create-option.component';
 
 @Component({
   selector: 'topic-options',
   templateUrl: './options.component.html',
   styleUrls: ['./options.component.css']
 })
+
 export class OptionsComponent implements OnInit {
 
   @Input() topic: Topic;
-  question: string;
 
-  constructor(private profileService: ProfileService,
-              private topicService: TopicService,
-              private toastr: ToastrService) { }
+  constructor(private profile: ProfileService,
+              public optionService: OptionService,
+              public dialog: MatDialog) { }
 
-  ngOnInit() {}
-
-  vote(form: NgForm){
-
+  ngOnInit() {
+    this.profile.topicID = this.topic.id;
+    this.getOptions();
   }
 
-  deleteTopic($event){
-    event.preventDefault();
-      if(confirm("¿Estás Seguro?")){
-        this.topicService.deleteTopic(this.profileService.organizationID,
-                                      this.profileService.eventID, this.topic.id)
-         .then(res => {
-           this.topicService.getTopics(this.profileService.organizationID,
-                                         this.profileService.eventID)
-            .then( res => {
-              this.topicService.topics = res as Topic[];  // Get Topics again
-            }).then(() => this.toastr.error('Oh!', 'Tópico Eliminado'))
-         });
-      }
+  getOptions(){
+    this.optionService.getOptions(this.profile.organizationID, this.profile.eventID, this.topic.id)
+     .then(res => {
+       this.optionService.options = res as Option[];
+     })
+  }
+
+  openNewOption(){
+    const dialogRef = this.dialog.open(CreateOptionComponent,{});  // New Dialog
+  }
+
+  addOption(id, option){
+    this.optionService.addOption(this.profile.organizationID, this.profile.eventID, id, option)
   }
 
 }

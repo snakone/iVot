@@ -4,12 +4,6 @@
     bottom: 25px;
 }
 
-/*Deleting random circle on Hover, was a default feature */
-
-.cdk-focused {
-    background: transparent;
-}
-
 .margin-top {
     margin-top: 25px;
     padding: 0;
@@ -41,6 +35,6 @@ mat-datepicker {
   left: 50px;
 }
 
-.mat-dialog-container {
-  padding: 10px;
+.input-field {
+  padding: 0!important;
 }

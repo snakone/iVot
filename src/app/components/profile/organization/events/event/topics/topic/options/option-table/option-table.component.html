@@ -1,0 +1,11 @@
+<table class="centered striped">
+  <thead>
+      <th class="center">Opción</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let option of options">
+      <td>{{option.description}}</td>
+      <td><mat-icon (click)="deleteOption($event, option.id)" class="trash">delete</mat-icon></td>
+    </tr>
+  </tbody>
+</table>
