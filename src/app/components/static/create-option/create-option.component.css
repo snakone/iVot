@@ -24,3 +24,8 @@ i:not(.black-icon)  {
  max-width: 450px;
  box-sizing: border-box;
 }
+
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}

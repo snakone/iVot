@@ -21,7 +21,7 @@ export class ParticipantTableComponent implements OnInit {
   participants: Participant[];
 
   constructor(private profile: ProfileService,
-              private participant: ParticipantService,
+              public participant: ParticipantService,
               private toastr: ToastrService,
               public dialog: MatDialog) { }
 

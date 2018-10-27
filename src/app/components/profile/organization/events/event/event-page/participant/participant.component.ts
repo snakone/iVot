@@ -9,6 +9,8 @@ import { Participant } from '../../../../../../../models/participant';
 })
 export class ParticipantComponent implements OnInit {
 
+  panelOpenState: boolean;
+
   constructor() { }
 
   ngOnInit() {

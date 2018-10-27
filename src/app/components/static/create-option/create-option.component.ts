@@ -18,7 +18,6 @@ import { TopicService } from '../../../services/topic.service';
 
 @Component({
   selector: 'create-option',
-  template: 'passed in {{ data.topicID }}',
   templateUrl: './create-option.component.html',
   styleUrls: ['./create-option.component.css']
 })
