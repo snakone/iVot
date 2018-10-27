@@ -2,12 +2,15 @@ import { Component, OnInit, Input } from '@angular/core';
 
 import { Event } from '../../../../../../models/event';
 import { Topic } from '../../../../../../models/topic';
+import { Participant } from '../../../../../../models/participant';
 
 import { EventService } from '../../../../../../services/event.service';
 import { ProfileService } from '../../../../../../services/profile.service';
 import { TopicService } from '../../../../../../services/topic.service';
+import { ParticipantService } from '../../../../../../services/participant.service';
 
 import { CreateTopicComponent } from '../../../../../static/create-topic/create-topic.component';
+import { InviteParticipantComponent } from '../../../../../static/invite-participant/invite-participant.component';
 
 import { MatDialog } from '@angular/material';  // Dialog
 
@@ -16,28 +19,27 @@ import { Router, ActivatedRoute } from '@angular/router'; // Routes
 
 @Component({
   selector: 'event-topics',
-  templateUrl: './topics.component.html',
-  styleUrls: ['./topics.component.css']
+  templateUrl: './event-page.component.html',
+  styleUrls: ['./event-page.component.css']
 })
 
-export class TopicsComponent implements OnInit {
+export class EventPageComponent implements OnInit {
 
-  @Input() organizationEvent: Event;
-  openNew: boolean = false;
   event: Event;
 
   constructor(public dialog: MatDialog,
               public eventService: EventService,
               private activeRoute: ActivatedRoute,
-              private profileService: ProfileService,
+              private profile: ProfileService,
               public topicService: TopicService,
+              public participant: ParticipantService,
               private router: Router) { }
 
   ngOnInit() {
 
     let eventID = this.activeRoute.snapshot.params.id; // Get the Event ID from URL
-    this.profileService.eventID = eventID;
-    let organizationID = this.profileService.organizationID; // Get the Organization ID from Service
+    this.profile.eventID = eventID;
+    let organizationID = this.profile.organizationID; // Get the Organization ID from Service
 
     try {
       if (organizationID == undefined) throw Error
@@ -46,10 +48,11 @@ export class TopicsComponent implements OnInit {
          .subscribe(res => {
            this.event = res as Event;
          });
-            this.getTopics(organizationID, eventID);  // Get Topics of the Event
+          this.getTopics(organizationID, eventID);  // Get Topics of the Event
+          this.getParticipants(organizationID, eventID);  // Get Participants of the Event
       }
     } catch(err) {
-      this.router.navigate(['/profile/']);
+      this.router.navigate(['/profile']);
     }
   }
 
@@ -60,8 +63,19 @@ export class TopicsComponent implements OnInit {
      });
   }
 
+  getParticipants(organizationID, eventID){
+    this.participant.getParticipants(organizationID, eventID)
+     .subscribe(res => {
+       this.participant.participants = res as Participant[];
+     })
+  }
+
   openNewTopic(){
-    const dialogRef = this.dialog.open(CreateTopicComponent,{});  // New Dialog
+    const dialogRefTopic = this.dialog.open(CreateTopicComponent,{});  // New Dialog
+  }
+
+  openInviteParticipant(){
+    const dialogRefInvite = this.dialog.open(InviteParticipantComponent,{});  // New Dialog
   }
 
 }

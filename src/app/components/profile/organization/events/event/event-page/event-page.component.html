@@ -1,0 +1,46 @@
+<div class="container animated slideInLeft">
+    <div>
+        <div class="profile">
+            <label>Perfil
+              <mat-icon class="arrow">arrow_right_alt</mat-icon> Evento
+              <mat-icon class="arrow">arrow_right_alt</mat-icon> Tópicos</label>
+        </div>
+
+        <div class="event" *ngIf="event">
+          <h4>{{event.name}}</h4>
+          <p><span class="bold">Fecha:</span> {{event.eventDate}}</p>
+          <p><span class="bold">Descripción:</span> {{event.description}}</p>
+
+            <div>
+                <h5>Tópicos
+                  <mat-icon (click)="openNewTopic()" class="add-button">playlist_add</mat-icon>
+                </h5>
+            </div>
+
+            <div *ngIf="topicService.topics">
+              <span *ngIf="topicService.topics.length == 0">Parece ser que aún no hay tópicos.</span>
+            </div>
+
+            <div *ngIf="topicService.topics">
+              <event-topic [topic]="topic" *ngFor="let topic of topicService.topics"></event-topic>
+            </div>
+            <br><br>
+            <div>
+                <h5>Participantes
+                  <mat-icon (click)="openInviteParticipant()" class="add-participant">person_add</mat-icon>
+                </h5>
+            </div>
+
+            <div *ngIf="participant.participants">
+              <span *ngIf="participant.participants.length == 0">
+                Aún no hay participantes.</span>
+            </div>
+
+            <div *ngIf="participant.participants">
+              <event-participant *ngIf="!participant.participants.length == 0"></event-participant>
+            </div>
+        </div>
+
+    </div>
+</div>
+<br>

@@ -31,4 +31,5 @@ export class TopicService {
   deleteTopic(organizationID, eventID, id){
     return this.http.delete(this.URL_API  + `/${organizationID}/events/${eventID}/topics/${id}`).toPromise()
   }
+
 }

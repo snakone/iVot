@@ -7,7 +7,7 @@ import { Topic } from '../../../../../../../../models/topic';
 import { Option } from '../../../../../../../../models/option';
 
 import { MatDialog } from '@angular/material';  // Material Dialog
-import { CreateOptionComponent } from '../../../../../../../static/create-option/create-option.component';
+
 
 @Component({
   selector: 'topic-options',
@@ -18,29 +18,23 @@ import { CreateOptionComponent } from '../../../../../../../static/create-option
 export class OptionsComponent implements OnInit {
 
   @Input() topic: Topic;
+  options: Option[];
 
   constructor(private profile: ProfileService,
               public optionService: OptionService,
               public dialog: MatDialog) { }
 
   ngOnInit() {
-    this.profile.topicID = this.topic.id;
+
     this.getOptions();
   }
 
   getOptions(){
     this.optionService.getOptions(this.profile.organizationID, this.profile.eventID, this.topic.id)
      .then(res => {
-       this.optionService.options = res as Option[];
+       this.options = res as Option[];
      })
   }
 
-  openNewOption(){
-    const dialogRef = this.dialog.open(CreateOptionComponent,{});  // New Dialog
-  }
-
-  addOption(id, option){
-    this.optionService.addOption(this.profile.organizationID, this.profile.eventID, id, option)
-  }
 
 }

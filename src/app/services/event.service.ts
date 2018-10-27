@@ -27,11 +27,11 @@ export class EventService {
   }
 
   addEvent(event: Event) {
-    return this.http.post(this.URL_API + `/${event.id}/events`, event );
+    return this.http.post(this.URL_API + `/${event.id}/events`, event);  // Event ID = Organization ID
   }
 
   updateEvent(event: Event) {
-   return this.http.put(this.URL_API + `/${event.id}`, event );
+   return this.http.put(this.URL_API + `/${event.id}`, event);
  }
 
   deleteEvent(id: string, entityID) {

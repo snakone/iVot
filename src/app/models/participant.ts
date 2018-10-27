@@ -1,12 +1,15 @@
 export class Participant {
 
-    name: string;
-    address: string;
-    email: string;
+  assignedVotes: number;
+  representation: boolean;
+  userEmail: string;
 
-    constructor(name:string, address: string, email: string){
-      this.name= name;
-      this.address = address;
-      this.email = email;
-    }
+   constructor(assignedVotes: number, representation: boolean,
+               userEmail: string){
+
+              this.assignedVotes = assignedVotes;
+              this.representation = representation;
+              this.userEmail = userEmail;
+
+   }
 }

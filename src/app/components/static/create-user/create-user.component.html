@@ -1,0 +1,64 @@
+<div class="overflow">
+  <h5>Registrar Usuario</h5>
+  <br>
+        <form #addUserForm="ngForm" (ngSubmit)="addUser(addUserForm)">
+            <div class="row">
+                <input type="hidden" name="token"
+                #token="ngModel" [(ngModel)]="profile.token">
+
+                <div class="input-field col s12 m12 l6">
+                  <i class="material-icons prefix">assignment_ind</i>  <!-- User Name -->
+                  <input type="text" name="name" class="validate"
+                  #name="ngModel" [(ngModel)]="selectedUser.name">
+                  <label for="name">Nombre *</label>
+                </div>
+
+                <div class="input-field col s12 m12 l6">
+                  <i class="material-icons prefix">assignment_ind</i>  <!-- User Last Name -->
+                  <input type="text" name="lastName" class="validate"
+                  #lastName="ngModel" [(ngModel)]="selectedUser.lastName">
+                  <label for="lastName">Apellidos *</label>
+                </div>
+
+                <div class="input-field col s12 m12 l6">
+                  <i class="material-icons prefix">add_location</i>  <!-- User Address -->
+                  <input type="text" name="address" class="validate"
+                  #address="ngModel" [(ngModel)]="selectedUser.address">
+                  <label for="address">Dirección *</label>
+                </div>
+
+                <div class="input-field col s12 m12 l6">
+                  <i class="material-icons prefix">mail_outline</i>  <!-- User Email -->
+                  <input id="email" type="email" name="email" class="validate"
+                  #email="ngModel" [(ngModel)]="selectedUser.email">
+                  <label for="email">Email *</label>
+                </div>
+
+                <div class="input-field col s12 m12 l6">
+                  <i class="material-icons prefix">add_a_photo</i>  <!-- User Icon -->
+                  <input type="text" name="icon" class="validate"
+                  #icon="ngModel" [(ngModel)]="selectedUser.icon">
+                  <label for="icon">Icono *</label>
+                </div>
+
+                <div class="input-field col s12 m12 l6">
+                  <i class="material-icons prefix">store</i>
+                  <mat-form-field>
+                    <mat-select class="option" name="organization" #organization="ngModel"
+                    [(ngModel)]="selectedUser.organization" placeholder="Organización">
+                      <mat-option  *ngFor="let organization of organizations" [value]="organization">
+                        {{organization.name}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+            </div>
+                <br>
+                <div class="center">
+                  <button type="submit" class="btn orange">Enviar</button>
+                  <button (click)="resetForm($event, addUserForm)" class="btn red">Reset</button>
+                </div>
+
+        </form>
+        <p class="text-right">* Obligatorio</p>
+</div>

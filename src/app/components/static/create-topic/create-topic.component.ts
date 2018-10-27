@@ -43,7 +43,7 @@ export class CreateTopicComponent implements OnInit {
              .then(res => {
                this.topicService.topics = res as Topic[];
              }).then(() => {
-                 this.toastr.success('Tema Creado', 'Muy bien!');
+                 this.toastr.success('Tema Creado');
                  this.dialog.closeAll();
                  this.resetForm(addTopicForm); // Reset the FORM
              });

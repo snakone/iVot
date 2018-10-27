@@ -11,8 +11,8 @@
             </mat-expansion-panel-header>
             {{event.description}}
             <div class="center actions">
-              <button class="btn orange" (click)="createTopic(event)">Crear Tema</button>
-              <button class="btn red" (click)="deleteEvent(event)">Eliminar</button>
+              <button class="btn orange" (click)="createTopic(event)"><mat-icon>event_available</mat-icon></button>
+              <button class="btn red" (click)="deleteEvent(event)"><mat-icon>delete</mat-icon></button>
             </div>
         </mat-expansion-panel>
     </mat-accordion>

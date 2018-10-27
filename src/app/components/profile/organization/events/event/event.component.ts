@@ -13,7 +13,7 @@ import { Router } from '@angular/router'; // Router
 import { ConfirmComponent } from '../../../../static/confirm/confirm.component';
 
 @Component({
-  selector: 'app-event',
+  selector: 'organization-event',
   templateUrl: './event.component.html',
   styleUrls: ['./event.component.css']
 })
@@ -45,13 +45,13 @@ export class EventComponent implements OnInit {
               let entityID = this.profileService.organization.id;
                   this.eventService.deleteEvent(event.id, entityID)
                    .subscribe(res => {
-                     this.toastr.error('Oh!', 'Evento Eliminado');
+                     this.toastr.error('Evento Eliminado');
                      this.auth.getProfile((err, profile) => {  // After Event Deleted, get the Events again
                          this.profileService.checkProfile(profile);
                        });
-                   });        
+                   });
             } catch (err) {
-              console.log("Necesitas Acceder a tu perfil primero")
+              console.error("Necesitas Acceder a tu perfil primero")
               }
         }  // End of If (result)
       });

@@ -43,7 +43,7 @@ export class CreateEventComponent implements OnInit {
          this.eventService.addEvent(form.value)  // Add Event
          .subscribe(res => {
            this.resetForm(form);
-           this.toastr.success('Evento Creado', 'Muy bien!');
+           this.toastr.success('Evento Creado');
            this.dialog.closeAll();
            this.auth.getProfile((err, profile) => { // After add, Get the Topics again
              this.profileService.checkProfile(profile);

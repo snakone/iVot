@@ -1,18 +1,14 @@
-import { Participant } from './participant';
+import { Anybody } from './anybody';
 
-export class Organization extends Participant {
+export class Organization extends Anybody {
 
   id: string;
-  token: string;
-  icon: string;
   description: string;
 
    constructor(name:string, email: string, token: string,
                icon: string, description:string, address: string){
 
-       super(name, address, email);
-       this.token = token;
-       this.icon = icon;
+       super(name, email, token, icon, address);
        this.description = description;
 
    }

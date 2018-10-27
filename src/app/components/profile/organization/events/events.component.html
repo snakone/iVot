@@ -1,7 +1,7 @@
 <h5>Eventos <mat-icon (click)="openNewEvent()" class="add-button">playlist_add</mat-icon></h5>
-<br>
+
   <div class="row">
-    <app-event *ngFor="let event of organization.events" [event]="event"></app-event>
+    <organization-event *ngFor="let event of organization.events" [event]="event"></organization-event>
   </div>
 
   <div *ngIf="organization.events">

@@ -4,25 +4,26 @@
         <div>
           <label><i class="glyphicon glyphicon-user"></i>Perfil</label>
         </div>
-      <h4>Bienvenido <span *ngIf="profileService.gotIt">SI</span></h4>
+      <h4>Bienvenido</h4>
 
-         <div *ngIf="profileService.organization && profileService.participant == 'Organization'">  <!-- ORGANIZATION -->
+         <div *ngIf="profileService.organization &&
+                     profileService.participant == 'Organization'">  <!-- ORGANIZATION -->
             <organization-card></organization-card>
             <organization-events></organization-events>
          </div>
 
-         <div *ngIf="profileService.participant == 'User'">  <!-- USER -->
-           Aquí puedes ver una lista de los eventos a los que has sido celebremente invitado
+         <div *ngIf="!profileService.user &&
+                      profileService.participant == 'User'">  <!-- USER BUT NOT REGISTERED -->
+           <register-user></register-user>
          </div>
 
          <!-- ORGANIZATION BUT NOT REGISTERED -->
           <div class="center" *ngIf="!profileService.organization &&
-                                      profileService.participant == 'Organization' &&
-                                     !profileService.gotIt">
-            Para registrar una <span class="bold">Entidad</span>, contacta con un
+                                      profileService.participant == 'Organization'">
+            Para registrar una <span class="bold">Organización</span>, contacta con un
             <span class="bold">Administrador</span> y dale el siguiente código, él se encargará del resto!
             <p class="code center"><code>{{profileService.token}}</code></p>
-            <p>Muchas gracias por tu interés en <span class="bold">iVot</span>, nos vemos pronto!</p>
+            <p>Muchas gracias por tu interés en <span class="ivot">iVot</span>, nos vemos pronto!</p>
           </div>
      </div>
 

@@ -19,6 +19,10 @@ mat-expansion-panel-header {
   padding: 10px 20px;
 }
 
+mat-icon {
+  vertical-align: middle;
+}
+
 .actions {
   margin-top: 20px;
   margin-bottom: 5px;

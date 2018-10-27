@@ -12,6 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatSelectModule} from '@angular/material/select';
 
 import { MatSidenavModule,
          MatListModule,
@@ -28,14 +29,14 @@ import { MatSidenavModule,
             MatTableModule, MatPaginatorModule, MatSortModule, MatTooltipModule,
             MatBadgeModule, MatExpansionModule, MatFormFieldModule,
             MatDatepickerModule, MatNativeDateModule, MatRadioModule,
-            MatDialogModule],
+            MatDialogModule, MatSelectModule],
 
   exports: [MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule,
             MatMenuModule, MatSidenavModule, MatListModule, MatCardModule,
             MatTableModule, MatPaginatorModule, MatSortModule, MatTooltipModule,
             MatBadgeModule, MatExpansionModule, MatFormFieldModule,
             MatDatepickerModule, MatNativeDateModule, MatRadioModule,
-            MatDialogModule],
+            MatDialogModule, MatSelectModule],
 })
 export class MaterialModule {
 

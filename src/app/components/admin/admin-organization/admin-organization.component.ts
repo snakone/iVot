@@ -43,7 +43,7 @@ export class AdminOrganizationComponent implements OnInit {
     if (form.value.id) {  // Already Organization ID? -> Update
       this.organizationService.updateOrganization(form.value)  // Update Organization with Form Values
        .subscribe (res => {
-         this.toastr.info('Bien!', 'Entidad Actualizada!');
+         this.toastr.info('Organización Actualizada!');
          this.resetForm(form);
          this.getOrganization();
        })
@@ -52,7 +52,7 @@ export class AdminOrganizationComponent implements OnInit {
       form.value.icon = `assets/icons/${form.value.icon}.png`;  // Icon Converter
       this.organizationService.addOrganization(form.value)  // Add Organization with Form Values
       .subscribe(res => {
-        this.toastr.success('Genial!', 'Entidad Añadida');
+        this.toastr.success('Organización Añadida');
         this.resetForm(form);
         this.getOrganization();
       });
@@ -72,7 +72,7 @@ export class AdminOrganizationComponent implements OnInit {
           this.organizationService.deleteOrganization(id)  // Delete Organization by ID
            .subscribe( res => {
               this.getOrganization();  // Once Deleted, Update the Organization List
-              this.toastr.warning('Oh!', 'Entidad Eliminada');
+              this.toastr.error('Organización Eliminada');
            });
         }  // End of If (result)
       });

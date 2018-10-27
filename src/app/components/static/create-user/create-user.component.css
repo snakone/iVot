@@ -1,0 +1,54 @@
+i:not(.black-icon)  {
+ margin: 0 auto;
+ margin-top:10px;
+ color:orange;
+}
+
+.text-right {
+ position: relative;
+ top: 15px;
+ text-align: right;
+}
+
+.actions {
+ margin-top: 15px;
+}
+
+.input-field {
+ margin-top: 10px;
+}
+
+.overflow {
+ overflow-y: auto;
+ max-height: 500px;
+ max-width: 450px;
+ box-sizing: border-box;
+}
+
+.btn {
+  margin: 10px;
+  padding: 1px 12px;
+}
+
+.option {
+  padding: 10px;
+  padding-top: 22px;
+}
+
+.row {
+  margin-bottom: 0;
+}
+
+mat-form-field {
+  margin-top: -10px;
+  margin-left: 42px;
+}
+
+.mat-form-field-infix {
+  border-top: 0;
+}
+
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}

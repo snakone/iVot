@@ -28,26 +28,35 @@ import { AdminOrganizationComponent } from './components/admin/admin-organizatio
 import { AppWelcomeComponent } from './components/app-welcome/app-welcome.component';
 
 // Profile
+// Organization
 import { ProfileComponent } from './components/profile/profile.component';
 import { OrganizationCardComponent } from './components/profile/organization/organization-card/organization-card.component';
+
+// User
+import { UserCardComponent } from './components/profile/user/user-card/user-card.component';
+import { RegisterUserComponent } from './components/profile/user/register-user/register-user.component';
+
+// Participant
+import { ParticipantComponent } from './components/profile/organization/events/event/event-page/participant/participant.component';
+import { ParticipantTableComponent } from './components/profile/organization/events/event/event-page/participant/participant-table/participant-table.component';
 
 // Events
 import { EventsComponent } from './components/profile/organization/events/events.component';
 import { EventComponent } from './components/profile/organization/events/event/event.component';
-
+import { EventPageComponent } from './components/profile/organization/events/event/event-page/event-page.component';
 
 // Topics
-import { TopicComponent } from './components/profile/organization/events/event/topics/topic/topic.component';
-import { TopicsComponent } from './components/profile/organization/events/event/topics/topics.component';
-import { OptionsComponent } from './components/profile/organization/events/event/topics/topic/options/options.component';
-import { OptionTableComponent } from './components/profile/organization/events/event/topics/topic/options/option-table/option-table.component';
+import { TopicComponent } from './components/profile/organization/events/event/event-page/topic/topic.component';
+import { OptionsComponent } from './components/profile/organization/events/event/event-page/topic/options/options.component';
+import { OptionTableComponent } from './components/profile/organization/events/event/event-page/topic/options/option-table/option-table.component';
 
 // Static
 import { CreateEventComponent } from './components/static/create-event/create-event.component';
 import { CreateTopicComponent } from './components/static/create-topic/create-topic.component';
 import { CreateOptionComponent } from './components/static/create-option/create-option.component';
+import { CreateUserComponent } from './components/static/create-user/create-user.component';
 import { ConfirmComponent } from './components/static/confirm/confirm.component';
-
+import { InviteParticipantComponent } from './components/static/invite-participant/invite-participant.component';
 
 // Pagination
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -64,9 +73,11 @@ import { ToastrModule } from 'ngx-toastr';
     AppComponent, TopNavComponent, AppGridComponent, TopMenuComponent,
     TopTitleComponent, AppWelcomeComponent, CreateEventComponent,
     ProfileComponent, EventsComponent, EventComponent, TopicComponent,
-    TopicsComponent, CreateTopicComponent, OptionsComponent,
+    EventPageComponent, CreateTopicComponent, OptionsComponent,
     FooterNavComponent, AdminOrganizationComponent, OrganizationCardComponent,
-    ConfirmComponent, CreateOptionComponent, OptionTableComponent],
+    ConfirmComponent, CreateOptionComponent, OptionTableComponent,
+    InviteParticipantComponent, RegisterUserComponent, UserCardComponent,
+    ParticipantComponent, ParticipantTableComponent, CreateUserComponent],
   imports: [
     BrowserModule, HttpClientModule, BrowserAnimationsModule,
     MaterialModule, NgxPaginationModule, FormsModule,
@@ -77,7 +88,7 @@ import { ToastrModule } from 'ngx-toastr';
     })
   ],
   entryComponents:[CreateTopicComponent, CreateEventComponent, CreateOptionComponent,
-                   ConfirmComponent], // Modals
+                  CreateUserComponent, ConfirmComponent, InviteParticipantComponent], // Modals
   providers: [],
   bootstrap: [AppComponent]
 })

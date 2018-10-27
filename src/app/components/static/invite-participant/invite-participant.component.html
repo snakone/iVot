@@ -1,0 +1,50 @@
+<div class="overflow">
+  <h5>Invitar Participante</h5>
+  <br>
+    <form #inviteUserForm="ngForm" (ngSubmit)="onSubmit(inviteUserForm)">
+
+      <div class="row">
+
+            <!-- <input type="hidden" name="representation"
+            #representation="ngModel" [(ngModel)]="selectedParticipant.representation"> -->
+
+            <!-- <div class="input-field col s12 m12">
+              <i class="material-icons prefix">help_outline</i>
+              <input name="userEmail" type="email"
+              [(ngModel)]="selectedParticipant.email" #userEmail="ngModel"
+              data-length="75" class="validate" required>
+              <label for="userEmail">Email *</label>
+            </div> -->
+
+            <div class="input-field col s12 m12 l6">
+              <i class="material-icons prefix">mail_outline</i>
+              <mat-form-field>
+                <mat-select class="option" name="userEmail" #userEmail="ngModel"
+                [(ngModel)]="selectedParticipant.userEmail" placeholder="Email *">
+                  <mat-option *ngFor="let user of users" [value]="user.email">
+                    {{user.email}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div class="input-field col s12 m12">
+              <i class="material-icons prefix">how_to_vote</i>
+              <input name="assignedVotes" type="number"
+              [(ngModel)]="selectedParticipant.assignedVotes" #assignedVotes="ngModel"
+              class="validate" required>
+              <label for="assignedVotes">Nº Votos *</label>
+            </div>
+      </div>
+
+        <div class="col s12 m12 actions">
+          <p class="center">
+            <button class="waves-effect btn orange" type="submit">Invitar</button>
+          </p>
+        </div>
+
+    </form>
+
+    <p class="text-right">* Obligatorio</p>
+<br>
+</div>

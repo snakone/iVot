@@ -1,0 +1,16 @@
+.trash {
+  color: orange;
+}
+
+.trash:hover {
+  cursor: pointer;
+  filter: brightness(1.1);
+}
+
+td, th {
+  padding: 10px 5px;
+}
+
+.striped {
+  margin-top: -15px;
+}

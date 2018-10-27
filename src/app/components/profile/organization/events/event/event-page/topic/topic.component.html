@@ -3,8 +3,7 @@
         <mat-expansion-panel (opened)="panelOpenState = true;"
                            (closed)="panelOpenState = false">
         <mat-expansion-panel-header>
-          <mat-panel-title [ngClass]="{'opened': panelOpenState == true}">
-            <span class="bold">Descripción:</span>
+          <mat-panel-title [ngClass]="{'title': panelOpenState == true}">
             <span class="topic">{{topic.description}}</span>
           </mat-panel-title>
         </mat-expansion-panel-header>
@@ -12,7 +11,9 @@
         <topic-options [topic]="topic"></topic-options>
 
         <div class="center actions">
-            <button (click)="deleteTopic($event)" class="btn red">Eliminar</button>
+            <button (click)="openNewOption()" class="btn green"><mat-icon>add_comment</mat-icon></button>
+            <button (click)="goResult(topic)" class="btn blue"><mat-icon>signal_cellular_alt</mat-icon></button>
+            <button (click)="deleteTopic($event)" class="btn red"><mat-icon>delete</mat-icon></button>
         </div>
 
         </mat-expansion-panel>

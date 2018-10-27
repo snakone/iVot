@@ -15,3 +15,8 @@
   cursor: pointer;
   filter: brightness(1.2);
 }
+
+h5 {
+  margin-top: 20px;
+  margin-bottom: 15px;
+}

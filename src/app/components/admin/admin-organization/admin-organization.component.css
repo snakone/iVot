@@ -32,3 +32,19 @@ mat-icon:hover {
 h4 {
   margin-bottom: 20px;
 }
+
+i:not(.black-icon)  {
+ margin: 0 auto;
+ margin-top:10px;
+ color:orange;
+}
+
+.text-right {
+ position: relative;
+ top: 15px;
+ text-align: right;
+}
+
+.input-field {
+ margin-top: 10px;
+}

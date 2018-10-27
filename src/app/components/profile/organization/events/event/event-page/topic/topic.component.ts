@@ -10,6 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 import { MatDialog } from '@angular/material';  // Material Dialog
 
 import { ConfirmComponent } from '../../../../../../../components/static/confirm/confirm.component';
+import { CreateOptionComponent } from '../../../../../../static/create-option/create-option.component';
 
 @Component({
   selector: 'event-topic',
@@ -27,7 +28,16 @@ export class TopicComponent implements OnInit {
               private toastr: ToastrService,
               public dialog: MatDialog) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
+
+  openNewOption(){
+    const dialogRef = this.dialog.open(CreateOptionComponent,{data:{topicID: this.topic.id}});  // New Dialog
+  }
+
+  goResult(topic){
+    console.log(topic)
+  }
 
   deleteTopic($event){
     event.preventDefault();
@@ -37,12 +47,16 @@ export class TopicComponent implements OnInit {
       if (result) {
             this.topicService.deleteTopic(this.profile.organizationID,
                                           this.profile.eventID, this.topic.id)
+        .catch(err => {
+              console.log("Error");
+              // console.log(err)
+            })
              .then(res => {
                this.topicService.getTopics(this.profile.organizationID,
                                              this.profile.eventID)
-                .then(res => {
-                  this.topicService.topics = res as Topic[];  // Get Topics again
-                }).then(() => this.toastr.error('Oh', 'Tópico Eliminado'))
+                      .then(res => {
+                        this.topicService.topics = res as Topic[];  // Get Topics again
+                      }).then(() => this.toastr.error('Tópico Eliminado'))
              });
            }  // End of If (result)
       });

@@ -19,7 +19,7 @@
       <span>Login</span>
     </button>
 
-    <button mat-menu-item *ngIf="auth.isAuthenticated()" (click)=" logout() ">
+    <button mat-menu-item *ngIf="auth.isAuthenticated()" (click)="logout()">
       <mat-icon>exit_to_app</mat-icon>
       <span>Salir</span>
     </button>
@@ -33,6 +33,6 @@
 
 <mat-menu #Admin="matMenu">
  <button [routerLink]="['admin/organization']" routerLinkActive="active"
-         mat-menu-item><mat-icon>store</mat-icon>Entidad
+         mat-menu-item><mat-icon>store</mat-icon>Organización
  </button>
 </mat-menu>

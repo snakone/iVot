@@ -1,0 +1,15 @@
+<div class="col s12 m12 participant-list animated fadeIn slow">
+    <mat-accordion>
+      <mat-expansion-panel (opened)="panelOpenState = true;"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title [ngClass]="{'title': panelOpenState == true}">
+          <span class="participant">Lista de Participantes</span>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <participant-table></participant-table>
+
+      </mat-expansion-panel>
+    </mat-accordion>
+</div>

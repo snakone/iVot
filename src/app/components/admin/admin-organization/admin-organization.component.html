@@ -7,7 +7,7 @@
             <form #addOrganizationForm="ngForm" (ngSubmit)="addOrganization(addOrganizationForm)">
                 <div class="row">
                     <input type="hidden" name="id"
-                    #_id="ngModel" [(ngModel)]="organizationService.selectedOrganization.id">
+                    #id="ngModel" [(ngModel)]="organizationService.selectedOrganization.id">
 
                     <div class="input-field col s12 m12 l6">
                       <span class="helper-text bold">Nombre Entidad</span>  <!-- Organization Name -->

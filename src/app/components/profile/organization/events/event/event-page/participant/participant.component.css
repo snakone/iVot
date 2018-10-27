@@ -1,6 +1,15 @@
+.participant {
+  margin-right: 5px;
+}
+
 .bold {
   font-weight: bold;
   margin-right: 10px;
+}
+
+.title {
+    font-weight: bold;
+    color: orange;
 }
 
 mat-expansion-panel-header {
@@ -12,11 +21,7 @@ mat-expansion-panel-header {
   height: auto!important;
 }
 
-.topic {
-  margin-right: 5px;
-}
-
-.topic-list {
+.participant-list {
   padding: 10px;
   margin-bottom: 15px;
 }

@@ -5,28 +5,34 @@ import { ToastrService } from 'ngx-toastr';
 import { NgForm } from '@angular/forms';
 
 import { Option } from '../../../models/option';
+import { Topic } from '../../../models/topic';
 
 import { ProfileService } from '../../../services/profile.service';
 import { OptionService } from '../../../services/option.service';
 
 import { MatDialog } from '@angular/material';  // Dialog
+import { MAT_DIALOG_DATA } from '@angular/material';
+import { Inject } from '@angular/core';
+import { TopicService } from '../../../services/topic.service';
 
 
 @Component({
   selector: 'create-option',
+  template: 'passed in {{ data.topicID }}',
   templateUrl: './create-option.component.html',
   styleUrls: ['./create-option.component.css']
 })
 
 export class CreateOptionComponent implements OnInit {
 
-  option: Option;
   selectedOption: Option = <Option>{};
 
    constructor(private profile: ProfileService,
                private optionService: OptionService,
+               private topicService: TopicService,
                private toastr: ToastrService,
-               public dialog: MatDialog) {}
+               public dialog: MatDialog,
+               @Inject(MAT_DIALOG_DATA) public data: any) {}
 
    ngOnInit() {}
 
@@ -34,18 +40,18 @@ export class CreateOptionComponent implements OnInit {
      let option = {description: form.value.description};
      let eventID = this.profile.eventID;
      let organizationID = this.profile.organizationID;
-     let topicID = this.profile.topicID;
+     let topicID = this.data.topicID;
 
      if (option.description == undefined)
      alert('Por favor, Rellena el formulario')
      else {
          this.optionService.addOption(organizationID, eventID, topicID, option) // Add Option
           .then(res => {
-            this.optionService.getOptions(organizationID, eventID, topicID) // After add, get Options again
+            this.topicService.getTopics(organizationID, eventID) // After add, get Options again
              .then(res => {
-               this.optionService.options = res as Option[];
+               this.topicService.topics = res as Topic[];
              }).then(() => {
-                 this.toastr.success('Opción Añadida', 'Muy bien!');
+                 this.toastr.success('Opción Añadida');
                  this.dialog.closeAll();
                  this.resetForm(form); // Reset the FORM
              });
@@ -56,7 +62,7 @@ export class CreateOptionComponent implements OnInit {
    resetForm(addOptionForm?: NgForm){
     if (addOptionForm != null) // Reset form if not empty and we add a empty Option
       addOptionForm.reset();
-      this.option = <Option>{}; // Instance a Empty Option Class
+      this.selectedOption = <Option>{}; // Instance a Empty Option Class
     }
 
 }

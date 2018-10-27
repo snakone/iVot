@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { Option } from '../../../../../../../../../models/option';
+import { Topic } from '../../../../../../../../../models/topic';
 
 import { ProfileService } from '../../../../../../../../../services/profile.service';
 import { OptionService } from '../../../../../../../../../services/option.service';
@@ -18,14 +19,14 @@ import { ConfirmComponent } from '../../../../../../../../static/confirm/confirm
 export class OptionTableComponent implements OnInit {
 
   @Input() options: Option[];
+  @Input() topic: Topic;
 
   constructor(private optionService: OptionService,
               private profile: ProfileService,
               private toastr: ToastrService,
               public dialog: MatDialog) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   deleteOption(event, optionID: string){
     event.preventDefault();
@@ -34,13 +35,13 @@ export class OptionTableComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => { // After Dialog Closed
       if (result) {
               this.optionService.deleteOption(this.profile.organizationID, this.profile.eventID,
-                                              this.profile.topicID, optionID)
+                                              this.topic.id, optionID)
                .then(res => {
                  this.optionService.getOptions(this.profile.organizationID, this.profile.eventID,
-                                               this.profile.topicID)
+                                               this.topic.id)
                   .then(res => {
-                      this.optionService.options = res as Option[];
-                      this.toastr.error('Oh', 'Tópico Eliminado')
+                      this.options = res as Option[];
+                      this.toastr.error('Opción Eliminada')
                   });
                });
            }  // End of If (result)
