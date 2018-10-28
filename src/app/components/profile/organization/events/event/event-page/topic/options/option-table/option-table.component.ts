@@ -39,11 +39,14 @@ export class OptionTableComponent implements OnInit {
                .then(res => {
                  this.optionService.getOptions(this.profile.organizationID, this.profile.eventID,
                                                this.topic.id)
-                  .then(res => {
-                      this.options = res as Option[];
-                      this.toastr.error('Opción Eliminada')
+                  .catch(err => {
+                          console.log(err)                       
+                      })
+                      .then(res => {
+                          this.options = res as Option[];
+                          this.toastr.error('Opción Eliminada')
+                      });
                   });
-               });
            }  // End of If (result)
       });
   }

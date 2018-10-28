@@ -39,7 +39,7 @@ export class TopicComponent implements OnInit {
     console.log(topic)
   }
 
-  deleteTopic($event){
+  deleteTopic(event){
     event.preventDefault();
     const dialogRef = this.dialog.open(ConfirmComponent,{});  // New Dialog -> Confirm Dialog Component
 
@@ -55,8 +55,9 @@ export class TopicComponent implements OnInit {
                this.topicService.getTopics(this.profile.organizationID,
                                              this.profile.eventID)
                       .then(res => {
+                        this.topicService.filteredTopics = res as Topic[];  // Get Topics again
                         this.topicService.topics = res as Topic[];  // Get Topics again
-                      }).then(() => this.toastr.error('Tópico Eliminado'))
+                      }).then(() => this.toastr.info('Tópico Eliminado'))
              });
            }  // End of If (result)
       });

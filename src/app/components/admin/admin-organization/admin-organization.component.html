@@ -9,42 +9,48 @@
                     <input type="hidden" name="id"
                     #id="ngModel" [(ngModel)]="organizationService.selectedOrganization.id">
 
-                    <div class="input-field col s12 m12 l6">
+                    <div class="input-field col s12 m12">
                       <span class="helper-text bold">Nombre Entidad</span>  <!-- Organization Name -->
                       <input type="text" name="name" class="validate"
                       #name="ngModel" [(ngModel)]="organizationService.selectedOrganization.name"
                       placeholder="Introduce un nombre">
                     </div>
 
-                    <div class="input-field col s12 m12 l6">
+                    <div class="input-field col s12 m12">
                       <span class="helper-text bold">Dirección</span>  <!-- Organization Address -->
                       <input type="text" name="address" class="validate"
                       #address="ngModel" [(ngModel)]="organizationService.selectedOrganization.address"
                       placeholder="Introduce una dirección">
                     </div>
 
-                    <div class="input-field col s12 m12 l6">
+                    <div class="input-field col s12 m12">
                       <span class="helper-text bold">Email</span>  <!-- Organization Email -->
                       <input id="email" type="email" name="email" class="validate"
                       #email="ngModel" [(ngModel)]="organizationService.selectedOrganization.email"
                       placeholder="Introduce un email">
                     </div>
 
-                    <div class="input-field col s12 m12 l6">
-                      <span class="helper-text bold">Icono</span>  <!-- Organization Icon -->
-                      <input type="text" name="icon" class="validate"
-                      #icon="ngModel" [(ngModel)]="organizationService.selectedOrganization.icon"
-                      placeholder="Introduce un icono">
+                    <div class="input-field col s12 m12 top">
+                      <div class="file-field input-field">
+                        <span class="helper-text bold blue-color">Imagen</span>  <!-- Organization Image -->
+                          <input type="file" name="file" (change)="selectPhoto($event)">
+
+                        <div class="file-path-wrapper">
+                          <input class="file-path validate"
+                          type="text" placeholder="Selecciona una Foto">
+                        </div>
+                      </div>
+
                     </div>
 
-                    <div *ngIf="token" class="input-field col s12 m12 l12">
+                    <div *ngIf="token" class="input-field col s12 m12">
                       <span class="helper-text bold">Token</span>  <!-- Organization Token -->
                       <input type="text" name="token" class="validate"
                       #token="ngModel" [(ngModel)]="organizationService.selectedOrganization.token"
                       placeholder="Introduce el Token de la Entidad">
                     </div>
 
-                    <div class="input-field col s12 m12 l12">
+                    <div class="input-field col s12 m12">
                       <span class="helper-text bold">Descripción</span>  <!-- Organization Description -->
                       <textarea name="description" class="materialize-textarea validate"
                       data-length="120" maxlength="120" #description="ngModel"

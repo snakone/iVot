@@ -6,6 +6,9 @@
                 <input type="hidden" name="token"
                 #token="ngModel" [(ngModel)]="profile.token">
 
+                <input type="hidden" name="email"
+                #email="ngModel" [(ngModel)]="profile.email">
+
                 <div class="input-field col s12 m12 l6">
                   <i class="material-icons prefix">assignment_ind</i>  <!-- User Name -->
                   <input type="text" name="name" class="validate"
@@ -28,14 +31,7 @@
                 </div>
 
                 <div class="input-field col s12 m12 l6">
-                  <i class="material-icons prefix">mail_outline</i>  <!-- User Email -->
-                  <input id="email" type="email" name="email" class="validate"
-                  #email="ngModel" [(ngModel)]="selectedUser.email">
-                  <label for="email">Email *</label>
-                </div>
-
-                <div class="input-field col s12 m12 l6">
-                  <i class="material-icons prefix">add_a_photo</i>  <!-- User Icon -->
+                  <i class="material-icons prefix">image</i>  <!-- User Icon -->
                   <input type="text" name="icon" class="validate"
                   #icon="ngModel" [(ngModel)]="selectedUser.icon">
                   <label for="icon">Icono *</label>
@@ -45,7 +41,7 @@
                   <i class="material-icons prefix">store</i>
                   <mat-form-field>
                     <mat-select class="option" name="organization" #organization="ngModel"
-                    [(ngModel)]="selectedUser.organization" placeholder="Organización">
+                    [(ngModel)]="selectedUser.organization" placeholder="Organización *">
                       <mat-option  *ngFor="let organization of organizations" [value]="organization">
                         {{organization.name}}
                       </mat-option>
@@ -53,12 +49,10 @@
                   </mat-form-field>
                 </div>
             </div>
-                <br>
-                <div class="center">
+                <div class="center actions">
                   <button type="submit" class="btn orange">Enviar</button>
                   <button (click)="resetForm($event, addUserForm)" class="btn red">Reset</button>
                 </div>
 
         </form>
-        <p class="text-right">* Obligatorio</p>
 </div>

@@ -3,6 +3,7 @@
     cursor: pointer;
     transition: transform .5s;
     margin-top: 10px;
+    margin-left: -6px;
 }
 
 .home-logo:hover {
@@ -13,15 +14,6 @@
 }
 
 @media screen and (max-width: 600px) {
-
-    .subTitle {
-        display: block;
-        font-size: 1.2em;
-        transform-origin: 50% 50%;
-        top: 15px;
-        transition: all 2s;
-        padding: 15px;
-    }
 
     .home-logo {
         max-height: 75%;

@@ -18,8 +18,7 @@ title: string;
 events: Event[] = [];
 organization: Organization;
 
-  constructor( public auth: AuthService,
-               private profileService: ProfileService) {
+  constructor( public auth: AuthService) {
     this.title = 'iVot';
 }
 

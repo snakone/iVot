@@ -1,10 +1,38 @@
-<h5>Eventos <mat-icon (click)="openNewEvent()" class="add-button">playlist_add</mat-icon></h5>
+<h5>Eventos
+  <mat-icon (click)="openNewEvent()" class="add-button">playlist_add</mat-icon>
+  <span *ngIf="organization.events">
+    <mat-icon [ngClass]="{'animated pulse slower infinite delay-2s': search == true}"
+  (click)="openSearch()" *ngIf="!organization.events.length == 0"
+   class="search-button search">search</mat-icon></span></h5>
 
-  <div class="row">
-    <organization-event *ngFor="let event of organization.events" [event]="event"></organization-event>
+  <div *ngIf="search" id="animated" class="col s12 m12 animated bounceInLeft slow search">
+      <div class="input-field center">  <!-- Key Up Event -->
+          <input type="text" name="searchValue"
+          (keyup)="onKeyUp($event)" [(ngModel)]="searchValue"
+          placeHolder="Nombre del Evento">
+      </div>
+  </div>
+
+  <div class="row" *ngIf="organization.events">
+    <organization-event *ngFor="let event of organization.filteredEvents |
+                         paginate: { itemsPerPage: 5, currentPage: p }" [event]="event">
+    </organization-event>
+      <div *ngIf="organization.filteredEvents">
+          <pagination-controls *ngIf="!organization.filteredEvents.length == 0"
+                               class="center Pages" (pageChange)="p = $event"
+                               previousLabel="Anterior" nextLabel="Siguiente">
+          </pagination-controls>
+      </div>
   </div>
 
   <div *ngIf="organization.events">
-    <span *ngIf="organization.events.length == 0">Aún no has registrado ningún evento</span>
+    <p *ngIf="organization.events.length == 0">
+      Aún no has registrado ningún <span class="bold">evento</span>.
+    </p>
   </div>
-<br>
+
+  <div *ngIf="organization.filteredEvents && search">
+    <p *ngIf="organization.filteredEvents.length == 0">
+      Ningún <span class="bold">evento</span> coincide con tu búsqueda.
+    </p>
+  </div>

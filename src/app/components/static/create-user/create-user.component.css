@@ -6,16 +6,12 @@ i:not(.black-icon)  {
 
 .text-right {
  position: relative;
- top: 15px;
+ top: 5px;
  text-align: right;
 }
 
 .actions {
- margin-top: 15px;
-}
-
-.input-field {
- margin-top: 10px;
+ margin-top: 5px;
 }
 
 .overflow {

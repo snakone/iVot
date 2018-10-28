@@ -25,7 +25,6 @@ export class OptionsComponent implements OnInit {
               public dialog: MatDialog) { }
 
   ngOnInit() {
-
     this.getOptions();
   }
 

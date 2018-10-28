@@ -22,6 +22,10 @@ export class EventService {
     return this.http.get(this.URL_API);
   }
 
+  getEventbyID(organizationID, eventID){
+    return this.http.get(this.URL_API  + `/${organizationID}/events/${eventID}`)
+  }
+
   getEventsByOrganization(id){
     return this.http.get(this.URL_API + `/${id}/events`)
   }

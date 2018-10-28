@@ -2,21 +2,12 @@
   <h5>Invitar Participante</h5>
   <br>
     <form #inviteUserForm="ngForm" (ngSubmit)="onSubmit(inviteUserForm)">
-
       <div class="row">
 
             <!-- <input type="hidden" name="representation"
             #representation="ngModel" [(ngModel)]="selectedParticipant.representation"> -->
 
-            <!-- <div class="input-field col s12 m12">
-              <i class="material-icons prefix">help_outline</i>
-              <input name="userEmail" type="email"
-              [(ngModel)]="selectedParticipant.email" #userEmail="ngModel"
-              data-length="75" class="validate" required>
-              <label for="userEmail">Email *</label>
-            </div> -->
-
-            <div class="input-field col s12 m12 l6">
+            <div class="input-field col s12 m12">
               <i class="material-icons prefix">mail_outline</i>
               <mat-form-field>
                 <mat-select class="option" name="userEmail" #userEmail="ngModel"
@@ -28,7 +19,7 @@
               </mat-form-field>
             </div>
 
-            <div class="input-field col s12 m12">
+            <div class="input-field col s12 m12 votes">
               <i class="material-icons prefix">how_to_vote</i>
               <input name="assignedVotes" type="number"
               [(ngModel)]="selectedParticipant.assignedVotes" #assignedVotes="ngModel"

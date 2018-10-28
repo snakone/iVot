@@ -11,9 +11,15 @@
         <topic-options [topic]="topic"></topic-options>
 
         <div class="center actions">
-            <button (click)="openNewOption()" class="btn green"><mat-icon>add_comment</mat-icon></button>
-            <button (click)="goResult(topic)" class="btn blue"><mat-icon>signal_cellular_alt</mat-icon></button>
-            <button (click)="deleteTopic($event)" class="btn red"><mat-icon>delete</mat-icon></button>
+            <button (click)="openNewOption()" class="btn">
+              <mat-icon class="add">add_comment</mat-icon>
+            </button>
+            <button (click)="goResult(topic)" class="btn">
+              <mat-icon class="check">pie_chart</mat-icon>
+            </button>
+            <button (click)="deleteTopic($event)" class="btn">
+              <mat-icon class="erase">delete</mat-icon>
+            </button>
         </div>
 
         </mat-expansion-panel>

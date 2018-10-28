@@ -14,6 +14,7 @@ export class OrganizationService {
   readonly URL_API = 'https://ivotapp.herokuapp.com/organizations';
 
   events: Event[];
+  filteredEvents: Event[];
   selectedOrganization: Organization;
 
   constructor(private http: HttpClient) {

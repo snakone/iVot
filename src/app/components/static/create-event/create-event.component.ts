@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 import { Event } from '../../../models/event';
 
 import { MatDialog } from '@angular/material';  // Dialog
+import { OrganizationService } from '../../../services/organization.service';
 
 @Component({
   selector: 'create-event',
@@ -27,11 +28,14 @@ export class CreateEventComponent implements OnInit {
   constructor(private toastr: ToastrService,
               public profileService: ProfileService,
               private eventService: EventService,
+              private organization: OrganizationService,
               private router: Router,
               public dialog: MatDialog,
               private auth: AuthService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+
+  }
 
   addEvent(form?: NgForm) {
        try {
@@ -42,12 +46,13 @@ export class CreateEventComponent implements OnInit {
        }
          this.eventService.addEvent(form.value)  // Add Event
          .subscribe(res => {
-           this.resetForm(form);
            this.toastr.success('Evento Creado');
-           this.dialog.closeAll();
-           this.auth.getProfile((err, profile) => { // After add, Get the Topics again
-             this.profileService.checkProfile(profile);
-           });
+           this.profileService.getEventsByOrganization(form.value.id)
+            .then(res => {
+              this.organization.events = res as Event[];
+              this.organization.filteredEvents = res as Event[];
+            });
+              this.dialog.closeAll();
          });
    }
 

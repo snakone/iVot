@@ -26,6 +26,7 @@ import { AdminOrganizationComponent } from './components/admin/admin-organizatio
 
 // Components
 import { AppWelcomeComponent } from './components/app-welcome/app-welcome.component';
+import { IvotComponent } from './components/ivot/ivot.component';
 
 // Profile
 // Organization
@@ -77,7 +78,8 @@ import { ToastrModule } from 'ngx-toastr';
     FooterNavComponent, AdminOrganizationComponent, OrganizationCardComponent,
     ConfirmComponent, CreateOptionComponent, OptionTableComponent,
     InviteParticipantComponent, RegisterUserComponent, UserCardComponent,
-    ParticipantComponent, ParticipantTableComponent, CreateUserComponent],
+    ParticipantComponent, ParticipantTableComponent, CreateUserComponent,
+    IvotComponent],
   imports: [
     BrowserModule, HttpClientModule, BrowserAnimationsModule,
     MaterialModule, NgxPaginationModule, FormsModule,
@@ -88,7 +90,8 @@ import { ToastrModule } from 'ngx-toastr';
     })
   ],
   entryComponents:[CreateTopicComponent, CreateEventComponent, CreateOptionComponent,
-                  CreateUserComponent, ConfirmComponent, InviteParticipantComponent], // Modals
+                   CreateUserComponent, ConfirmComponent, InviteParticipantComponent,
+                   ], // Modals
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -40,11 +40,14 @@ export class CreateUserComponent implements OnInit {
   }
 
   addUser(form: NgForm){
-    console.log(form.value)
     if (form.value.name == null || form.value.lastName == null ||
         form.value.address == null || form.value.email == null ||
         form.value.icon == null || form.value.organization == null) alert("Rellena el formulario")
       else {
+        const newUser = new User(form.value.name, form.value.lastName, form.value.icon,
+                                 form.value.token, form.value.address, form.value.email,
+                                 form.value.organization.name);
+
         this.userService.addUser(form.value.organization.id, form.value)
          .subscribe(res => {
             this.toastr.success('Usuario Creado');

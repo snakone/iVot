@@ -1,0 +1,40 @@
+.ivot {
+  color:#fecb51;
+  font-weight: bold;
+}
+
+.color-red {
+  color:red;
+}
+
+.weAre {
+  margin-top: 25px;
+}
+
+@media (min-width:600px){
+  h5 {
+    margin-top: 35px;
+  }
+}
+
+.fa {
+  font-size: 3em;
+}
+
+.fa:hover {
+  color:orange;
+  cursor: pointer;
+}
+
+.top {
+  margin-top: 10px;
+}
+
+.techno {
+  font-size: 1.2em;
+}
+
+.name {
+  font-style: italic;
+  font-size: 1.1em;
+}

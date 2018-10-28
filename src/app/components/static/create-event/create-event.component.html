@@ -1,9 +1,11 @@
 <div class="row">
   <h5>Registrar Evento</h5>
-    <form #addEventForm="ngForm" class="col s12 margin-top" (ngSubmit)="addEvent(addEventForm)">
-        <div class="row">
-            <input type="hidden" name="id" [(ngModel)]="profileService.organization.id" #id="ngModel">
-            <input type="hidden" name="token" [(ngModel)]="profileService.token" #auth="ngModel">
+    <form #addEventForm="ngForm" (ngSubmit)="addEvent(addEventForm)">
+        <div class="add-form">
+            <input *ngIf="profileService.organizationID"
+            type="hidden" name="id" [(ngModel)]="profileService.organizationID" #id="ngModel">
+            <input *ngIf="profileService.token" 
+            type="hidden" name="token" [(ngModel)]="profileService.token" #auth="ngModel">
 
             <div class="input-field col s12 m12">
                 <i class="material-icons prefix">assignment</i>
@@ -24,21 +26,20 @@
                 <i class="material-icons prefix">image</i>
                 <input name="icon" type="text" class="validate"
                 [(ngModel)]="selectedEvent.icon" #icon="ngModel">
-                <label for="name">Icono del Evento</label>
+                <label for="icon">Icono del Evento</label>
             </div>
 
-            <div class="input-field col s12 m12 margin-top">
+            <div class="input-field col s12 m12 bottom">
                 <i class="material-icons prefix">watch_later</i>
                 <mat-datepicker-toggle class="right" matSuffix [for]="picker"></mat-datepicker-toggle>
                 <input name="eventDate" matInput [matDatepicker]="picker" class="validate"
-                [(ngModel)]="selectedEvent.eventDate" #eventDate="ngModel" placeholder="Fecha del Evento">
+                [(ngModel)]="selectedEvent.eventDate" #eventDate="ngModel" placeholder=" Fecha del Evento">
                  <mat-datepicker touchUi class="datepicker" #picker> </mat-datepicker>
             </div>
 
-            <br><br>
         </div>
-          <div class="center">
-            <button type="submit" mat-button class="btn orange">CREAR</button>
+          <div class="center actions">
+            <button type="submit" class="btn orange">CREAR</button>
           </div>
     </form>
 

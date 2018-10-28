@@ -18,7 +18,7 @@
 
 .code {
   margin: 45px auto;
-  font-size: 1.2em;
+  font-size: 1.4em;
 }
 
 label {
@@ -28,4 +28,14 @@ label {
 .ivot {
   color:#fecb51;
   font-weight: bold;
+}
+
+.server-down {
+  margin-top: 25px;
+  font-size: 1.2em;
+}
+
+.thanks {
+  margin-top: 25px;
+  font-size: 1.4em;
 }

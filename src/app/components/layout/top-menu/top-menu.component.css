@@ -17,3 +17,7 @@ span:hover {
 .active {
   color: #fecb51;
 }
+
+mat-icon {
+  margin-bottom: 4px;
+}

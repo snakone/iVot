@@ -48,7 +48,7 @@ export class CreateOptionComponent implements OnInit {
           .then(res => {
             this.topicService.getTopics(organizationID, eventID) // After add, get Options again
              .then(res => {
-               this.topicService.topics = res as Topic[];
+               this.topicService.filteredTopics = res as Topic[];
              }).then(() => {
                  this.toastr.success('Opción Añadida');
                  this.dialog.closeAll();

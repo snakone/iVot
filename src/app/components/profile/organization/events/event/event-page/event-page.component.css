@@ -14,6 +14,33 @@
   bottom: 0;
   top: 7px;
   left: 18px;
+  margin-top: 18px;
+}
+
+.search-button {
+  color: #039be5;
+  font-size: 1.5em;
+  position: relative;
+  bottom: 0;
+  top: 10px;
+  left: 18px;
+}
+
+.search-button:hover {
+  cursor: pointer;
+  filter: brightness(1.2);
+  transform:scale(1.2);
+  transition: transform 2s;
+}
+
+.bottom {
+  margin-bottom: 25px;
+}
+
+.search {
+  margin-left: 25px;
+  margin-top: -10px;
+  margin-bottom: 10px;
 }
 
 .add-button:hover, .add-participant:hover {
@@ -26,7 +53,6 @@ h5 {
   margin-bottom: 15px;
 }
 
-
 .arrow {
   display: inline-flex;
   vertical-align: bottom;
@@ -34,13 +60,18 @@ h5 {
   margin: auto 5px;
 }
 
-.event p {
-  margin: 25px auto;
-}
-
 .name {
   font-size: 1.1em;
   font-weight: bold;
+}
+
+.Pages /deep/ .ngx-pagination .current {
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+
+.participants {
+  margin-top: 20px;
 }
 
 .profile {
@@ -50,4 +81,14 @@ h5 {
 .invite {
   font-size: 1.1em;
   font-style: italic;
+}
+
+input[type=text]:not(.browser-default) {
+  text-align: center;
+  margin: 0;
+  border-bottom: 2px solid #039be5;
+}
+
+.no-topics {
+  padding-top: 55px;
 }

@@ -1,5 +1,5 @@
 .row {
-  margin-bottom: 0;
+  margin-bottom: 10px;
 }
 
 .add-button {
@@ -11,12 +11,45 @@
   left: 18px;
 }
 
+.search-button {
+  color: #039be5;
+  font-size: 1.5em;
+  position: relative;
+  bottom: 0;
+  top: 10px;
+  left: 18px;
+}
+
+.search-button:hover {
+  cursor: pointer;
+  filter: brightness(1.2);
+  transform:scale(1.2);
+  transition: transform 2s;
+}
+
 .add-button:hover {
   cursor: pointer;
   filter: brightness(1.2);
 }
 
 h5 {
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 15px;
+}
+
+.search {
+  margin-left: 25px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+.Pages /deep/ .ngx-pagination .current {
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+
+input[type=text]:not(.browser-default) {
+  text-align: center;
+  margin: 0;
+  border-bottom: 2px solid #039be5;
 }

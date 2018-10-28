@@ -1,10 +1,10 @@
 
 mat-icon {
   margin:0 5px;
+  vertical-align: middle;
 }
 
 mat-icon:hover {
-  color:red;
   cursor: pointer;
 }
 
@@ -21,12 +21,16 @@ mat-icon:hover {
 }
 
 .btn {
-  margin: 10px;
+  margin: 5px;
   padding: 1px 12px;
 }
 
 .bottom {
   margin-bottom: 30px;
+}
+
+.blue-color {
+  color: #039be5;
 }
 
 h4 {
@@ -39,12 +43,28 @@ i:not(.black-icon)  {
  color:orange;
 }
 
+.image {
+  margin-bottom: 10px;
+}
+
+.top {
+  margin-top: 0;
+}
+
 .text-right {
  position: relative;
  top: 15px;
  text-align: right;
 }
 
-.input-field {
- margin-top: 10px;
+input[type=text]:not(.browser-default) {
+  margin: 10px auto;
+}
+
+input[type=email]:not(.browser-default) {
+  margin: 10px auto;
+}
+
+input[type=file]:not(.browser-default) {
+  margin: 10px auto;
 }

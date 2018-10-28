@@ -17,8 +17,8 @@ export class AuthService {
      clientID: '77Ptm1cz6Djkk5auGpdbUA7j8cIG3b2O',
      domain: 'ivot.eu.auth0.com',
      responseType: 'token id_token',
-     redirectUri: 'http://localhost:4200',  // http://localhost:4200  http://ivot.epizy.com
-     scope: 'openid profile email user_metadata'
+     redirectUri: 'http://ivot.epizy.com',  // http://localhost:4200  http://ivot.epizy.com
+     scope: 'openid profile email'
   });
 
   constructor(public router: Router) {}

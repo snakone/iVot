@@ -26,6 +26,9 @@ import { Router, ActivatedRoute } from '@angular/router'; // Routes
 export class EventPageComponent implements OnInit {
 
   event: Event;
+  search: boolean = false;
+  searchValue: string = "";
+  p: number = 1;
 
   constructor(public dialog: MatDialog,
               public eventService: EventService,
@@ -36,30 +39,30 @@ export class EventPageComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
+          let eventID = this.activeRoute.snapshot.params.id; // Get the Event ID from URL
+          this.profile.eventID = eventID;
+          let organizationID = this.profile.organizationID; // Get the Organization ID from Service
 
-    let eventID = this.activeRoute.snapshot.params.id; // Get the Event ID from URL
-    this.profile.eventID = eventID;
-    let organizationID = this.profile.organizationID; // Get the Organization ID from Service
-
-    try {
-      if (organizationID == undefined) throw Error
-      else {
-        this.topicService.getEventbyID(organizationID, eventID)  // Get Event by ID
-         .subscribe(res => {
-           this.event = res as Event;
-         });
-          this.getTopics(organizationID, eventID);  // Get Topics of the Event
-          this.getParticipants(organizationID, eventID);  // Get Participants of the Event
-      }
-    } catch(err) {
-      this.router.navigate(['/profile']);
-    }
+          try {
+            if (organizationID == undefined) throw Error
+            else {
+              this.eventService.getEventbyID(organizationID, eventID)  // Get Event by ID
+               .subscribe(res => {
+                 this.event = res as Event;
+               });
+                this.getTopics(organizationID, eventID);  // Get Topics of the Event
+                this.getParticipants(organizationID, eventID);  // Get Participants of the Event
+            }
+          } catch(err) {
+            this.router.navigate(['/profile']);
+          }
   }
 
   getTopics(organizationID, eventID){
     this.topicService.getTopics(organizationID, eventID)
      .then(res => {
        this.topicService.topics = res as Topic[];
+       this.topicService.filteredTopics = res as Topic[];
      });
   }
 
@@ -76,6 +79,33 @@ export class EventPageComponent implements OnInit {
 
   openInviteParticipant(){
     const dialogRefInvite = this.dialog.open(InviteParticipantComponent,{});  // New Dialog
+  }
+
+
+  onKeyUp(event){  // On Key Up Javascript Event
+    event.preventDefault();
+    this.filterTopicbySearch();
+    }
+
+  filterTopicbySearch() {
+    this.topicService.filteredTopics = this.topicService.topics
+      .filter((topic, index) => {  // Filter Array
+     return topic.description.includes(this.searchValue);
+    })
+  }
+
+  openSearch(){
+    if (this.search == false) {
+      this.search = !this.search;
+    } else {
+      let bar = document.getElementById("animated")
+      bar.classList.remove("bounceInLeft");
+      bar.classList.add("zoomOutLeft");
+      setTimeout(()=> {
+        this.search = false;
+      }, 1000)
+    }
+    this.topicService.filteredTopics = this.topicService.topics;
   }
 
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { HttpClient } from '@angular/common/http';
+
 import { OrganizationService } from '../../../services/organization.service';  // Organization Service
 import { Organization } from '../../../models/organization';  // Organization Model
 
@@ -22,14 +24,22 @@ export class AdminOrganizationComponent implements OnInit {
 
   organizations: Organization[];
   token: boolean = true;  // On Edit, Hide Auth0 Token Text Input
+  photo: File = null;
 
   constructor(public organizationService: OrganizationService,
               public profileService: ProfileService,
               private toastr: ToastrService,
-              public dialog: MatDialog) { }
+              public dialog: MatDialog,
+              private http: HttpClient) { }
 
-  ngOnInit() {
+  ngOnInit(){
     this.getOrganization();  // Get Organization at the start
+  }
+
+  selectPhoto(event){
+    this.photo = event.target.files;
+    console.log(this.photo + "\n")
+    console.log(event.target)
   }
 
   getOrganization(){
@@ -49,13 +59,15 @@ export class AdminOrganizationComponent implements OnInit {
        })
     }
     else {  // Not Organization ID? Oh, New Organization?
-      form.value.icon = `assets/icons/${form.value.icon}.png`;  // Icon Converter
-      this.organizationService.addOrganization(form.value)  // Add Organization with Form Values
-      .subscribe(res => {
-        this.toastr.success('Organización Añadida');
-        this.resetForm(form);
-        this.getOrganization();
-      });
+      // form.value.icon = `assets/icons/${form.value.icon}.png`;  // Icon Converter
+      // this.organizationService.addOrganization(form.value)  // Add Organization with Form Values
+      // .subscribe(res => {
+      //   this.toastr.success('Organización Añadida');
+      //   this.resetForm(form);
+      //   this.getOrganization();
+      // });
+      console.log(this.photo +"\n")
+      console.log(form.value)
     }
   }
 
@@ -72,7 +84,7 @@ export class AdminOrganizationComponent implements OnInit {
           this.organizationService.deleteOrganization(id)  // Delete Organization by ID
            .subscribe( res => {
               this.getOrganization();  // Once Deleted, Update the Organization List
-              this.toastr.error('Organización Eliminada');
+              this.toastr.info('Organización Eliminada');
            });
         }  // End of If (result)
       });

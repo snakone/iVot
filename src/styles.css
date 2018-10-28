@@ -22,3 +22,7 @@ body {
 .cdk-focused {
     background: transparent!important;
 }
+
+.input-field {
+  margin-top: 0;
+}

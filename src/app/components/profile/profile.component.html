@@ -1,33 +1,56 @@
 <div class="container animated slideInLeft">
 
+    <!-- LOGGED IN -->
     <div *ngIf="auth.isAuthenticated()">
         <div>
           <label><i class="glyphicon glyphicon-user"></i>Perfil</label>
         </div>
       <h4>Bienvenido</h4>
 
+          <!-- ORGANIZATION -->
          <div *ngIf="profileService.organization &&
-                     profileService.participant == 'Organization'">  <!-- ORGANIZATION -->
+                     profileService.participant == 'Organization' &&
+                     profileService.server">
             <organization-card></organization-card>
             <organization-events></organization-events>
          </div>
 
+          <!-- ORGANIZATION BUT NOT REGISTERED -->
+         <div class="center" *ngIf="!profileService.organization &&
+                                    profileService.participant == 'Organization' &&
+                                    profileService.server">
+           <p>Para registrar una <span class="bold">Organización</span>, contacta con un
+           <span class="bold">Administrador</span> y dale el siguiente código, él se encargará del resto.</p>
+           <p class="code center"><code>{{profileService.token}}</code></p>
+           <p class="thanks">Muchas gracias por tu interés en <span class="ivot">iVot</span>.</p>
+         </div>
+
+        <!-- USER -->
+         <div *ngIf="profileService.user &&
+                     profileService.participant == 'User' &&
+                     profileService.server">
+           Perfil de Usuario
+         </div>
+
+        <!-- USER BUT NOT REGISTERED -->
          <div *ngIf="!profileService.user &&
-                      profileService.participant == 'User'">  <!-- USER BUT NOT REGISTERED -->
+                      profileService.participant == 'User' &&
+                      profileService.server">
            <register-user></register-user>
          </div>
 
-         <!-- ORGANIZATION BUT NOT REGISTERED -->
-          <div class="center" *ngIf="!profileService.organization &&
-                                      profileService.participant == 'Organization'">
-            Para registrar una <span class="bold">Organización</span>, contacta con un
-            <span class="bold">Administrador</span> y dale el siguiente código, él se encargará del resto!
-            <p class="code center"><code>{{profileService.token}}</code></p>
-            <p>Muchas gracias por tu interés en <span class="ivot">iVot</span>, nos vemos pronto!</p>
-          </div>
+         <!-- SERVER DOWN -->
+         <div class="center animated slideInLeft" *ngIf="!profileService.server">
+           <p class="server-down">Lo sentimos, en estos momentos el
+             <span class="bold">servidor está caído</span>. Vuelve a intertarlo
+           pasado unos minutos.</p>
+           <p class="thanks">Muchas gracias por tu patiencia.</p>
+         </div>
+
      </div>
 
-      <div class="center noAuth" *ngIf="!auth.isAuthenticated()">   <!-- NOT LOGGED IN -->
+      <!-- NOT LOGGED IN -->
+      <div class="center noAuth" *ngIf="!auth.isAuthenticated()">
           <h3>No estás autentificado,<br> Accede a tu
             <a class="link-to-login" (click)="login()">perfil</a>.
           </h3>

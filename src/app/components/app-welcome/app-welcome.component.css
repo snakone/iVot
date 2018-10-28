@@ -39,6 +39,22 @@ h3 {
   margin-top: 1em;
 }
 
+@media (min-height:900px) {
+   h3 {
+     margin-top: 1.5em;
+   }
+}
+
+@media (min-height:900px) and (min-width:1300px) {
+   h3 {
+     margin-top: 2em;
+   }
+
+   .steps {
+     margin-top: 45px!important;
+   }
+}
+
 .steps {
   max-width: 100%;
   margin: 0 auto;

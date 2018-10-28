@@ -41,7 +41,8 @@ export class CreateTopicComponent implements OnInit {
           .then(res => {
             this.topicService.getTopics(organizationID, eventID) // After add, get Topics again
              .then(res => {
-               this.topicService.topics = res as Topic[];
+               this.topicService.filteredTopics = res as Topic[];
+                this.topicService.topics = res as Topic[];
              }).then(() => {
                  this.toastr.success('Tema Creado');
                  this.dialog.closeAll();

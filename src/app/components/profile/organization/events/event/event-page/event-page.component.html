@@ -1,32 +1,57 @@
 <div class="container animated slideInLeft">
-    <div>
-        <div class="profile">
+        <div>
             <label>Perfil
-              <mat-icon class="arrow">arrow_right_alt</mat-icon> Evento
-              <mat-icon class="arrow">arrow_right_alt</mat-icon> Tópicos</label>
+              <mat-icon class="arrow">arrow_right_alt</mat-icon> Evento</label>
         </div>
 
-        <div class="event" *ngIf="event">
+        <div *ngIf="event">
           <h4>{{event.name}}</h4>
           <p><span class="bold">Fecha:</span> {{event.eventDate}}</p>
-          <p><span class="bold">Descripción:</span> {{event.description}}</p>
+          <p class="bottom"><span class="bold">Descripción:</span> {{event.description}}</p>
 
             <div>
                 <h5>Tópicos
                   <mat-icon (click)="openNewTopic()" class="add-button">playlist_add</mat-icon>
+                  <span *ngIf="topicService.topics">
+                    <mat-icon [ngClass]="{'animated pulse slower infinite delay-2s': search == true}"
+                  (click)="openSearch()" *ngIf="!topicService.topics.length == 0"
+                   class="search-button search">search</mat-icon></span>
                 </h5>
+                <div *ngIf="search" id="animated" class="col s12 m12 animated bounceInLeft slow search search-bar">
+                    <div class="input-field center">  <!-- Key Up Event -->
+                        <input type="text" name="searchValue"
+                        (keyup)="onKeyUp($event)" [(ngModel)]="searchValue"
+                        placeHolder="Nombre del Tópico">
+                    </div>
+                </div>
             </div>
 
             <div *ngIf="topicService.topics">
-              <span *ngIf="topicService.topics.length == 0">Parece ser que aún no hay tópicos.</span>
+              <p *ngIf="topicService.topics.length == 0">
+                Parece ser que aún no hay <span class="bold">tópicos</span>.
+              </p>
+            </div>
+
+            <div *ngIf="topicService.filteredTopics && search">
+              <p *ngIf="topicService.filteredTopics.length == 0" class="no-topics">
+                Ningún <span class="bold">tópico</span> coincide con tu búsqueda.
+              </p>
             </div>
 
             <div *ngIf="topicService.topics">
-              <event-topic [topic]="topic" *ngFor="let topic of topicService.topics"></event-topic>
+              <event-topic *ngFor="let topic of topicService.filteredTopics |
+                                   paginate: { itemsPerPage: 5, currentPage: p }" [topic]="topic">
+              </event-topic>
+                <div *ngIf="topicService.filteredTopics">
+                    <pagination-controls *ngIf="!topicService.filteredTopics.length == 0"
+                                         class="center Pages" (pageChange)="p = $event"
+                                         previousLabel="Anterior" nextLabel="Siguiente">
+                    </pagination-controls>
+                </div>
             </div>
-            <br><br>
+
             <div>
-                <h5>Participantes
+                <h5 class="participants">Participantes
                   <mat-icon (click)="openInviteParticipant()" class="add-participant">person_add</mat-icon>
                 </h5>
             </div>
@@ -40,7 +65,5 @@
               <event-participant *ngIf="!participant.participants.length == 0"></event-participant>
             </div>
         </div>
-
-    </div>
 </div>
 <br>

@@ -42,7 +42,7 @@ export class ParticipantTableComponent implements OnInit {
                                                      this.profile.eventID)
                      .subscribe(res => {
                        this.participant.participants = res as Participant[];
-                       this.toastr.error('Participante Eliminado')
+                       this.toastr.info('Participante Eliminado')
                      })
                 })
            }  // End of If (result)

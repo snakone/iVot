@@ -3,14 +3,13 @@ import { Event } from '../../../../../models/event';
 
 import { MatDialog } from '@angular/material';  // Material Dialog
 
-import { AuthService } from '../../../../../services/auth.service';
-
 import { EventService } from '../../../../../services/event.service';
 import { ProfileService } from '../../../../../services/profile.service';
 import { ToastrService } from 'ngx-toastr';
 
 import { Router } from '@angular/router'; // Router
 import { ConfirmComponent } from '../../../../static/confirm/confirm.component';
+import { OrganizationService } from '../../../../../services/organization.service';
 
 @Component({
   selector: 'organization-event',
@@ -26,13 +25,13 @@ export class EventComponent implements OnInit {
   constructor(private router: Router,
               private eventService: EventService,
               private profileService: ProfileService,
-              private auth: AuthService,
+              private organization: OrganizationService,
               private toastr: ToastrService,
               public dialog: MatDialog) { }
 
   ngOnInit() {}
 
-  createTopic(event: Event){  // Go to Entity - > Events - Topic Page
+  goTopic(event: Event){  // Go to Organization - > Events - Event Page
     this.router.navigate(['/profile/event/', event.id]);
   }
 
@@ -42,13 +41,15 @@ export class EventComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => { // After Dialog Closed
       if (result) {
             try {
-              let entityID = this.profileService.organization.id;
-                  this.eventService.deleteEvent(event.id, entityID)
+              let organizationID = this.profileService.organizationID;
+                  this.eventService.deleteEvent(event.id, organizationID)
                    .subscribe(res => {
-                     this.toastr.error('Evento Eliminado');
-                     this.auth.getProfile((err, profile) => {  // After Event Deleted, get the Events again
-                         this.profileService.checkProfile(profile);
-                       });
+                     this.toastr.info('Evento Eliminado');
+                     this.profileService.getEventsByOrganization(organizationID)
+                      .then(res => {
+                        this.organization.events = res as Event[];
+                        this.organization.filteredEvents = res as Event[];
+                      });
                    });
             } catch (err) {
               console.error("Necesitas Acceder a tu perfil primero")

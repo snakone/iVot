@@ -11,14 +11,11 @@ import { HttpClient } from '@angular/common/http';
 export class TopicService {
 
   topics: Topic[];
+  filteredTopics: Topic[];
 
   readonly URL_API = 'https://ivotapp.herokuapp.com/organizations';
 
   constructor(private http: HttpClient) { }
-
-  getEventbyID(organizationID, eventID){
-    return this.http.get(this.URL_API  + `/${organizationID}/events/${eventID}`)
-  }
 
   getTopics(organizationID, eventID){
     return this.http.get(this.URL_API  + `/${organizationID}/events/${eventID}/topics`).toPromise()

@@ -1,3 +1,15 @@
+.add {
+  color: SeaGreen;
+}
+
+.check {
+  color: RoyalBlue;
+}
+
+.erase {
+  color: Crimson;
+}
+
 .bold {
   font-weight: bold;
   margin-right: 10px;
@@ -17,6 +29,11 @@ mat-icon {
     color: orange;
 }
 
+button:hover {
+  filter: brightness(1.2);
+  cursor: pointer;
+}
+
 .mat-expanded {
   height: auto!important;
 }
@@ -27,7 +44,7 @@ mat-icon {
 
 .topic-list {
   padding: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 
 .mat-expansion-panel {
@@ -37,11 +54,12 @@ mat-icon {
 }
 
 .btn {
-  margin: 10px;
+  margin: 5px;
   padding: 1px 13px;
+  background-color: #DDDDDD;
 }
 
 .actions {
   margin-top: 10px;
-  margin-bottom: 0;
+  margin-bottom: 10px;
 }

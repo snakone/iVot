@@ -31,7 +31,17 @@ i:not(.black-icon)  {
 }
 
 mat-form-field {
-  min-width: 90%;
+  width: 90%;
   margin-top: -10px;
   margin-left: 42px;
+}
+
+@media (max-width:600px) {
+  .votes {
+    width: 99%;
+  }
+
+  mat-form-field {
+    width: 80%;
+  }
 }
