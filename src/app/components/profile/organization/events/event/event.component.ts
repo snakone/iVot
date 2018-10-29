@@ -10,6 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router'; // Router
 import { ConfirmComponent } from '../../../../static/confirm/confirm.component';
 import { OrganizationService } from '../../../../../services/organization.service';
+import { EditEventComponent } from '../../../../static/edit-event/edit-event.component';
 
 @Component({
   selector: 'organization-event',
@@ -33,6 +34,10 @@ export class EventComponent implements OnInit {
 
   goTopic(event: Event){  // Go to Organization - > Events - Event Page
     this.router.navigate(['/profile/event/', event.id]);
+  }
+
+  editEvent(event: Event){
+    const dialogEdit = this.dialog.open(EditEventComponent,{data:{event}})
   }
 
   deleteEvent(event: Event){

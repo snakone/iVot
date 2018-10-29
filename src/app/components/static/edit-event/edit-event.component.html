@@ -1,0 +1,41 @@
+<div class="overflow">
+  <h5>Editar Evento</h5>
+  <br>
+    <form #editEventForm="ngForm" (ngSubmit)="onSubmit(editEventForm)">
+      <div class="row">
+
+          <input type="hidden" name="id" [(ngModel)]="data.event.id" #id="ngModel">
+
+          <div class="input-field col s12 m12">
+            <i class="material-icons prefix">assignment</i>
+            <input name="name" type="text"
+            [(ngModel)]="data.event.name" #name="ngModel"
+            data-length="35" maxlength="35" class="validate"
+            placeHolder="Nombre del Evento" required>
+
+            </div>
+
+          <div class="input-field col s12 m12">
+              <i class="material-icons prefix">description</i>
+              <textarea name="description" class="materialize-textarea validate"
+              data-length="120" maxlength="120" [(ngModel)]="data.event.description"
+              #description="ngModel" placeHolder="Descripción del Evento"></textarea>
+          </div>
+
+          <div class="input-field col s12 m12">
+              <i class="material-icons prefix">image</i>
+              <input name="icon" type="text" class="validate"
+              [(ngModel)]="data.event.icon" #icon="ngModel" placeHolder="Icono del Evento">
+          </div>
+
+      </div>
+
+        <div class="col s12 m12 actions">
+          <p class="center">
+            <button class="waves-effect btn orange" type="submit">EDITAR</button>
+          </p>
+        </div>
+
+    </form>
+
+</div>

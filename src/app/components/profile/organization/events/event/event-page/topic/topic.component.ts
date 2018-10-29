@@ -32,7 +32,7 @@ export class TopicComponent implements OnInit {
   }
 
   openNewOption(){
-    const dialogRef = this.dialog.open(CreateOptionComponent,{data:{topicID: this.topic.id}});  // New Dialog
+    const dialogRef = this.dialog.open(CreateOptionComponent, {data:{topicID: this.topic.id}});  // New Dialog
   }
 
   goResult(topic){
@@ -41,9 +41,9 @@ export class TopicComponent implements OnInit {
 
   deleteTopic(event){
     event.preventDefault();
-    const dialogRef = this.dialog.open(ConfirmComponent,{});  // New Dialog -> Confirm Dialog Component
+    const dialogConfirm = this.dialog.open(ConfirmComponent,{});  // New Dialog -> Confirm Dialog Component
 
-    dialogRef.afterClosed().subscribe(result => { // After Dialog Closed
+    dialogConfirm.afterClosed().subscribe(result => { // After Dialog Closed
       if (result) {
             this.topicService.deleteTopic(this.profile.organizationID,
                                           this.profile.eventID, this.topic.id)

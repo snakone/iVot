@@ -6,6 +6,10 @@
   color: SeaGreen;
 }
 
+.edit {
+  color: #039be5;
+}
+
 .events-list {
     padding: 10px;
     margin-bottom: 5px;

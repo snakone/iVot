@@ -67,6 +67,7 @@ import { AppRoutingModule } from './routes/app.routes';
 
 // Toaster
 import { ToastrModule } from 'ngx-toastr';
+import { EditEventComponent } from './components/static/edit-event/edit-event.component';
 
 
 @NgModule({
@@ -79,7 +80,7 @@ import { ToastrModule } from 'ngx-toastr';
     ConfirmComponent, CreateOptionComponent, OptionTableComponent,
     InviteParticipantComponent, RegisterUserComponent, UserCardComponent,
     ParticipantComponent, ParticipantTableComponent, CreateUserComponent,
-    IvotComponent],
+    IvotComponent, EditEventComponent],
   imports: [
     BrowserModule, HttpClientModule, BrowserAnimationsModule,
     MaterialModule, NgxPaginationModule, FormsModule,
@@ -91,7 +92,7 @@ import { ToastrModule } from 'ngx-toastr';
   ],
   entryComponents:[CreateTopicComponent, CreateEventComponent, CreateOptionComponent,
                    CreateUserComponent, ConfirmComponent, InviteParticipantComponent,
-                   ], // Modals
+                   EditEventComponent], // Modals
   providers: [],
   bootstrap: [AppComponent]
 })
