@@ -1,0 +1,32 @@
+i:not(.black-icon)  {
+ margin: 0 auto;
+ margin-top:10px;
+ color:orange;
+}
+
+.text-right {
+ position: relative;
+ top: 15px;
+ text-align: right;
+}
+
+.actions {
+ margin-bottom: 15px;
+}
+
+.input-field {
+  margin: 5px auto;
+  padding: 0;
+}
+
+.overflow {
+ overflow-y: auto;
+ max-height: 500px;
+ max-width: 450px;
+ box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+   width: 0px;  /* remove scrollbar space */
+   background: transparent;  /* optional: just make scrollbar invisible */
+}

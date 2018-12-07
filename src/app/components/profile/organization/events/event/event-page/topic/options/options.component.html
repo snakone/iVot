@@ -2,7 +2,7 @@
   <div class="col s12 m12">
     <div class="result" *ngIf="options">
         <div *ngIf="options.length == 0">
-          <p class="no-topic">Este tópico aún no tiene opciones.</p>
+          <p class="center no-topic">Este tópico aún no tiene opciones.</p>
         </div>
 
         <option-table [topic]="topic" [options]="options" *ngIf="options.length > 0"></option-table>

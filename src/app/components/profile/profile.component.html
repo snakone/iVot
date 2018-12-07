@@ -19,10 +19,15 @@
          <div class="center" *ngIf="!profileService.organization &&
                                     profileService.participant == 'Organization' &&
                                     profileService.server">
-           <p>Para registrar una <span class="bold">Organización</span>, contacta con un
+           <p class="register">Para registrar una <span class="bold">Organización</span>, contacta con un
            <span class="bold">Administrador</span> y dale el siguiente código, él se encargará del resto.</p>
            <p class="code center"><code>{{profileService.token}}</code></p>
            <p class="thanks">Muchas gracias por tu interés en <span class="ivot">iVot</span>.</p>
+         </div>
+
+         <div *ngIf="profileService.participant == 'Organization' &&
+                    !profileService.server">
+                    No hay servidor
          </div>
 
         <!-- USER -->

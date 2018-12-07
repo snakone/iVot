@@ -1,26 +1,19 @@
 <div class="overflow">
-  <h5>Editar Evento</h5>
+  <h5>Editar Tópico</h5>
   <br>
     <form #editEventForm="ngForm" (ngSubmit)="onSubmit(editEventForm)">
       <div class="row">
 
-          <input type="hidden" name="id" [(ngModel)]="data.event.id" #id="ngModel">
+          <input type="hidden" name="id" [(ngModel)]="data.topic.id" #id="ngModel">
 
           <div class="input-field col s12 m12">
             <i class="material-icons prefix">assignment</i>
-            <input name="name" type="text"
-            [(ngModel)]="data.event.name" #name="ngModel"
-            data-length="35" maxlength="35" class="validate"
-            placeHolder="Nombre del Evento" required>
+            <input name="description" type="text"
+            [(ngModel)]="data.topic.description" #description="ngModel"
+            data-length="50" maxlength="50" class="validate"
+            placeHolder="Nombre del Tópico" required>
 
             </div>
-
-          <div class="input-field col s12 m12">
-              <i class="material-icons prefix">description</i>
-              <textarea name="description" class="materialize-textarea validate"
-              data-length="120" maxlength="120" [(ngModel)]="data.event.description"
-              #description="ngModel" placeHolder="Descripción del Evento"></textarea>
-          </div>
 
           <!-- <div class="input-field col s12 m12">
               <i class="material-icons prefix">image</i>

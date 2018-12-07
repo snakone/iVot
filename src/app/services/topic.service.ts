@@ -22,11 +22,15 @@ export class TopicService {
   }
 
   addTopic(organizationID, eventID, topic){
-    return this.http.post(this.URL_API  + `/${organizationID}/events/${eventID}/topics` , topic).toPromise()
+    return this.http.post(this.URL_API  + `/${organizationID}/events/${eventID}/topics`, topic).toPromise()
   }
 
-  deleteTopic(organizationID, eventID, id){
-    return this.http.delete(this.URL_API  + `/${organizationID}/events/${eventID}/topics/${id}`).toPromise()
+  updateTopic(organizationID, eventID, topicID, topic){
+    return this.http.put(this.URL_API  + `/${organizationID}/events/${eventID}/topics/${topicID}`, topic).toPromise()
+  }
+
+  deleteTopic(organizationID, eventID, topicID){
+    return this.http.delete(this.URL_API  + `/${organizationID}/events/${eventID}/topics/${topicID}`).toPromise()
   }
 
 }

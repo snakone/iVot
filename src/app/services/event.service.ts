@@ -13,6 +13,7 @@ export class EventService {
 
   readonly URL_API = 'https://ivotapp.herokuapp.com/organizations';
   selectedEvent: Event;
+  event: Event;
 
   constructor(private http: HttpClient) {
     this.selectedEvent = <Event>{};
@@ -34,12 +35,13 @@ export class EventService {
     return this.http.post(this.URL_API + `/${event.id}/events`, event);  // Event ID = Organization ID
   }
 
-  updateEvent(event: Event) {
-   return this.http.put(this.URL_API + `/${event.id}`, event);
- }
+  updateEvent(organizationID, eventID, event) {
+    return this.http.put(this.URL_API + `/${organizationID}/events/${eventID}`, event).toPromise();
+  }
 
-  deleteEvent(id: string, entityID) {
-   return this.http.delete(this.URL_API + `/${entityID}/events/${id}`);
+
+  deleteEvent(id: string, organizationID) {
+   return this.http.delete(this.URL_API + `/${organizationID}/events/${id}`);
  }
 
 }

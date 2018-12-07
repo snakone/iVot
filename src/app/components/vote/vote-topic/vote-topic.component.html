@@ -1,0 +1,30 @@
+<div class="col s12 m12 topic-list animated fadeIn slow">
+    <mat-accordion>
+      <mat-expansion-panel (opened)="panelOpenState = true;"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title [ngClass]="{'title': panelOpenState == true}">
+          <span class="topic">{{topic.description}}</span>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <vote-options [topic]="topic"></vote-options>
+
+      <div class="center actions">
+          <button (click)="openNewOption()" class="btn">
+            <mat-icon class="add">add_comment</mat-icon>
+          </button>
+          <button class="btn" (click)="editTopic(topic)">
+            <mat-icon class="edit">border_color</mat-icon>
+          </button>
+          <button (click)="goResult(topic)" class="btn">
+            <mat-icon class="check">pie_chart</mat-icon>
+          </button>
+          <button (click)="deleteTopic($event, topic)" class="btn">
+            <mat-icon class="erase">delete</mat-icon>
+          </button>
+      </div>
+
+      </mat-expansion-panel>
+    </mat-accordion>
+</div>

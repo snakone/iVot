@@ -39,6 +39,7 @@ export class EventPageComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
+
           let eventID = this.activeRoute.snapshot.params.id; // Get the Event ID from URL
           this.profile.eventID = eventID;
           let organizationID = this.profile.organizationID; // Get the Organization ID from Service

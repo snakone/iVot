@@ -36,17 +36,18 @@ export class ProfileService {
   constructor(private http: HttpClient,
               private organizationService: OrganizationService) { }
 
-  checkProfile(profile){
+  checkProfile(profile) {
+    console.log("comprobando")
     this.participant = profile['http://hello-user'].whoareyou;  // Get user_metadata
-    this.token = profile.sub.substring(6);
-    this.email = profile.email;
+    this.token = profile.sub.substring(6);  // Get Auth0 ID
+    this.email = profile.email;  // Get Auth0 Email
 
     if (this.token == '5bc10cbc3385d56f61f6a330' ||  // Admin Assignament
         this.token == '5bc45f88b144eb0173391d71') this.admin = true;
 
     let mail = {email:profile.email};
 
-    if (this.participant == "Organization"){  // Only If Organization
+    if (this.participant == "Organization"){  // ONLY IF ORGANIZATION //
 
       this.getOrganizationByEmail(mail)  // Get Organization by Mail
            .then(res => {
@@ -65,7 +66,9 @@ export class ProfileService {
            }).catch(err => {});
       }  // End of If Organization
 
-      if (this.participant == "User"){  // Only If User
+
+      if (this.participant == "User"){  // ONLY IF USER //
+
         this.getUserByEmail(mail)  // Get User by Mail
              .then(res => {
                this.user = res as User;
@@ -92,18 +95,18 @@ export class ProfileService {
   }
 
   serverDown(error){
-    if (error.status == 409){  // Error handling
+    if (error.status == 409){  // Server Error
       console.log("Hubo un error en el Servidor");
       return false;
     }
 
-    if (error.status == 500 || error.status == 503){  // Error handling
+    if (error.status == 500 || error.status == 503){  // Server Down
       console.log("Servidor Caido");
       this.server = false;
       return false;
     }
 
-    if (error.status == 404) {
+    if (error.status == 404) {  // Organization or user not Registered
       console.log("No registrado")
       return false;
     }

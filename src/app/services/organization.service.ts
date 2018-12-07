@@ -26,10 +26,7 @@ export class OrganizationService {
   }
 
   addOrganization(organization: Organization) {
-    let newOrganization = new Organization(organization.name, organization.email, organization.token,
-                               organization.icon, organization.description, organization.address);
-
-    return this.http.post(this.URL_API, newOrganization);
+    return this.http.post(this.URL_API, organization);
   }
 
   updateOrganization(organization: Organization) {

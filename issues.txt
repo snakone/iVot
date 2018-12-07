@@ -1,0 +1,21 @@
+--- ERRORES ---
+
+- Da error al eliminar una sóla opción, se borra pero da error como si después de borrar
+quisiera borrar otra vez, y claro la segunda vez no encuentra el ID de la opción.
+
+- Al editar un Evento, el nombre introducido pasa a ser también la descripción.
+
+- El Usuario no puede accede a su perfil de la base de datos dado el email.
+
+
+--- NECESITAMOS ---
+
+- EndPoint para ver a todos los usuarios, independientemente de la organización en la que estén.
+
+- Ordenar Eventos por fecha, el más cercano en el tiempo primero. Dada la fecha introducida por el usuario. 21/10/2018.
+
+- Enviar Correo al usuario, avisando que ha sido invitado a un Evento de su Organización. Proporcionar link a su profile.
+
+- Subir Fotos para Usuario, Organización, Evento.
+
+- Ordenar Tópicos por fecha de introducción.

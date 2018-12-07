@@ -1,0 +1,28 @@
+<div class="container animated slideInLeft">
+
+    <div>
+        <div>
+          <label>Evento
+            <mat-icon class="arrow">arrow_right_alt</mat-icon> Votación</label>
+        </div>
+      <h4>Bienvenido</h4>
+    </div>
+
+    <div *ngIf="onlyUsers">
+      <p>Eres Usuario</p>
+        <div *ngIf="topics">
+          <vote-topic *ngFor="let topic of topics |
+                               paginate: { itemsPerPage: 5, currentPage: p }" [topic]="topic">
+          </vote-topic>
+
+
+        </div>
+        <div *ngIf="participants">
+          <p *ngFor="let participant of participants"> {{participant.userEmail}} </p>
+        </div>
+    </div>
+
+    <div *ngIf="!onlyUsers">
+      <p>La votación es sólo para usuarios invitados!</p>
+    </div>
+</div>

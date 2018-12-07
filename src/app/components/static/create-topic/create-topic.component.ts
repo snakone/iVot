@@ -30,14 +30,14 @@ export class CreateTopicComponent implements OnInit {
    ngOnInit() { }
 
    onSubmit(addTopicForm: NgForm){
-     let description = {description: addTopicForm.value.description};
+     let topic = {description: addTopicForm.value.description};
      let eventID = this.profileService.eventID;
      let organizationID = this.profileService.organizationID;
 
-     if (description.description == undefined)
+     if (topic.description == undefined)
      alert('Por favor, Rellena el formulario')
      else {
-         this.topicService.addTopic(organizationID, eventID, description) // Add Topic
+         this.topicService.addTopic(organizationID, eventID, topic) // Add Topic
           .then(res => {
             this.topicService.getTopics(organizationID, eventID) // After add, get Topics again
              .then(res => {

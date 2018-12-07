@@ -28,6 +28,12 @@ import { AdminOrganizationComponent } from './components/admin/admin-organizatio
 import { AppWelcomeComponent } from './components/app-welcome/app-welcome.component';
 import { IvotComponent } from './components/ivot/ivot.component';
 
+// Vote
+import { VoteComponent } from './components/vote/vote.component';
+
+// Results
+import { ResultsComponent } from './components/results/results.component';
+
 // Profile
 // Organization
 import { ProfileComponent } from './components/profile/profile.component';
@@ -58,6 +64,8 @@ import { CreateOptionComponent } from './components/static/create-option/create-
 import { CreateUserComponent } from './components/static/create-user/create-user.component';
 import { ConfirmComponent } from './components/static/confirm/confirm.component';
 import { InviteParticipantComponent } from './components/static/invite-participant/invite-participant.component';
+import { EditEventComponent } from './components/static/edit-event/edit-event.component';
+import { EditTopicComponent } from './components/static/edit-topic/edit-topic.component';
 
 // Pagination
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -67,7 +75,8 @@ import { AppRoutingModule } from './routes/app.routes';
 
 // Toaster
 import { ToastrModule } from 'ngx-toastr';
-import { EditEventComponent } from './components/static/edit-event/edit-event.component';
+import { VoteTopicComponent } from './components/vote/vote-topic/vote-topic.component';
+import { VoteOptionsComponent } from './components/vote/vote-options/vote-options.component';
 
 
 @NgModule({
@@ -80,7 +89,10 @@ import { EditEventComponent } from './components/static/edit-event/edit-event.co
     ConfirmComponent, CreateOptionComponent, OptionTableComponent,
     InviteParticipantComponent, RegisterUserComponent, UserCardComponent,
     ParticipantComponent, ParticipantTableComponent, CreateUserComponent,
-    IvotComponent, EditEventComponent],
+    IvotComponent, EditEventComponent, EditTopicComponent, ResultsComponent,
+    VoteComponent,
+    VoteTopicComponent,
+    VoteOptionsComponent],
   imports: [
     BrowserModule, HttpClientModule, BrowserAnimationsModule,
     MaterialModule, NgxPaginationModule, FormsModule,
@@ -92,7 +104,7 @@ import { EditEventComponent } from './components/static/edit-event/edit-event.co
   ],
   entryComponents:[CreateTopicComponent, CreateEventComponent, CreateOptionComponent,
                    CreateUserComponent, ConfirmComponent, InviteParticipantComponent,
-                   EditEventComponent], // Modals
+                   EditEventComponent, EditTopicComponent], // Modals
   providers: [],
   bootstrap: [AppComponent]
 })

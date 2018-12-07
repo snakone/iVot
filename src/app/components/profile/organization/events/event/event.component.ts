@@ -30,9 +30,10 @@ export class EventComponent implements OnInit {
               private toastr: ToastrService,
               public dialog: MatDialog) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
-  goTopic(event: Event){  // Go to Organization - > Events - Event Page
+  goEvent(event: Event){  // Go to Organization - > Events - Event Page
     this.router.navigate(['/profile/event/', event.id]);
   }
 

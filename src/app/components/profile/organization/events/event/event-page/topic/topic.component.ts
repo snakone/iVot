@@ -11,6 +11,8 @@ import { MatDialog } from '@angular/material';  // Material Dialog
 
 import { ConfirmComponent } from '../../../../../../../components/static/confirm/confirm.component';
 import { CreateOptionComponent } from '../../../../../../static/create-option/create-option.component';
+import { EditTopicComponent } from '../../../../../../static/edit-topic/edit-topic.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'event-topic',
@@ -26,7 +28,8 @@ export class TopicComponent implements OnInit {
   constructor(private profile: ProfileService,
               private topicService: TopicService,
               private toastr: ToastrService,
-              public dialog: MatDialog) { }
+              public dialog: MatDialog,
+              private router: Router) { }
 
   ngOnInit() {
   }
@@ -35,18 +38,26 @@ export class TopicComponent implements OnInit {
     const dialogRef = this.dialog.open(CreateOptionComponent, {data:{topicID: this.topic.id}});  // New Dialog
   }
 
+  editTopic(topic: Topic){
+    // const dialogEdit = this.dialog.open(EditTopicComponent,{data:{topic}})
+    console.log(this.profile.organizationID + "\n")
+    console.log(this.profile.eventID + "\n")
+    console.log(topic.id + "\n")
+    this.router.navigate(['/organization', '1', 'event', '2', 'vote'])
+  }
+
   goResult(topic){
     console.log(topic)
   }
 
-  deleteTopic(event){
+  deleteTopic(event, topic: Topic){
     event.preventDefault();
     const dialogConfirm = this.dialog.open(ConfirmComponent,{});  // New Dialog -> Confirm Dialog Component
 
     dialogConfirm.afterClosed().subscribe(result => { // After Dialog Closed
       if (result) {
             this.topicService.deleteTopic(this.profile.organizationID,
-                                          this.profile.eventID, this.topic.id)
+                                          this.profile.eventID, topic.id)
         .catch(err => {
               console.log("Error");
               // console.log(err)

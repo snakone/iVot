@@ -1,0 +1,6 @@
+.arrow {
+  display: inline-flex;
+  vertical-align: bottom;
+  color: orange;
+  margin: auto 5px;
+}

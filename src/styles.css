@@ -1,11 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
-
-
 /* Bg Color: #fecb51; */
-
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "node_modules/materialize-css/dist/css/materialize.min.css";
-
 @import "~ngx-toastr/toastr.css";
 
 body {
@@ -19,10 +14,10 @@ body {
   font-weight: bold;
 }
 
-.cdk-focused {
+.cdk-focused {  /* Reset some Material on hover "ugly" effect */
     background: transparent!important;
 }
 
-.input-field {
+.input-field {   /* Form Input Field */
   margin-top: 0;
 }

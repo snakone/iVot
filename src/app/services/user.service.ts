@@ -14,7 +14,6 @@ export class UserService {
   selectedUser: User = <User>{};
   users: User[];
 
-
   readonly URL_API = 'https://ivotapp.herokuapp.com/organizations';
 
   constructor(private http: HttpClient) { }

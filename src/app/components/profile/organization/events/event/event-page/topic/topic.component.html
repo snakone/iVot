@@ -14,10 +14,13 @@
             <button (click)="openNewOption()" class="btn">
               <mat-icon class="add">add_comment</mat-icon>
             </button>
+            <button class="btn" (click)="editTopic(topic)">
+              <mat-icon class="edit">border_color</mat-icon>
+            </button>
             <button (click)="goResult(topic)" class="btn">
               <mat-icon class="check">pie_chart</mat-icon>
             </button>
-            <button (click)="deleteTopic($event)" class="btn">
+            <button (click)="deleteTopic($event, topic)" class="btn">
               <mat-icon class="erase">delete</mat-icon>
             </button>
         </div>

@@ -1,4 +1,4 @@
-<div class="col s12 m12 events-list animated fadeIn slow">
+<div class="col s12 m12 events-list">
     <mat-accordion>
         <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
             <mat-expansion-panel-header>
@@ -11,7 +11,7 @@
             </mat-expansion-panel-header>
             {{event.description}}
             <div class="center actions">
-              <button class="btn" (click)="goTopic(event)">
+              <button class="btn" (click)="goEvent(event)">
                 <mat-icon class="add">event_available</mat-icon>
               </button>
               <button class="btn" (click)="editEvent(event)">

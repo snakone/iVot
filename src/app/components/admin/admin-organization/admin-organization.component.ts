@@ -59,15 +59,12 @@ export class AdminOrganizationComponent implements OnInit {
        })
     }
     else {  // Not Organization ID? Oh, New Organization?
-      // form.value.icon = `assets/icons/${form.value.icon}.png`;  // Icon Converter
-      // this.organizationService.addOrganization(form.value)  // Add Organization with Form Values
-      // .subscribe(res => {
-      //   this.toastr.success('Organización Añadida');
-      //   this.resetForm(form);
-      //   this.getOrganization();
-      // });
-      console.log(this.photo +"\n")
-      console.log(form.value)
+      this.organizationService.addOrganization(form.value)  // Add Organization with Form Values
+      .subscribe(res => {
+        this.toastr.success('Organización Añadida');
+        this.resetForm(form);
+        this.getOrganization();
+      });
     }
   }
 

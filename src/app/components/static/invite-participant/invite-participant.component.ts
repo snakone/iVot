@@ -1,23 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 
+// Services
 import { ToastrService } from 'ngx-toastr';
-
 import { ProfileService } from '../../../services/profile.service';
 import { ParticipantService } from '../../../services/participant.service';
 import { UserService } from '../../../services/user.service';
-
+// Models
 import { Participant } from '../../../models/participant';
 import { User } from '../../../models/user';
-
+// Others
 import { NgForm } from '@angular/forms';
-
 import { MatDialog } from '@angular/material';  // Dialog
+
 
 @Component({
   selector: 'invite-participant',
   templateUrl: './invite-participant.component.html',
   styleUrls: ['./invite-participant.component.css']
 })
+
 export class InviteParticipantComponent implements OnInit {
 
 selectedParticipant: Participant = <Participant>{};
@@ -27,16 +28,15 @@ users: User[];
               public dialog: MatDialog,
               private participant: ParticipantService,
               private user: UserService,
-              private profileService: ProfileService) { }
+              private profile: ProfileService) { }
 
   ngOnInit() {
     this.getUsers();
   }
 
   onSubmit(form?: NgForm) {
-
-    let eventID = this.profileService.eventID;
-    let organizationID = this.profileService.organizationID;
+    let eventID = this.profile.eventID;
+    let organizationID = this.profile.organizationID;
 
     if (!form.value.userEmail.includes('@')){
       alert("Introduce un Email correcto");
@@ -62,7 +62,7 @@ users: User[];
     }
 
     getUsers(){
-      let organizationID = this.profileService.organizationID;
+      let organizationID = this.profile.organizationID;
       this.user.getUsersbyOrganization(organizationID)
        .subscribe(res => {
          this.users = res as User[];
